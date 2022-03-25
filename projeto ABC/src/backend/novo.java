@@ -10,5 +10,5 @@ package backend;
  * @author sanda
  */
 public class novo {
-    
+    private String corrigi;
 }
