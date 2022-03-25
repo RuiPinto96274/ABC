@@ -129,6 +129,8 @@ public class RegistarQuota extends javax.swing.JFrame {
 
         jLabel3.setText("Dia");
 
+        jButton1.setBackground(new java.awt.Color(48, 44, 44));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Registar pagamento");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
