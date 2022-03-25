@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  *
@@ -24,7 +26,7 @@ public class ListaQuotas {
         lista= new ArrayList();
     }
     
-     public ArrayList<Quota> listagemQuotas(){
+    public ArrayList<Quota> listagemQuotas(){
         ArrayList <Quota> listaQuotas = new ArrayList<>();
         try {
             Connection con;
@@ -39,7 +41,7 @@ public class ListaQuotas {
 
             while(rs.next()){ 
                 Quota quota;
-                quota = new Quota(Integer.parseInt(rs.getString("id_quota")),rs.getString("username"),rs.getString("pagou"), LocalDate.parse(rs.getString("data_pag")));
+                quota = new Quota(/*Integer.parseInt(rs.getString("id_quota")),*/rs.getString("username"),rs.getString("pagou"), LocalDate.parse(rs.getString("data_pag")));
                 listaQuotas.add(quota);
             }
             con.close();
@@ -52,7 +54,35 @@ public class ListaQuotas {
         return null;
     }
     
-     public void guardarQuota(Atleta a, LocalDate data){
+     public ArrayList<Quota> listagemPorAtleta(Atleta a){
+         //ArrayList <Quota> listaQuotas = listagemQuotas();
+         ArrayList <Quota> lista = new ArrayList<>();
+         for(Quota q : listagemQuotas()){
+             if(q.getUsername().equals(a.getUsername())){
+                 lista.add(q);
+             }
+         }
+         return lista;
+     }
+     
+     public Quota procurarQuotaAtleta(Atleta a, int m, int y){
+        Calendar c_ini = Calendar.getInstance();
+        c_ini.set(y,m-1,1);
+        LocalDate data_ini = LocalDate.ofInstant(c_ini.toInstant(), ZoneId.systemDefault());
+        Calendar c_fim = Calendar.getInstance();
+        c_fim.set(y, m-1,29);
+        c_fim.set(y, m-1, c_fim.getActualMaximum(Calendar.DAY_OF_MONTH));
+        LocalDate data_fim = LocalDate.ofInstant(c_fim.toInstant(), ZoneId.systemDefault());
+
+         for(Quota q: listagemPorAtleta(a)){
+             if(q.getData_pagamento().isAfter(data_ini) && q.getData_pagamento().isBefore(data_fim)){
+                 return q;
+             }
+         }
+         return null;
+     }
+     
+     public void guardarQuota(Quota q){
         try {
             Connection con;
             con=getConnection();
@@ -60,9 +90,9 @@ public class ListaQuotas {
             
             PreparedStatement ps = con.prepareStatement(query);
             
-            ps.setString(1,a.getUsername());
-            ps.setObject(2, data);
-            ps.setObject(3, 'Y');
+            ps.setString(1,q.getUsername());
+            ps.setObject(2, q.getData_pagamento());
+            ps.setString(3, "Y");
            
             ps.executeUpdate();            
 

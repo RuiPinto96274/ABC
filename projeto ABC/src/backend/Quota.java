@@ -12,13 +12,13 @@ import java.time.LocalDate;
  * @author 
  */
 public class Quota {
-    private int id_quota;
+    //private int id_quota;
     private String username;
     private String pagou;
     private LocalDate data_pagamento;
     
-    public Quota(int id, String user, String pagou, LocalDate data){
-        this.id_quota=id;
+    public Quota(/*int id,*/ String user, String pagou, LocalDate data){
+        //this.id_quota=id;
         this.username=user;
         this.pagou=pagou;
         this.data_pagamento= data;
@@ -47,5 +47,12 @@ public class Quota {
     public void setData_pagamento(LocalDate data_pagamento) {
         this.data_pagamento = data_pagamento;
     }
+
+    @Override
+    public String toString() {
+        return "Quota{" + "username=" + username + ", pagou=" + pagou + ", data_pagamento=" + data_pagamento + '}';
+    }
+    
+    
     
 }

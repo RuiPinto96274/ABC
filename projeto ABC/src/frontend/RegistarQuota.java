@@ -8,6 +8,11 @@ package frontend;
 import backend.Atleta;
 import backend.ListaQuotas;
 import backend.ListaUtilizadores;
+import backend.Quota;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author cataf
  */
 public class RegistarQuota extends javax.swing.JFrame {
-    private ListaQuotas listaQuotas=new ListaQuotas();
+    private ListaQuotas lista_geral_quotas=new ListaQuotas();
     private ListaUtilizadores lista_geral_users= new ListaUtilizadores();
     /**
      * Creates new form RegistarQuota
@@ -27,14 +32,30 @@ public class RegistarQuota extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
     
-    private void registar() {
+    private void registar() throws ListaUtilizadores.UtilizadorNaoExistenteException {
         if(txtUser.getText().isEmpty()||txtData.getDate()==null){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
         }else{
+            String username=txtUser.getText();
+            LocalDate data= txtData.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Atleta a = lista_geral_users.getAtleta(username);
+            Quota q = new Quota(a.getUsername(),"Y", data);
+            lista_geral_quotas.guardarQuota(q);
             
+            JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
         }
         
     }
+     private void procurar() throws ListaUtilizadores.UtilizadorNaoExistenteException{
+         if(txtUser.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Preencha o username do atleta que quer visualizar!");
+        }else{
+            String username=txtUser.getText();
+            Atleta a = lista_geral_users.getAtleta(username);
+            HistoricoQuotaPorAtleta hq = new HistoricoQuotaPorAtleta(a);
+            hq.setVisible(true);
+        }
+     }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +76,7 @@ public class RegistarQuota extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        procurarBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -121,7 +143,14 @@ public class RegistarQuota extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Visualizar histórico");
+        procurarBtn.setText("Visualizar histórico");
+        procurarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                procurarBtnActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("tabela");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -135,24 +164,28 @@ public class RegistarQuota extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(71, 71, 71)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtUser))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton3)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButton2)
+                            .addGap(28, 28, 28)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                            .addComponent(procurarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtUser)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,8 +197,8 @@ public class RegistarQuota extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(42, Short.MAX_VALUE))
+                    .addComponent(procurarBtn))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -186,21 +219,31 @@ public class RegistarQuota extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUserActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        /*fazer um get para encontrar atleta e passa-lo para o proximo*/
-        Atleta a= new Atleta();
-        HistoricoQuotaPorAtleta hq = new HistoricoQuotaPorAtleta(a);
-        hq.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void procurarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procurarBtnActionPerformed
+        try {
+            procurar();
+        } catch (ListaUtilizadores.UtilizadorNaoExistenteException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_procurarBtnActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        registar();
+        try {
+            registar();
+        } catch (ListaUtilizadores.UtilizadorNaoExistenteException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        tabela t = new tabela();
+        t.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,6 +290,7 @@ public class RegistarQuota extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton procurarBtn;
     private com.toedter.calendar.JDateChooser txtData;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
