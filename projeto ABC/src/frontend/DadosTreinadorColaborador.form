@@ -59,7 +59,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="jLabel8" min="-2" pref="131" max="-2" attributes="0"/>
@@ -82,16 +82,18 @@
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
                                   <Component id="alterarTreinadorBtn" min="-2" pref="142" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="removerTreinadorBtn" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtPass" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtPass" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="checkVerPass" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                          <Component id="checkVerPass" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -109,15 +111,15 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtUsername" pref="21" max="32767" attributes="0"/>
+                  <Component id="txtUsername" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                  <Component id="txtCipa" pref="21" max="32767" attributes="0"/>
+                  <Component id="txtCipa" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtNome" pref="21" max="32767" attributes="0"/>
+                  <Component id="txtNome" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -132,7 +134,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -172,7 +174,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="18" style="1"/>
+                  <Font name="SansSerif" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -183,6 +185,11 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JTextField" name="txtNome">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeActionPerformed"/>
           </Events>
@@ -190,10 +197,10 @@
         <Component class="javax.swing.JButton" name="alterarTreinadorBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="2c" green="2c" red="30" type="rgb"/>
+              <Color blue="34" green="ec" red="ff" type="rgb"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="ALTERAR DADOS"/>
           </Properties>
@@ -204,10 +211,10 @@
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="2c" green="2c" red="30" type="rgb"/>
+              <Color blue="34" green="ec" red="ff" type="rgb"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CANCELAR"/>
           </Properties>
@@ -217,35 +224,62 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nome"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Nome:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCipa">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCipaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtUsername">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUsernameActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cipa"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cipa:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Username"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Username:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Password"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="txtPass">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPassActionPerformed"/>
           </Events>
@@ -263,10 +297,10 @@
         <Component class="javax.swing.JButton" name="removerTreinadorBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="2c" green="2c" red="30" type="rgb"/>
+              <Color blue="34" green="ec" red="ff" type="rgb"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="REMOVER UTILIZADOR"/>
           </Properties>

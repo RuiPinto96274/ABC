@@ -155,11 +155,12 @@ public class Calendario extends javax.swing.JFrame {
         );
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CALENDÁRIO");
 
-        jButton1.setBackground(new java.awt.Color(255, 236, 52));
+        jButton1.setBackground(new java.awt.Color(48, 44, 44));
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton1.setText("Adicionar evento");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -172,7 +173,8 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
-        EditarPavilhao.setBackground(new java.awt.Color(255, 236, 52));
+        EditarPavilhao.setBackground(new java.awt.Color(48, 44, 44));
+        EditarPavilhao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         EditarPavilhao.setText("Gestão Pavilhões");
         EditarPavilhao.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -185,6 +187,7 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
+        tabelaEventos.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         tabelaEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -216,7 +219,7 @@ public class Calendario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(EditarPavilhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))

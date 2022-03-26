@@ -207,7 +207,8 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        registarUtilizadorBtn.setBackground(new java.awt.Color(255, 236, 52));
+        registarUtilizadorBtn.setBackground(new java.awt.Color(48, 44, 44));
+        registarUtilizadorBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registarUtilizadorBtn.setText("Registar Utilizador");
         registarUtilizadorBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -241,7 +242,11 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaUtilizadores);
 
-        pesquisaBtn.setBackground(new java.awt.Color(255, 236, 52));
+        txtProcura.setBackground(new java.awt.Color(204, 204, 204));
+        txtProcura.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+
+        pesquisaBtn.setBackground(new java.awt.Color(48, 44, 44));
+        pesquisaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         pesquisaBtn.setText("Pesquisar");
         pesquisaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,11 +255,12 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         });
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("GESTÃO DE TREINADORES E COLABORADORES");
 
-        atualizarBtn.setBackground(new java.awt.Color(255, 236, 52));
+        atualizarBtn.setBackground(new java.awt.Color(48, 44, 44));
+        atualizarBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         atualizarBtn.setText("Atualizar");
         atualizarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,7 +268,8 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
             }
         });
 
-        gestaoEscaloesBtn.setBackground(new java.awt.Color(255, 236, 52));
+        gestaoEscaloesBtn.setBackground(new java.awt.Color(48, 44, 44));
+        gestaoEscaloesBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         gestaoEscaloesBtn.setText("Gestão Escalões");
         gestaoEscaloesBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,7 +293,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
                         .addComponent(registarUtilizadorBtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
                         .addComponent(gestaoEscaloesBtn)
                         .addGap(18, 18, 18)
                         .addComponent(atualizarBtn))

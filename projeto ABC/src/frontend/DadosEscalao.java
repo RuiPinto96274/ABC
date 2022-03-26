@@ -94,7 +94,7 @@ public class DadosEscalao extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("DADOS ESCALÃO");
 
@@ -115,32 +115,38 @@ public class DadosEscalao extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtIdEscalao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtIdEscalao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdEscalaoActionPerformed(evt);
             }
         });
 
+        txtNomeEscalao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNomeEscalao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeEscalaoActionPerformed(evt);
             }
         });
 
+        txtGenero.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGeneroActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Id do Escalão:");
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel7.setText("ID do Escalão:");
 
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel8.setText("Nome:");
 
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel9.setText("Género:");
 
-        alterarPavilhaoBtn.setBackground(new java.awt.Color(48, 44, 44));
-        alterarPavilhaoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        alterarPavilhaoBtn.setBackground(new java.awt.Color(255, 235, 52));
+        alterarPavilhaoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         alterarPavilhaoBtn.setText("ALTERAR DADOS");
         alterarPavilhaoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,8 +154,8 @@ public class DadosEscalao extends javax.swing.JFrame {
             }
         });
 
-        removerEscalaoBtn.setBackground(new java.awt.Color(48, 44, 44));
-        removerEscalaoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        removerEscalaoBtn.setBackground(new java.awt.Color(255, 235, 52));
+        removerEscalaoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         removerEscalaoBtn.setText("REMOVER ESCALÃO");
         removerEscalaoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,8 +163,8 @@ public class DadosEscalao extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 235, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,27 +177,27 @@ public class DadosEscalao extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtNomeEscalao, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIdEscalao)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(alterarPavilhaoBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(removerEscalaoBtn))
+                            .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(46, 46, 46))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(94, 94, 94)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(172, 172, 172)
-                            .addComponent(removerEscalaoBtn))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtNomeEscalao, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdEscalao)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(alterarPavilhaoBtn)
-                        .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(46, 46, 46))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,22 +206,22 @@ public class DadosEscalao extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIdEscalao, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
+                .addComponent(txtIdEscalao)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeEscalao, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtNomeEscalao)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
-                .addGap(40, 40, 40)
+                .addComponent(txtGenero)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(alterarPavilhaoBtn)
                     .addComponent(removerEscalaoBtn))
-                .addGap(31, 31, 31)
+                .addGap(28, 28, 28)
                 .addComponent(jButton2)
-                .addGap(48, 48, 48))
+                .addGap(70, 70, 70))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

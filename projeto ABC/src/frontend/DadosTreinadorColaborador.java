@@ -141,7 +141,7 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("DADOS DO UTILIZADOR");
 
@@ -162,14 +162,15 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        alterarTreinadorBtn.setBackground(new java.awt.Color(48, 44, 44));
-        alterarTreinadorBtn.setForeground(new java.awt.Color(255, 255, 255));
+        alterarTreinadorBtn.setBackground(new java.awt.Color(255, 236, 52));
+        alterarTreinadorBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         alterarTreinadorBtn.setText("ALTERAR DADOS");
         alterarTreinadorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,8 +178,8 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,26 +187,33 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nome");
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel1.setText("Nome:");
 
+        txtCipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtCipa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCipaActionPerformed(evt);
             }
         });
 
+        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Cipa");
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel6.setText("Cipa:");
 
-        jLabel7.setText("Username");
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel7.setText("Username:");
 
-        jLabel8.setText("Password");
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel8.setText("Password:");
 
+        txtPass.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassActionPerformed(evt);
@@ -219,8 +227,8 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             }
         });
 
-        removerTreinadorBtn.setBackground(new java.awt.Color(48, 44, 44));
-        removerTreinadorBtn.setForeground(new java.awt.Color(255, 255, 255));
+        removerTreinadorBtn.setBackground(new java.awt.Color(255, 236, 52));
+        removerTreinadorBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         removerTreinadorBtn.setText("REMOVER UTILIZADOR");
         removerTreinadorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,7 +242,7 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -253,14 +261,15 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGap(0, 11, Short.MAX_VALUE)
                                 .addComponent(alterarTreinadorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
                                 .addComponent(removerTreinadorBtn))
-                            .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(1, 1, 1)
-                        .addComponent(checkVerPass)
-                        .addGap(29, 29, 29))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtPass)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkVerPass)))
+                        .addGap(32, 32, 32))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,15 +282,15 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addGap(4, 4, 4)
-                .addComponent(txtCipa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtCipa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtNome)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -294,7 +303,7 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
                     .addComponent(removerTreinadorBtn))
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

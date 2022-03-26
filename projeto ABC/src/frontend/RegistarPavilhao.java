@@ -80,7 +80,7 @@ public class RegistarPavilhao extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("REGISTAR PAVILHÃO");
 
@@ -101,14 +101,17 @@ public class RegistarPavilhao extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        adicionarPavilhaoBtn.setBackground(new java.awt.Color(48, 44, 44));
-        adicionarPavilhaoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        txtLocalizacao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+
+        adicionarPavilhaoBtn.setBackground(new java.awt.Color(255, 236, 52));
+        adicionarPavilhaoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         adicionarPavilhaoBtn.setText("ADICIONAR PAVILHÃO");
         adicionarPavilhaoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,8 +119,8 @@ public class RegistarPavilhao extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,29 +128,27 @@ public class RegistarPavilhao extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel1.setText("Nome:");
 
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel3.setText("Localização:");
 
+        txtIdPavilhao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtIdPavilhao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdPavilhaoActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Id");
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel7.setText("ID:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adicionarPavilhaoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,6 +165,12 @@ public class RegistarPavilhao extends javax.swing.JFrame {
                             .addComponent(txtIdPavilhao, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(68, 68, 68))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adicionarPavilhaoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,20 +179,20 @@ public class RegistarPavilhao extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIdPavilhao, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
+                .addComponent(txtIdPavilhao)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
+                .addComponent(txtNome)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLocalizacao, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addGap(45, 45, 45)
+                .addComponent(txtLocalizacao)
+                .addGap(38, 38, 38)
                 .addComponent(adicionarPavilhaoBtn)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(59, 59, 59))
+                .addGap(65, 65, 65))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -187,7 +187,8 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        registarAtletaBtn.setBackground(new java.awt.Color(255, 236, 52));
+        registarAtletaBtn.setBackground(new java.awt.Color(48, 44, 44));
+        registarAtletaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registarAtletaBtn.setText("Registar Atleta");
         registarAtletaBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -221,7 +222,16 @@ public class GestaoAtletas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaAtletas);
 
-        pesquisaBtn.setBackground(new java.awt.Color(255, 236, 52));
+        txtProcura.setBackground(new java.awt.Color(204, 204, 204));
+        txtProcura.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtProcura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProcuraActionPerformed(evt);
+            }
+        });
+
+        pesquisaBtn.setBackground(new java.awt.Color(48, 44, 44));
+        pesquisaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         pesquisaBtn.setText("Pesquisar");
         pesquisaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,11 +240,12 @@ public class GestaoAtletas extends javax.swing.JFrame {
         });
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("GESTÃO DE ATLETAS");
 
-        atualizarBtn.setBackground(new java.awt.Color(255, 236, 52));
+        atualizarBtn.setBackground(new java.awt.Color(48, 44, 44));
+        atualizarBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         atualizarBtn.setText("Atualizar");
         atualizarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,7 +253,8 @@ public class GestaoAtletas extends javax.swing.JFrame {
             }
         });
 
-        atualizarBtn1.setBackground(new java.awt.Color(255, 236, 52));
+        atualizarBtn1.setBackground(new java.awt.Color(48, 44, 44));
+        atualizarBtn1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         atualizarBtn1.setText("Gestão Escalões");
         atualizarBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,6 +367,10 @@ public class GestaoAtletas extends javax.swing.JFrame {
         RegistarQuota rq = new RegistarQuota();
         rq.setVisible(true);
     }//GEN-LAST:event_iconPagarMouseClicked
+
+    private void txtProcuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProcuraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProcuraActionPerformed
 
     /**
      * @param args the command line arguments

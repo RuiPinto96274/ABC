@@ -102,7 +102,7 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("REGISTAR UTILIZADOR");
 
@@ -123,14 +123,15 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        adicionarUtilizadorBtn.setBackground(new java.awt.Color(48, 44, 44));
-        adicionarUtilizadorBtn.setForeground(new java.awt.Color(255, 255, 255));
+        adicionarUtilizadorBtn.setBackground(new java.awt.Color(255, 236, 52));
+        adicionarUtilizadorBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         adicionarUtilizadorBtn.setText("ADICIONAR UTILIZADOR");
         adicionarUtilizadorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,8 +139,8 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,31 +148,44 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nome");
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel1.setText("Nome:");
 
-        jLabel4.setText("Contacto");
+        txtContacto.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel4.setText("Contacto:");
+
+        txtCipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtCipa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCipaActionPerformed(evt);
             }
         });
 
+        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Cipa");
+        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
-        jLabel7.setText("Username");
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel6.setText("Cipa:");
 
-        jLabel8.setText("Password");
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel7.setText("Username:");
 
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel8.setText("Password:");
+
+        comboUser.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         comboUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel9.setText("Função");
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel9.setText("Função:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -204,8 +218,8 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboUser, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(comboUser, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -215,32 +229,32 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addGap(4, 4, 4)
-                .addComponent(txtCipa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtCipa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtContacto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
+                .addGap(4, 4, 4)
+                .addComponent(txtContacto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                .addGap(33, 33, 33)
                 .addComponent(adicionarUtilizadorBtn)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addContainerGap())
+                .addGap(52, 52, 52))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

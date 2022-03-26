@@ -110,7 +110,7 @@ public class RegistarAtleta extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("REGISTAR ATLETA");
 
@@ -120,7 +120,7 @@ public class RegistarAtleta extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(117, 117, 117)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -131,14 +131,15 @@ public class RegistarAtleta extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        adicionarAtletaBtn.setBackground(new java.awt.Color(48, 44, 44));
-        adicionarAtletaBtn.setForeground(new java.awt.Color(255, 255, 255));
+        adicionarAtletaBtn.setBackground(new java.awt.Color(255, 236, 52));
+        adicionarAtletaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         adicionarAtletaBtn.setText("ADICIONAR ATLETA");
         adicionarAtletaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,8 +147,8 @@ public class RegistarAtleta extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,32 +156,46 @@ public class RegistarAtleta extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nome");
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel1.setText("Nome:");
 
-        jLabel2.setText("Data de nascimento");
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel2.setText("Data de nascimento:");
 
-        jLabel3.setText("Escalão");
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel3.setText("Escalão:");
 
-        jLabel4.setText("Contacto");
+        txtContacto.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel4.setText("Contacto:");
+
+        txtCipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtCipa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCipaActionPerformed(evt);
             }
         });
 
+        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Cipa");
+        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
-        jLabel7.setText("Username");
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel6.setText("Cipa:");
 
-        jLabel8.setText("Password");
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel7.setText("Username:");
 
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel8.setText("Password:");
+
+        comboEscalao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         comboEscalao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -228,15 +243,15 @@ public class RegistarAtleta extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addGap(4, 4, 4)
-                .addComponent(txtCipa, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtCipa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -248,11 +263,11 @@ public class RegistarAtleta extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addComponent(jLabel8)
                 .addGap(4, 4, 4)
-                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtContacto, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(txtContacto)
                 .addGap(15, 15, 15)
                 .addComponent(adicionarAtletaBtn)
                 .addGap(18, 18, 18)

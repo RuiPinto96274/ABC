@@ -82,7 +82,7 @@ public class RegistarEscalao extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("REGISTAR ESCALÃO");
 
@@ -103,14 +103,17 @@ public class RegistarEscalao extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        adicionarEscalaoBtn.setBackground(new java.awt.Color(48, 44, 44));
-        adicionarEscalaoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        txtGenero.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+
+        adicionarEscalaoBtn.setBackground(new java.awt.Color(255, 236, 52));
+        adicionarEscalaoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         adicionarEscalaoBtn.setText("ADICIONAR ESCALÃO");
         adicionarEscalaoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,8 +121,8 @@ public class RegistarEscalao extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,29 +130,27 @@ public class RegistarEscalao extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel1.setText("Nome:");
 
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel3.setText("Género:");
 
+        txtIdEscalao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtIdEscalao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdEscalaoActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Id:");
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel7.setText("ID:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adicionarEscalaoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,9 +163,15 @@ public class RegistarEscalao extends javax.swing.JFrame {
                         .addGap(68, 68, 68))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adicionarEscalaoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,20 +180,20 @@ public class RegistarEscalao extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIdEscalao, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addGap(30, 30, 30)
+                .addComponent(txtIdEscalao)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addGap(31, 31, 31)
+                .addComponent(txtNome)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtGenero, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
-                .addGap(50, 50, 50)
+                .addComponent(txtGenero)
+                .addGap(40, 40, 40)
                 .addComponent(adicionarEscalaoBtn)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(59, 59, 59))
+                .addGap(60, 60, 60))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

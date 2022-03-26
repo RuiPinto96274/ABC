@@ -80,6 +80,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         painelfundo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -89,6 +90,17 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         txtPass = new javax.swing.JPasswordField();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -102,15 +114,16 @@ public class Login extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 236, 52));
         jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        txtUser.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel2.setText("Username:");
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jLabel3.setText("Passe:");
 
-        jButton1.setBackground(new java.awt.Color(48, 44, 44));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(255, 236, 52));
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton1.setText("Sair");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,15 +131,16 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         jButton2.setText("Entrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        txtPass.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -261,6 +275,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel painelfundo;
     private javax.swing.JPasswordField txtPass;

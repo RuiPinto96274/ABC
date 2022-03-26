@@ -110,7 +110,7 @@ public class GestaoEscaloes extends javax.swing.JFrame {
         );
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("GESTÃO DE ESCALÕES");
         jLabel3.setMaximumSize(new java.awt.Dimension(149, 17));
@@ -128,7 +128,8 @@ public class GestaoEscaloes extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tabelaPavilhoes);
 
-        pesquisaBtn.setBackground(new java.awt.Color(255, 236, 52));
+        pesquisaBtn.setBackground(new java.awt.Color(48, 44, 44));
+        pesquisaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         pesquisaBtn.setText("Pesquisar");
         pesquisaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +137,16 @@ public class GestaoEscaloes extends javax.swing.JFrame {
             }
         });
 
-        atualizarBtn.setBackground(new java.awt.Color(255, 236, 52));
+        txtProcura.setBackground(new java.awt.Color(204, 204, 204));
+        txtProcura.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtProcura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProcuraActionPerformed(evt);
+            }
+        });
+
+        atualizarBtn.setBackground(new java.awt.Color(48, 44, 44));
+        atualizarBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         atualizarBtn.setText("Atualizar");
         atualizarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,7 +154,8 @@ public class GestaoEscaloes extends javax.swing.JFrame {
             }
         });
 
-        registarEscalaoBtn.setBackground(new java.awt.Color(255, 236, 52));
+        registarEscalaoBtn.setBackground(new java.awt.Color(48, 44, 44));
+        registarEscalaoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registarEscalaoBtn.setText("Adicionar Escalão");
         registarEscalaoBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -166,10 +177,10 @@ public class GestaoEscaloes extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtProcura, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                        .addComponent(txtProcura, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(pesquisaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                        .addGap(296, 296, 296)
+                        .addComponent(pesquisaBtn)
+                        .addGap(293, 293, 293)
                         .addComponent(registarEscalaoBtn))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,7 +209,7 @@ public class GestaoEscaloes extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registarEscalaoBtn)
                         .addGap(25, 25, 25))))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,6 +253,10 @@ public class GestaoEscaloes extends javax.swing.JFrame {
     private void registarEscalaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registarEscalaoBtnActionPerformed
             
     }//GEN-LAST:event_registarEscalaoBtnActionPerformed
+
+    private void txtProcuraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProcuraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProcuraActionPerformed
 
     /**
      * @param args the command line arguments

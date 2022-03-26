@@ -108,7 +108,7 @@ public class RegistarQuota extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("PAGAMENTO DE QUOTAS");
 
@@ -129,18 +129,23 @@ public class RegistarQuota extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
+        txtUser.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel2.setText("Username do atleta:");
 
-        jLabel3.setText("Dia");
+        txtData.setBackground(new java.awt.Color(255, 236, 52));
 
-        jButton1.setBackground(new java.awt.Color(48, 44, 44));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel3.setText("Dia:");
+
+        jButton1.setBackground(new java.awt.Color(255, 236, 52));
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton1.setText("Registar pagamento");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +153,8 @@ public class RegistarQuota extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,6 +162,8 @@ public class RegistarQuota extends javax.swing.JFrame {
             }
         });
 
+        procurarBtn.setBackground(new java.awt.Color(255, 236, 52));
+        procurarBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         procurarBtn.setText("Visualizar histórico");
         procurarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +171,9 @@ public class RegistarQuota extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("tabela");
+        jButton3.setBackground(new java.awt.Color(255, 236, 52));
+        jButton3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jButton3.setText("😁");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -216,7 +227,7 @@ public class RegistarQuota extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(procurarBtn))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

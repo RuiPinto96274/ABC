@@ -55,7 +55,7 @@ public class AdicionarEvento extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ADICIONAR EVENTO");
 
@@ -76,14 +76,17 @@ public class AdicionarEvento extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        jTextField1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(48, 44, 44));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextField4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+
+        jButton1.setBackground(new java.awt.Color(255, 236, 52));
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton1.setText("ADICIONAR EVENTO");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,8 +94,8 @@ public class AdicionarEvento extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,18 +103,28 @@ public class AdicionarEvento extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nome do evento");
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel1.setText("Nome do evento:");
 
-        jLabel2.setText("Tipo do evento");
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel2.setText("Tipo do evento:");
 
-        jLabel3.setText("Escalão e Género");
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel3.setText("Escalão e Género:");
 
-        jLabel4.setText("Localização");
+        jTextField5.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel4.setText("Localização:");
+
+        jComboBox1.setBackground(new java.awt.Color(255, 255, 204));
+        jComboBox1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jLabel6.setText("Dia e hora");
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel6.setText("Data e hora:");
 
+        jComboBox2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -159,23 +172,23 @@ public class AdicionarEvento extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(5, 5, 5)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(13, 13, 13)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField5)
-                .addGap(18, 18, 18)
+                .addGap(11, 11, 11)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField4)
-                .addGap(30, 30, 30)
+                .addGap(32, 32, 32)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(39, 39, 39))
+                .addGap(49, 49, 49))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

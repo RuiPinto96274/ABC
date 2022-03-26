@@ -154,7 +154,7 @@ public class DadosAtleta extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(48, 44, 44));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("DADOS DO ATLETA");
 
@@ -175,14 +175,17 @@ public class DadosAtleta extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
             }
         });
 
-        alterarAtletaBtn.setBackground(new java.awt.Color(48, 44, 44));
-        alterarAtletaBtn.setForeground(new java.awt.Color(255, 255, 255));
+        txtEscalao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+
+        alterarAtletaBtn.setBackground(new java.awt.Color(255, 236, 52));
+        alterarAtletaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         alterarAtletaBtn.setText("ALTERAR DADOS");
         alterarAtletaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,8 +193,8 @@ public class DadosAtleta extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(48, 44, 44));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 236, 52));
+        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,32 +202,44 @@ public class DadosAtleta extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Nome");
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel1.setText("Nome:");
 
-        jLabel2.setText("Data de nascimento");
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel2.setText("Data de nascimento:");
 
-        jLabel3.setText("Escalão");
+        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel3.setText("Escalão:");
 
-        jLabel4.setText("Contacto");
+        txtContacto.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel4.setText("Contacto:");
+
+        txtCipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtCipa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCipaActionPerformed(evt);
             }
         });
 
+        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsernameActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Cipa");
+        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel6.setText("Cipa:");
 
-        jLabel7.setText("Username");
+        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel7.setText("Username:");
 
-        jLabel8.setText("Password");
+        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel8.setText("Password:");
 
+        txtPass.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassActionPerformed(evt);
@@ -238,14 +253,15 @@ public class DadosAtleta extends javax.swing.JFrame {
             }
         });
 
+        txtDataNasc.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtDataNasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDataNascActionPerformed(evt);
             }
         });
 
-        removerAtletaBtn.setBackground(new java.awt.Color(48, 44, 44));
-        removerAtletaBtn.setForeground(new java.awt.Color(255, 255, 255));
+        removerAtletaBtn.setBackground(new java.awt.Color(255, 236, 52));
+        removerAtletaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         removerAtletaBtn.setText("REMOVER ATLETA");
         removerAtletaBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,7 +295,10 @@ public class DadosAtleta extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(removerAtletaBtn))
                             .addComponent(txtDataNasc, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(txtPass)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkVerPass, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtCipa, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEscalao)
@@ -291,9 +310,7 @@ public class DadosAtleta extends javax.swing.JFrame {
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkVerPass)
-                        .addGap(24, 24, 24))))
+                        .addGap(47, 47, 47))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,29 +319,29 @@ public class DadosAtleta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addGap(4, 4, 4)
-                .addComponent(txtCipa, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtCipa, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtDataNasc, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addGap(9, 9, 9)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEscalao, javax.swing.GroupLayout.PREFERRED_SIZE, 21, Short.MAX_VALUE)
+                .addComponent(txtEscalao, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addGap(4, 4, 4)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkVerPass))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkVerPass, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
