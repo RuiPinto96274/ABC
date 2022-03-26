@@ -7,9 +7,12 @@ package frontend;
 
 import backend.Atleta;
 import backend.ListaUtilizadores;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -28,7 +31,36 @@ public class GestaoAtletas extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);   
         modelAtletas = (DefaultTableModel) tabelaAtletas.getModel();       
         preencheTabela();
-
+        
+        //aparecer texto ao passar cursor em cima
+        iconAtletas.setToolTipText("Atletas");       
+        UIManager.put("ToolTip.background", Color.WHITE);
+        UIManager.put("ToolTip.foreground", Color.BLACK);
+        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
+        
+        //aparecer texto ao passar cursor em cima
+        iconCalendario.setToolTipText("Calendário");       
+        UIManager.put("ToolTip.background", Color.WHITE);
+        UIManager.put("ToolTip.foreground", Color.BLACK);
+        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
+        
+        //aparecer texto ao passar cursor em cima
+        iconGestaoTeC.setToolTipText("Treinadores e Colaboradores");       
+        UIManager.put("ToolTip.background", Color.WHITE);
+        UIManager.put("ToolTip.foreground", Color.BLACK);
+        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
+        
+        //aparecer texto ao passar cursor em cima
+        iconPagar.setToolTipText("Registar pagamento de quota");       
+        UIManager.put("ToolTip.background", Color.WHITE);
+        UIManager.put("ToolTip.foreground", Color.BLACK);
+        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
+        
+        //aparecer texto ao passar cursor em cima
+        iconSair.setToolTipText("Sair");       
+        UIManager.put("ToolTip.background", Color.WHITE);
+        UIManager.put("ToolTip.foreground", Color.BLACK);
+        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
     }
 
     private void preencheTabela() {
@@ -71,11 +103,11 @@ public class GestaoAtletas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        sairBtn = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        iconAtletas = new javax.swing.JLabel();
+        iconCalendario = new javax.swing.JLabel();
+        iconSair = new javax.swing.JLabel();
+        iconGestaoTeC = new javax.swing.JLabel();
+        iconPagar = new javax.swing.JLabel();
         registarAtletaBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaAtletas = new javax.swing.JTable();
@@ -92,36 +124,36 @@ public class GestaoAtletas extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 236, 52));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
+        iconAtletas.setText("jLabel1");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
+        iconCalendario.setText("jLabel2");
+        iconCalendario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                iconCalendarioMouseClicked(evt);
             }
         });
 
-        sairBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/voltar.png"))); // NOI18N
-        sairBtn.setText("jLabel3");
-        sairBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/voltar.png"))); // NOI18N
+        iconSair.setText("jLabel3");
+        iconSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                sairBtnMouseClicked(evt);
+                iconSairMouseClicked(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/coach.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconGestaoTeC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/coach.png"))); // NOI18N
+        iconGestaoTeC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                iconGestaoTeCMouseClicked(evt);
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon_quotas.png"))); // NOI18N
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon_quotas.png"))); // NOI18N
+        iconPagar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                iconPagarMouseClicked(evt);
             }
         });
 
@@ -132,26 +164,26 @@ public class GestaoAtletas extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(sairBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(iconPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconGestaoTeC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconAtletas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(iconCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(iconSair, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(6, 6, 6))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(95, 95, 95)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(iconAtletas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(iconCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(iconGestaoTeC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(iconPagar)
                 .addGap(259, 259, 259)
-                .addComponent(sairBtn)
+                .addComponent(iconSair)
                 .addGap(19, 19, 19))
         );
 
@@ -286,17 +318,17 @@ public class GestaoAtletas extends javax.swing.JFrame {
         }     
     }//GEN-LAST:event_pesquisaBtnActionPerformed
 
-    private void sairBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairBtnMouseClicked
+    private void iconSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconSairMouseClicked
         /*PaginaInicial pg = new PaginaInicial();               
         pg.setVisible(true); */
         dispose();
-    }//GEN-LAST:event_sairBtnMouseClicked
+    }//GEN-LAST:event_iconSairMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void iconCalendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconCalendarioMouseClicked
         dispose();
         Calendario c = new Calendario();
         c.setVisible(true);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_iconCalendarioMouseClicked
 
     private void registarAtletaBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registarAtletaBtnMouseClicked
         RegistarAtleta ra = new RegistarAtleta();
@@ -312,17 +344,17 @@ public class GestaoAtletas extends javax.swing.JFrame {
         ge.setVisible(true);
     }//GEN-LAST:event_atualizarBtn1ActionPerformed
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void iconGestaoTeCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconGestaoTeCMouseClicked
         dispose();
         GestaoTreinadoresColaboradores gtc = new GestaoTreinadoresColaboradores();
         gtc.setVisible(true);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_iconGestaoTeCMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void iconPagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconPagarMouseClicked
         dispose();
         RegistarQuota rq = new RegistarQuota();
         rq.setVisible(true);
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_iconPagarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -362,17 +394,17 @@ public class GestaoAtletas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atualizarBtn;
     private javax.swing.JButton atualizarBtn1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel iconAtletas;
+    private javax.swing.JLabel iconCalendario;
+    private javax.swing.JLabel iconGestaoTeC;
+    private javax.swing.JLabel iconPagar;
+    private javax.swing.JLabel iconSair;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton pesquisaBtn;
     private javax.swing.JButton registarAtletaBtn;
-    private javax.swing.JLabel sairBtn;
     private javax.swing.JTable tabelaAtletas;
     private javax.swing.JTextField txtProcura;
     // End of variables declaration//GEN-END:variables
