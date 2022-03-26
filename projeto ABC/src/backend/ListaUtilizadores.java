@@ -100,10 +100,11 @@ public class ListaUtilizadores {
     
     public ArrayList<Treinador> listagemTreinadores(){
         ArrayList <Treinador> listaTreinadores = new ArrayList<>();
+
         try {
             Connection con;
             con=getConnection();
-            String query = "SELECT * FROM treinador";
+            String query = "SELECT * FROM Treinador";
 
             Statement st;
             ResultSet rs;
@@ -113,7 +114,10 @@ public class ListaUtilizadores {
             Treinador treinador;
 
             while(rs.next()){ 
-                treinador = new Treinador(rs.getString("username"),rs.getString("pass"),Integer.parseInt(rs.getString("cipa")),rs.getString("nome"),Integer.parseInt(rs.getString("tlm")));
+                treinador = new Treinador(rs.getString("cipa"),rs.getString("pass"),rs.getString("nome"),Integer.parseInt(rs.getString("contacto")));
+                ListaEscalao lista= new ListaEscalao();
+                Escalao esc = lista.getEscalao(rs.getString("Equipa_idEquipa"));
+                treinador.setEquipa(esc);
                 listaTreinadores.add(treinador);
             }
             con.close();
@@ -131,7 +135,7 @@ public class ListaUtilizadores {
             Connection con;
             con=getConnection();
            
-            String query = " insert into atleta (username, pass, cipa, nome, ano_nasc, id_escalao, tlm)"
+            String query = " insert into Atleta (username, pass, cipa, nome, ano_nasc, tlm)"
                     + " values (?, ?, ?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -140,7 +144,6 @@ public class ListaUtilizadores {
             preparedStmt.setInt(3, a.getCipa());
             preparedStmt.setString(4, a.getNome());
             preparedStmt.setObject(5, a.getDataNasc()); 
-            preparedStmt.setString(6, a.getEscalao().getId_escalao());
             preparedStmt.setInt(7, a.getContactoTlm());
             preparedStmt.execute();
             con.close();
@@ -174,7 +177,7 @@ public class ListaUtilizadores {
         try {
             Connection con;
             con=getConnection();
-            String query = "SELECT * FROM atleta";
+            String query = "SELECT * FROM Atleta";
 
             Statement st;
             ResultSet rs;
@@ -185,8 +188,7 @@ public class ListaUtilizadores {
 
             while(rs.next()) {
                 ListaEscalao lista_esc = new ListaEscalao();
-                Escalao esc= lista_esc.getEscalao(rs.getString("id_escalao"));
-                atleta = new Atleta(rs.getString("username"),rs.getString("pass"),Integer.parseInt(rs.getString("cipa")),rs.getString("nome"),LocalDate.parse(rs.getString("ano_nasc")), esc, Integer.parseInt(rs.getString("tlm")));
+                atleta = new Atleta(rs.getString("cipa"),rs.getString("pass"),rs.getString("nome"),LocalDate.parse(rs.getString("ano_nasc")), Integer.parseInt(rs.getString("tlm")));
                 listaAtletas.add(atleta);
             }
             con.close();
@@ -205,15 +207,15 @@ public class ListaUtilizadores {
             Connection con;
             con=getConnection();
            
-            String query = " insert into colaborador (username, pass, cipa, nome, tlm)"
-                    + " values (?, ?, ?, ?, ?)";
+            String query = " insert into Colaborador (pass, cipa, nome, tlm)"
+                    + " values (?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, c.getUsername());
-            preparedStmt.setString(2, c.getPassword());
-            preparedStmt.setInt(3, c.getCipa());
-            preparedStmt.setString(4, c.getNome());
-            preparedStmt.setInt(5, c.getContactoTlm());
+            //preparedStmt.setString(1, c.getUsername());
+            preparedStmt.setString(1, c.getPassword());
+            preparedStmt.setInt(2, c.getCipa());
+            preparedStmt.setString(3, c.getNome());
+            preparedStmt.setInt(4, c.getContactoTlm());
             preparedStmt.execute();
             con.close();
             
@@ -222,15 +224,15 @@ public class ListaUtilizadores {
             System.err.println(ex.getMessage());
         }
     }
-    
+
     public void removerColaborador(Colaborador c){
         try {
             Connection con;
             con=getConnection();
             
-            String query = "delete from colaborador where username = ?";
+            String query = "delete from Colaborador where cipa = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, c.getUsername());
+            preparedStmt.setString(1, String.valueOf(c.getCipa()));
 
             preparedStmt.execute();
             con.close();
@@ -246,7 +248,7 @@ public class ListaUtilizadores {
         try {
             Connection con;
             con=getConnection();
-            String query = "SELECT * FROM colaborador";
+            String query = "SELECT * FROM Colaborador";
 
             Statement st;
             ResultSet rs;
@@ -256,7 +258,7 @@ public class ListaUtilizadores {
             Colaborador colab;
 
             while(rs.next()) {
-                colab= new Colaborador(rs.getString("username"),rs.getString("pass"),rs.getString("nome"),Integer.parseInt(rs.getString("cipa")), Integer.parseInt(rs.getString("tlm")));
+                colab= new Colaborador(rs.getString("pass"), rs.getString("cipa"), rs.getString("nome"), Integer.parseInt(rs.getString("tlm")));
                 listaColaboradores.add(colab);               
             }
 
@@ -268,13 +270,14 @@ public class ListaUtilizadores {
         }
         return null;
     }
+
     
     public ArrayList<Administrador> listagemAdmin(){
         ArrayList <Administrador> listaAdmin = new ArrayList<>();
         try {
             Connection con;
             con=getConnection();
-            String query = "SELECT * FROM administrador";
+            String query = "SELECT * FROM Administrador";
 
             Statement st;
             ResultSet rs;
@@ -284,7 +287,7 @@ public class ListaUtilizadores {
             Administrador admin;
 
             while(rs.next()) {
-                admin= new Administrador(rs.getString("username"),rs.getString("pass"),rs.getString("nome"), Integer.parseInt(rs.getString("tlm")));
+                admin= new Administrador(rs.getString("username"),rs.getString("pass"));
                 listaAdmin.add(admin);               
             }
 
@@ -302,8 +305,8 @@ public class ListaUtilizadores {
             Connection con;
             con=getConnection();
            
-            String query = " insert into treinador (username, pass, cipa, nome, tlm)"
-                    + " values (?, ?, ?, ?, ?, ?, ?)";
+            String query = " insert into Treinador (username, pass, cipa, nome, tlm)"
+                    + " values (?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, t.getUsername());
@@ -325,7 +328,7 @@ public class ListaUtilizadores {
             Connection con;
             con=getConnection();
             
-            String query = "delete from treinador where username = ?";
+            String query = "delete from Treinador where username = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, t.getUsername());
             preparedStmt.execute();

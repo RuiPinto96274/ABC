@@ -35,7 +35,7 @@ public class RegistarAtleta extends javax.swing.JFrame {
     private void carregarListaEscaloes(){
         comboEscalao.removeAllItems();
         for (Escalao esc : lista_geral_esc.listagemEscalao()){
-            String item =String.valueOf(esc.getId_escalao());
+            String item =String.valueOf(esc.getId_equipa());
             comboEscalao.addItem(item);
         }
     }
@@ -55,8 +55,8 @@ public class RegistarAtleta extends javax.swing.JFrame {
             int contacto =Integer.parseInt(txtContacto.getText());
             //LocalDate data_nasc= LocalDate.parse(txtDataNasc.getText());  //para já colocar 2022-03-23
             LocalDate data_nasc= txtDataNasc.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            Atleta a = new Atleta(username, senha, cipa, nome, data_nasc, lista_geral_esc.getEscalao(item), contacto);
-            lista_geral_users.adicionarAtleta(a);
+            //Atleta a = new Atleta(username, senha, cipa, nome, data_nasc, lista_geral_esc.getEscalao(item), contacto);
+            //lista_geral_users.adicionarAtleta(a);
                
         JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
 

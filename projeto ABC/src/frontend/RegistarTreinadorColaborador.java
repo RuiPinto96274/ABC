@@ -46,12 +46,12 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
             int contacto =Integer.parseInt(txtContacto.getText());
             
             if(comboUser.getSelectedItem().equals("Treinador")){
-               Treinador t = new Treinador(username, senha, cipa, nome, contacto);
-               lista_geral.adicionarTreinador(t);
+               //Treinador t = new Treinador(username, senha, cipa, nome, contacto);
+               //lista_geral.adicionarTreinador(t);
                JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
             }else if(comboUser.getSelectedItem().equals("Colaborador")){
-                Colaborador c = new Colaborador(username, senha, nome, cipa, contacto);
-                lista_geral.adicionarColaborador(c);
+                //Colaborador c = new Colaborador(username, senha, nome, cipa, contacto);
+                //lista_geral.adicionarColaborador(c);
                 JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
             }
         } 

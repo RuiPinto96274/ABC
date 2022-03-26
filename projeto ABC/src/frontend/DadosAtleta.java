@@ -9,8 +9,6 @@ import backend.Atleta;
 import backend.ListaEscalao;
 import backend.ListaUtilizadores;
 import java.time.LocalDate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,8 +31,7 @@ public class DadosAtleta extends javax.swing.JFrame {
         
         //preencher caixas
         txtNome.setText(a.getNome());
-        txtUsername.setText(a.getUsername());
-        txtEscalao.setText(a.getEscalao().getId_escalao());
+        //txtEscalao.setText(a.getEscalao().getId_escalao());
         txtCipa.setText(String.valueOf(a.getCipa()));
         txtDataNasc.setText(String.valueOf(a.getDataNasc()));
         txtContacto.setText(String.valueOf(a.getContactoTlm()));
@@ -53,7 +50,7 @@ public class DadosAtleta extends javax.swing.JFrame {
         }else{
             atleta.setNome(txtNome.getText());
         }
-        
+        /*
         if (txtUsername.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza o username!");            
             txtUsername.requestFocus();
@@ -68,7 +65,7 @@ public class DadosAtleta extends javax.swing.JFrame {
             return;
         }else{
             atleta.setEscalao(lista_geral_esc.getEscalao(txtEscalao.getText()));
-        }
+        }*/
         
         if (txtCipa.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza o cipa!");            
@@ -76,6 +73,7 @@ public class DadosAtleta extends javax.swing.JFrame {
             return;
         }else{
             atleta.setCipa(Integer.parseInt(txtCipa.getText()));
+            atleta.setUsername(txtCipa.getText());
         }
         
         if (txtContacto.getText().isEmpty()) {
@@ -125,9 +123,7 @@ public class DadosAtleta extends javax.swing.JFrame {
         txtContacto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtCipa = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtPass = new javax.swing.JPasswordField();
         checkVerPass = new javax.swing.JCheckBox();
@@ -223,18 +219,8 @@ public class DadosAtleta extends javax.swing.JFrame {
             }
         });
 
-        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel6.setText("Cipa:");
-
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel7.setText("Username:");
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel8.setText("Password:");
@@ -303,11 +289,9 @@ public class DadosAtleta extends javax.swing.JFrame {
                             .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEscalao)
                             .addComponent(txtContacto, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(47, 47, 47))))
@@ -316,11 +300,7 @@ public class DadosAtleta extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(66, 66, 66)
                 .addComponent(jLabel6)
                 .addGap(4, 4, 4)
                 .addComponent(txtCipa, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
@@ -396,10 +376,6 @@ public class DadosAtleta extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2AncestorAdded
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
-
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPassActionPerformed
@@ -468,7 +444,6 @@ public class DadosAtleta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -479,6 +454,5 @@ public class DadosAtleta extends javax.swing.JFrame {
     private javax.swing.JTextField txtEscalao;
     private javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

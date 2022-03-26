@@ -12,12 +12,13 @@ package backend;
 public class Colaborador extends Utilizador{
     //variaveis de instancia
     private int cipa;
+    private String nome;
     private int contactoTlm;
     
     //construtor
-    public Colaborador (String user, String passe, String nome, int cipa, int tlm){
-        super(user,passe,nome);
-	this.cipa=cipa;
+    public Colaborador (String user, String passe, String nome, int tlm){
+        super(user,passe);
+	user=String.valueOf(cipa);
         this.contactoTlm= tlm;
     }
 	//Métodos seletores
@@ -37,4 +38,18 @@ public class Colaborador extends Utilizador{
     public void setContactoTlm(int contactoTlm) {
         this.contactoTlm = contactoTlm;
     }   
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Colaborador{" + "cipa=" + cipa + ", nome=" + nome + ", contactoTlm=" + contactoTlm + '}';
+    }
+    
 }

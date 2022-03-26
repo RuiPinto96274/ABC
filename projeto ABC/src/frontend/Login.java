@@ -8,6 +8,7 @@ package frontend;
 import backend.Administrador;
 import backend.Colaborador;
 import backend.ListaUtilizadores;
+import backend.Utilizador;
 import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
 
@@ -225,13 +226,16 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
+        
+        /*try {
             iniciar();
         } catch (ListaUtilizadores.UtilizadorNaoExistenteException ex) {
             //Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-       /*/ PaginaInicial pg = new PaginaInicial();               
-        pg.setVisible(true);*/
+       /*/
+        Utilizador u= new Utilizador();
+        PaginaInicial pg = new PaginaInicial(u);               
+        pg.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

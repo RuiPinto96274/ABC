@@ -12,13 +12,12 @@ import java.util.ArrayList;
  * @author cataf
  */
 public class Escalao {
-    private String id_escalao;
+    private String id_equipa;
     private String nome;
     private String genero;
-    private ArrayList<Atleta> lista_atletas = new ArrayList();
 
     public Escalao(String id_escalao, String nome, String genero) {
-        this.id_escalao = id_escalao;
+        this.id_equipa = id_escalao;
         this.nome = nome;
         this.genero = genero;
     }
@@ -32,15 +31,15 @@ public class Escalao {
         }
         
     }
-*/
+
     void removerAtleta(Atleta a){
         if(!lista_atletas.contains(a)){
             lista_atletas.remove(a);
         }
     }
-
-    public String getId_escalao() {
-        return id_escalao;
+*/
+    public String getId_equipa() {
+        return id_equipa;
     }
     
     
@@ -48,16 +47,13 @@ public class Escalao {
         return nome;
     }
 
-    public ArrayList<Atleta> getLista_atletas() {
-        return lista_atletas;
-    }
 
     public String getGenero() {
         return genero;
     }
 
-    public void setId_escalao(String id_escalao) {
-        this.id_escalao = id_escalao;
+    public void setId_equipa(String id_equipa) {
+        this.id_equipa = id_equipa;
     }
     
     
@@ -67,9 +63,5 @@ public class Escalao {
     
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public void setLista_atletas(ArrayList<Atleta> lista_atletas) {
-        this.lista_atletas = lista_atletas;
     }
 }

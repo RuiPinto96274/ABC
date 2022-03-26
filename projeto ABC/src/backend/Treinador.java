@@ -15,11 +15,13 @@ public class Treinador extends Utilizador{
     private int cipa;
     private String nome;
     private int contactoTlm;
+    private Escalao equipa;
     //construtor
-    public Treinador (String user, String passe, int cipa, String nome, int tlm){
-        super(user,passe, nome);
+    public Treinador (String user, String passe, String nome, int tlm){
+        super(user,passe);
 	this.cipa=cipa;
 	this.nome=nome;
+        user=String.valueOf(cipa);
         this.contactoTlm= tlm;
     }
     //Métodos seletores
@@ -48,4 +50,14 @@ public class Treinador extends Utilizador{
     public void setContactoTlm(int contactoTlm) {
         this.contactoTlm = contactoTlm;
     }
+
+    public Escalao getEquipa() {
+        return equipa;
+    }
+
+    public void setEquipa(Escalao equipa) {
+        this.equipa = equipa;
+    }
+    
+    
 }

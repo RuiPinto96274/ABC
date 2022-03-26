@@ -30,15 +30,15 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
         
         //preencher caixas
         if(u instanceof Treinador){
-           txtNome.setText(u.getNome());
-           txtUsername.setText(u.getUsername());
+           txtContacto.setText(String.valueOf(((Treinador) u).getContactoTlm()));
            txtCipa.setText(String.valueOf(((Treinador) u).getCipa()));
+           txtNome.setText(((Treinador) u).getNome());
            txtPass.setText(u.getPassword());  
         }
         if(u instanceof Colaborador){
-           txtNome.setText(u.getNome());
-           txtUsername.setText(u.getUsername());
+           txtContacto.setText(String.valueOf(((Colaborador) u).getContactoTlm()));
            txtCipa.setText(String.valueOf(((Colaborador) u).getCipa()));
+           txtNome.setText(((Colaborador) u).getNome());
            txtPass.setText(u.getPassword()); 
         }        
     }
@@ -46,8 +46,43 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
     private void guardar(){
         if(u instanceof Treinador){
             lista_geral.removerTreinador((Treinador) u);
+            
+        if (txtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o nome!");            
+            txtNome.requestFocus();
+            return;
+        }else{
+            Treinador t = (Treinador) u;
+            t.setNome(txtNome.getText());
+        }
+        
+        if (txtCipa.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o cipa!");            
+            txtCipa.requestFocus();
+            return;
+        }else{
+            Treinador t = (Treinador) u;
+            t.setUsername(txtCipa.getText());
+            t.setCipa(Integer.parseInt(txtCipa.getText()));
+        }
+
+        if (txtPass.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza uma palavra passe!");            
+            txtPass.requestFocus();
+            return;
+        }else{
+            Treinador j = (Treinador) u;
+            j.setCipa(Integer.parseInt(txtNome.getText()));
+            j.setPassword(txtPass.getText());
+        }
+            
+            lista_geral.adicionarTreinador((Treinador) u);
+            JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!"); 
         }else if(u instanceof Colaborador){
             lista_geral.removerColaborador((Colaborador) u);
+            
+            lista_geral.adicionarColaborador((Colaborador) u);
+            JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
         }
         
         if (txtNome.getText().isEmpty()) {
@@ -55,25 +90,27 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             txtNome.requestFocus();
             return;
         }else{
-            u.setNome(txtNome.getText());
+            Treinador t = (Treinador) u;
+            t.setNome(txtNome.getText());
         }
         
-        if (txtUsername.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o username!");            
-            txtUsername.requestFocus();
-            return;
-        }else{
-            u.setUsername(txtUsername.getText());
-        }
-        
-       
         if (txtCipa.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o cipa!");            
+            JOptionPane.showMessageDialog(this, "Introduza o username!");            
             txtCipa.requestFocus();
             return;
         }else{
+            u.setUsername(txtCipa.getText());
+            //u.(txtCipa.getText());
+        }
+        
+       
+        if (txtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o cipa!");            
+            txtNome.requestFocus();
+            return;
+        }else{
             Treinador j = (Treinador) u;
-            j.setCipa(Integer.parseInt(txtCipa.getText()));
+            j.setCipa(Integer.parseInt(txtNome.getText()));
             //u.setCipa(Integer.parseInt(txtCipa.getText()));
         }
         
@@ -83,17 +120,17 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             return;
         }else{
             Treinador j = (Treinador) u;
-            j.setCipa(Integer.parseInt(txtCipa.getText()));
+            j.setCipa(Integer.parseInt(txtNome.getText()));
             j.setPassword(txtPass.getText());
         }
-        
+        /*
         if(u instanceof Treinador){
             lista_geral.adicionarTreinador((Treinador) u);
             JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!"); 
         }else if(u instanceof Colaborador){
             lista_geral.adicionarColaborador((Colaborador) u);
             JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
-        }
+        }*/
     }
 
     /**
@@ -108,12 +145,12 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
+        txtContacto = new javax.swing.JTextField();
         alterarTreinadorBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
         txtCipa = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -162,10 +199,10 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
-        txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtNome.addActionListener(new java.awt.event.ActionListener() {
+        txtContacto.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtContacto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeActionPerformed(evt);
+                txtContactoActionPerformed(evt);
             }
         });
 
@@ -188,7 +225,14 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel1.setText("Nome:");
+        jLabel1.setText("Contacto:");
+
+        txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
 
         txtCipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtCipa.addActionListener(new java.awt.event.ActionListener() {
@@ -197,18 +241,11 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             }
         });
 
-        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel6.setText("Cipa:");
+        jLabel6.setText("Nome:");
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel7.setText("Username:");
+        jLabel7.setText("Cipa:");
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel8.setText("Password:");
@@ -242,7 +279,7 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,16 +289,16 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCipa, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername)
+                            .addComponent(txtContacto, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCipa)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 11, Short.MAX_VALUE)
+                                .addGap(0, 6, Short.MAX_VALUE)
                                 .addComponent(alterarTreinadorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
                                 .addComponent(removerTreinadorBtn))
@@ -282,16 +319,16 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername)
+                .addComponent(txtCipa)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addGap(4, 4, 4)
-                .addComponent(txtCipa)
+                .addComponent(txtNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome)
-                .addGap(18, 18, 18)
+                .addComponent(txtContacto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -322,9 +359,9 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+    private void txtContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeActionPerformed
+    }//GEN-LAST:event_txtContactoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
@@ -335,17 +372,13 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_alterarTreinadorBtnActionPerformed
 
-    private void txtCipaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCipaActionPerformed
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCipaActionPerformed
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     private void jPanel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2AncestorAdded
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
         // TODO add your handling code here:
@@ -365,6 +398,10 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             txtPass.setEchoChar('•');
         }
     }//GEN-LAST:event_checkVerPassActionPerformed
+
+    private void txtCipaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCipaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCipaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,8 +451,8 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton removerTreinadorBtn;
     private javax.swing.JTextField txtCipa;
+    private javax.swing.JTextField txtContacto;
     private javax.swing.JTextField txtNome;
     private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

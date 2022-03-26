@@ -67,7 +67,7 @@ public class GestaoAtletas extends javax.swing.JFrame {
         modelAtletas.setRowCount(0); //especifica o nr de linhas na tabela
         for (int index = 0; index < lista_geral.listagemAtletas().size(); index++) {
             Atleta a = lista_geral.listagemAtletas().get(index);          
-            modelAtletas.addRow(new Object[]{a.getUsername(), a.getCipa(), a.getNome(),  a.getEscalao().getId_escalao(), a.getContactoTlm(), a.getDataNasc()});
+            modelAtletas.addRow(new Object[]{a.getCipa(), a.getNome(), a.getContactoTlm(), a.getDataNasc()});
         }
         tabelaAtletas.setModel(modelAtletas);
     }
@@ -203,17 +203,17 @@ public class GestaoAtletas extends javax.swing.JFrame {
 
         tabelaAtletas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "USERNAME", "CIPA", "NOME", "ESCALÃO", "CONTACTO", "DATA NASCIMENTO"
+                "CIPA", "NOME", "CONTACTO", "DATA NASCIMENTO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true, true, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

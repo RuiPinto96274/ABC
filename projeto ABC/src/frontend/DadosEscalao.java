@@ -27,7 +27,7 @@ public class DadosEscalao extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         //preencher caixas
-        txtIdEscalao.setText(e.getId_escalao());
+        txtIdEscalao.setText(e.getId_equipa());
         txtNomeEscalao.setText(e.getNome());
         txtGenero.setText(e.getGenero());
     }

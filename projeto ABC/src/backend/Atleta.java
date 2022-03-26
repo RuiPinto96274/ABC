@@ -15,23 +15,21 @@ import java.time.LocalDate;
 public class Atleta extends Utilizador{
     //variaveis de instancia
     private int cipa;
+    private String nome;
     private LocalDate dataNasc;
-    private Escalao escalao;
     private int contactoTlm;
    
     //construtor
-    public Atleta (String user, String pass, int cipa, String nome, LocalDate data_nasc, Escalao esc, int tlm) {
-        super(user, pass, nome); //cod=cipa
-	this.cipa=cipa;
-        user=Integer.toString(cipa);
+    public Atleta (String user, String nome, String pass, LocalDate data_nasc, int tlm) {
+        super(user, pass); //cod=cipa
+	//user=String.valueOf(cipa);
+        cipa=Integer.parseInt(user);
         this.dataNasc=data_nasc;
-	this.escalao=esc;
         this.contactoTlm= tlm;
     }
     public Atleta (){
         
     }
-    
     //Métodos seletores
 	public int getCipa() {
         return cipa;
@@ -40,11 +38,7 @@ public class Atleta extends Utilizador{
     public LocalDate getDataNasc() {
         return dataNasc;
     }
-	
-    public Escalao getEscalao() {
-        return escalao;
-    }
-	
+
     public int getContactoTlm() {
         return contactoTlm;
     }
@@ -57,19 +51,25 @@ public class Atleta extends Utilizador{
     public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
-	
-public void setEscalao(Escalao escalao) {
-        this.escalao = escalao;
-    }
+
 	
     public void setContactoTlm(int contactoTlm) {
         this.contactoTlm = contactoTlm;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     @Override
     public String toString() {
-        return "Atleta{" + "cipa=" + cipa + ", dataNasc=" + dataNasc + ", escalao=" + escalao + ", contactoTlm=" + contactoTlm + '}';
+        return "Atleta{" + "cipa=" + cipa + ", nome=" + nome + ", dataNasc=" + dataNasc + ", contactoTlm=" + contactoTlm + '}';
     }
+
 
     
 }

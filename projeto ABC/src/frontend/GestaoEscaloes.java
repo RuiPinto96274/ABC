@@ -32,7 +32,7 @@ public class GestaoEscaloes extends javax.swing.JFrame {
         modelEscaloes.setRowCount(0); //especifica o nr de linhas na tabela
         for (int index = 0; index < listaEscaloes.listagemEscalao().size(); index++) {
             Escalao e = listaEscaloes.listagemEscalao().get(index);          
-            modelEscaloes.addRow(new Object[]{e.getId_escalao(), e.getNome(), e.getGenero()});
+            modelEscaloes.addRow(new Object[]{e.getId_equipa(), e.getNome(), e.getGenero()});
         }
         tabelaPavilhoes.setModel(modelEscaloes);
     }
@@ -44,7 +44,7 @@ public class GestaoEscaloes extends javax.swing.JFrame {
         boolean encontrou =false;
         
         for (Escalao e : listar){
-            if(e.getId_escalao().equals(id_escalao)){
+            if(e.getId_equipa().equals(id_escalao)){
                 DadosEscalao de = new DadosEscalao(e);
                 de.setVisible(true);
                 txtProcura.setText("");

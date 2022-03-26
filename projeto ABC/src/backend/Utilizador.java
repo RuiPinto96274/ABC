@@ -14,13 +14,11 @@ public class Utilizador {
     //variaveis de instancia
     private String username;
     private String password;
-    private String nome;
   
     //construtor
-    public Utilizador (String user, String passe, String nome){
+    public Utilizador (String user, String passe){
         this.username=user;
         this.password=passe;
-        this.nome=nome;
     }
     public Utilizador (){
         
@@ -34,9 +32,6 @@ public class Utilizador {
         return password;
     }
 
-    public String getNome() {
-        return nome;
-    }
     
     //Método modificador
     public void setUsername(String username) {
@@ -46,9 +41,7 @@ public class Utilizador {
     public void setPassword(String password) {
         this.password = password;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+
     @Override
     public String toString() {
         return "Utilizador{" + "username=" + username + ", password=" + password + '}';

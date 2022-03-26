@@ -39,7 +39,7 @@ public class ListaEscalao {
     
     public Escalao getEscalao(String id) throws EscalaoNaoExistenteException {
         for (Escalao esc : listagemEscalao()){
-                    if(esc.getId_escalao().equals(id)){
+                    if(esc.getId_equipa().equals(id)){
                         return esc;
                     }
                 }
@@ -51,11 +51,11 @@ public class ListaEscalao {
             Connection con;
             con=getConnection();
            
-            String query = " insert into escalao (id_escalao, nome, genero)"
+            String query = " insert into Equipa (idEquipa, nome, genero)"
                     + " values (?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, e.getId_escalao());
+            preparedStmt.setString(1, e.getId_equipa());
             preparedStmt.setString(2, e.getNome());
             preparedStmt.setString(3, e.getGenero());
             preparedStmt.execute();
@@ -66,15 +66,15 @@ public class ListaEscalao {
             System.err.println(ex.getMessage());
         }
     }
-     
+
     public void removerEscalao(Escalao e){
         try {
             Connection con;
             con=getConnection();
             
-            String query = "delete from escalao where id_escalao = ?";
+            String query = "delete from Equipa where idEquipa = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, e.getId_escalao());
+            preparedStmt.setString(1, e.getId_equipa());
             preparedStmt.execute();
             con.close();
             
@@ -83,13 +83,13 @@ public class ListaEscalao {
             System.err.println(ex.getMessage());
         }
     }
-     
+
     public ArrayList<Escalao> listagemEscalao(){
         ArrayList <Escalao> lista = new ArrayList<>();
         try {
             Connection con;
             con=getConnection();
-            String query = "SELECT * FROM escalao";
+            String query = "SELECT * FROM Equipa";
 
             Statement st;
             ResultSet rs;
@@ -99,7 +99,7 @@ public class ListaEscalao {
             Escalao escalao;
 
             while(rs.next()) {
-                escalao = new Escalao(rs.getString("id_escalao"),rs.getString("nome"),rs.getString("genero"));
+                escalao = new Escalao(rs.getString("idEquipa"),rs.getString("nome"),rs.getString("genero"));
                 lista.add(escalao);
             }
             con.close();
