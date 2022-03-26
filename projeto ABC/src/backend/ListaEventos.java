@@ -24,7 +24,7 @@ public class ListaEventos {
         listaEventos= new ArrayList();
     }
     
-     public ArrayList<Evento> listagemEventos(){
+    public ArrayList<Evento> listagemEventos(){
         ArrayList <Evento> listaEventos = new ArrayList<>();
         try {
             Connection con;

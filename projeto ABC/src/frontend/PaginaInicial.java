@@ -5,6 +5,10 @@
  */
 package frontend;
 
+import backend.Administrador;
+import backend.Utilizador;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -18,10 +22,20 @@ public class PaginaInicial extends javax.swing.JFrame {
     /**
      * Creates new form PaginaInicial
      */
-    public PaginaInicial() {
+    public PaginaInicial(Utilizador u) {
         initComponents();
         
-        setExtendedState(JFrame.MAXIMIZED_BOTH);        
+        setExtendedState(JFrame.MAXIMIZED_BOTH);   
+        
+        //Apenas mostra  se o utilizador for um administrador
+        iconPagar.setVisible(u instanceof Administrador);
+        iconGestaoTeC.setVisible(u instanceof Administrador);
+        
+        //aparecer texto ao passar cursor em cima
+        iconPagar.setToolTipText("Registar pagamento de quota");       
+        UIManager.put("ToolTip.background", Color.WHITE);
+        UIManager.put("ToolTip.foreground", Color.BLACK);
+        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
 
     }
     
@@ -56,8 +70,8 @@ public class PaginaInicial extends javax.swing.JFrame {
         gerirAtletasBtn = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        iconGestaoTeC = new javax.swing.JLabel();
+        iconPagar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -92,17 +106,17 @@ public class PaginaInicial extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/coach.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconGestaoTeC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/coach.png"))); // NOI18N
+        iconGestaoTeC.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                iconGestaoTeCMouseClicked(evt);
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon_quotas.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon_quotas.png"))); // NOI18N
+        iconPagar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                iconPagarMouseClicked(evt);
             }
         });
 
@@ -116,8 +130,8 @@ public class PaginaInicial extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(gerirAtletasBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(iconGestaoTeC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -128,9 +142,9 @@ public class PaginaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addComponent(iconGestaoTeC)
                 .addGap(28, 28, 28)
-                .addComponent(jLabel1)
+                .addComponent(iconPagar)
                 .addGap(214, 214, 214)
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(23, 23, 23))
@@ -178,15 +192,15 @@ public class PaginaInicial extends javax.swing.JFrame {
         c.setVisible(true);
     }//GEN-LAST:event_jLabel2MouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void iconGestaoTeCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconGestaoTeCMouseClicked
         GestaoTreinadoresColaboradores tc = new GestaoTreinadoresColaboradores();
         tc.setVisible(true);
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_iconGestaoTeCMouseClicked
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void iconPagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconPagarMouseClicked
         RegistarQuota rq= new RegistarQuota();
         rq.setVisible(true);
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_iconPagarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -218,7 +232,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaInicial().setVisible(true);
+                //new PaginaInicial().setVisible(true);
             }
         });
     }
@@ -226,10 +240,10 @@ public class PaginaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel fundoPainel;
     private javax.swing.JLabel gerirAtletasBtn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel iconGestaoTeC;
+    private javax.swing.JLabel iconPagar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
