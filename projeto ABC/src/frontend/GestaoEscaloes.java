@@ -75,6 +75,7 @@ public class GestaoEscaloes extends javax.swing.JFrame {
         registarEscalaoBtn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        atualizarBtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -166,6 +167,15 @@ public class GestaoEscaloes extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        atualizarBtn1.setBackground(new java.awt.Color(255, 236, 52));
+        atualizarBtn1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        atualizarBtn1.setText("Associar Treinador");
+        atualizarBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarBtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -178,7 +188,9 @@ public class GestaoEscaloes extends javax.swing.JFrame {
                         .addComponent(txtProcura)
                         .addGap(18, 18, 18)
                         .addComponent(pesquisaBtn)
-                        .addGap(236, 236, 236)
+                        .addGap(88, 88, 88)
+                        .addComponent(atualizarBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(registarEscalaoBtn))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -200,7 +212,8 @@ public class GestaoEscaloes extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pesquisaBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtProcura)
-                    .addComponent(registarEscalaoBtn))
+                    .addComponent(registarEscalaoBtn)
+                    .addComponent(atualizarBtn1))
                 .addGap(26, 26, 26))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -250,6 +263,11 @@ public class GestaoEscaloes extends javax.swing.JFrame {
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         dispose();
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void atualizarBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarBtn1ActionPerformed
+        AssociarTreinador at = new AssociarTreinador();
+        at.setVisible(true);
+    }//GEN-LAST:event_atualizarBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -799,6 +817,7 @@ public class GestaoEscaloes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atualizarBtn;
+    private javax.swing.JButton atualizarBtn1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

@@ -46,14 +46,11 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
             String y = String.valueOf(qt.getData().getYear());  
             //buscar valor do pagou
             String resul= new String();
-            
-            //TROCAR PARA BOL
-            /*
-            if(qt.getPagou().equals("Y")){
+            if(qt.getEstado().equals("1")){
                 resul="Pagou";
-            }else if(qt.getPagou().equals("F")){
+            }else if(qt.getEstado().equals("0")){
                 resul="Não Pagou";
-            }       */    
+            }        
             modelQuotas.addRow(new Object[]{m.concat(y),resul});
         }
         tabelaQuotas.setModel(modelQuotas);
@@ -68,14 +65,11 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
             if(q==null){
                 JOptionPane.showMessageDialog(this, "Não há registo de pagamento nesse mês!");
             }else{
-                System.out.println(q);
-                //TROCAR PARA BOL
-                /*
-                if(q.getPagou().equals("Y")){
-                     JOptionPane.showMessageDialog(this, "Quota paga");
-                }else if(q.getPagou().equals("N")){
+                if(q.getEstado().equals("1")){
+                    JOptionPane.showMessageDialog(this, "Quota paga");
+                }else if(q.getEstado().equals("0")){
                     JOptionPane.showMessageDialog(this, "Quota por pagar!");
-                }*/
+            }
             }
 
         }

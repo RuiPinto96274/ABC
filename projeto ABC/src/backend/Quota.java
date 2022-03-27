@@ -14,17 +14,17 @@ import java.time.LocalDate;
 public class Quota {
     private int id_quota;
     private String username;
-    private boolean estado;
+    private String estado;
     private LocalDate data;
 
-    public Quota(int id, String user, boolean pagou, LocalDate data){
+    public Quota(int id, String user, String pagou, LocalDate data){
         this.id_quota=id;
         this.username=user;
         this.estado=pagou;
         this.data= data;
     }
     
-    public Quota(String user, boolean pagou, LocalDate data){
+    public Quota(String user, String pagou, LocalDate data){
         ///this.id_quota=id;
         this.username=user;
         this.estado=pagou;
@@ -47,15 +47,13 @@ public class Quota {
         this.id_quota = id_quota;
     }
 
-    public boolean isEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
-
-
 
     public LocalDate getData() {
         return data;

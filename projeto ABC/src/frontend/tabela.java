@@ -41,13 +41,11 @@ public class tabela extends javax.swing.JFrame {
             String y = String.valueOf(qt.getData().getYear());  
             //buscar valor do pagou
             String resul= new String();
-            
-            //AGORA É BOLEAN E NAO STRING, ALTERAR O IF
-            /*if(qt.getPagou().equals("Y")){
+            if(qt.getEstado().equals("1")){
                 resul="Pagou";
-            }else if(qt.getPagou().equals("N")){
+            }else if(qt.getEstado().equals("0")){
                 resul="Não Pagou";
-            }*/           
+            }        
             modelQuotas.addRow(new Object[]{qt.getUsername(),m.concat(y),resul});
         }
         tabelaQuotas.setModel(modelQuotas);

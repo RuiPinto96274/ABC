@@ -46,7 +46,7 @@ public class RegistarQuota extends javax.swing.JFrame {
                RegistarQuota rq=new RegistarQuota();
                rq.setVisible(true);
             }
-            Quota q = new Quota(a.getCipa(),true, data);
+            Quota q = new Quota(a.getCipa(),"1", data);
             lista_geral_quotas.guardarQuota(q);
             JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");    
         }    
@@ -59,8 +59,8 @@ public class RegistarQuota extends javax.swing.JFrame {
             Atleta a = lista_geral_users.getAtleta(username);
             if(a==null){
                JOptionPane.showMessageDialog(this, "O username que insiriu não corresponde a nenhum atleta!");
-               RegistarQuota rq=new RegistarQuota();
-               rq.setVisible(true);
+               //RegistarQuota rq=new RegistarQuota();
+               //rq.setVisible(true);
             }
             HistoricoQuotaPorAtleta hq = new HistoricoQuotaPorAtleta(a);
             hq.setVisible(true);

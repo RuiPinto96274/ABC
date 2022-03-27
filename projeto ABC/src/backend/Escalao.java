@@ -15,6 +15,7 @@ public class Escalao {
     private String id_equipa;
     private String nome;
     private String genero;
+    private Treinador treinador;
 
     public Escalao(String id_escalao, String nome, String genero) {
         this.id_equipa = id_escalao;
@@ -69,4 +70,19 @@ public class Escalao {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public Treinador getTreinador() {
+        return treinador;
+    }
+
+    public void setTreinador(Treinador treinador) {
+        this.treinador = treinador;
+    }
+
+    @Override
+    public String toString() {
+        return "Escalao{" + "id_equipa=" + id_equipa + ", nome=" + nome + ", genero=" + genero + ", treinador=" + treinador + '}';
+    }
+    
+    
 }

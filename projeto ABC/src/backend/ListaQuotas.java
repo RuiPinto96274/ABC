@@ -41,7 +41,7 @@ public class ListaQuotas {
 
             while(rs.next()){ 
                 Quota quota;
-                quota = new Quota(Integer.parseInt(rs.getString("idQuota")),rs.getString("Atleta_cipa"),Boolean.parseBoolean(rs.getString("estado")), LocalDate.parse(rs.getString("data")));
+                quota = new Quota(Integer.parseInt(rs.getString("idQuota")),rs.getString("Atleta_cipa"),rs.getString("estado"), LocalDate.parse(rs.getString("data")));
                 listaQuotas.add(quota);
             }
             con.close();
@@ -92,7 +92,7 @@ public class ListaQuotas {
             
             ps.setString(1,String.valueOf(q.getId_quota()));
             ps.setString(2,q.getUsername());
-            ps.setBoolean(3, true);
+            ps.setString(3, "1");
              ps.setObject(4, q.getData());
            
             ps.executeUpdate();            
