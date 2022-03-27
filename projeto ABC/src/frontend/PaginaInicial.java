@@ -28,7 +28,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         initComponents();
    
         setExtendedState(JFrame.MAXIMIZED_BOTH);   
-        
+        this.setLocationRelativeTo(null);
         //Apenas mostra  se o utilizador for um administrador
         iconPagar.setVisible(u instanceof Administrador);
         iconGestaoTeC.setVisible(u instanceof Administrador);
@@ -98,25 +98,20 @@ public class PaginaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        fundoPainel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
         iconAtletas = new javax.swing.JLabel();
         iconCalendario = new javax.swing.JLabel();
         iconSair = new javax.swing.JLabel();
-        iconGestaoTeC = new javax.swing.JLabel();
         iconPagar = new javax.swing.JLabel();
+        iconGestaoTeC = new javax.swing.JLabel();
         iconPerfil = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(48, 44, 44));
         setUndecorated(true);
-
-        fundoPainel.setBackground(new java.awt.Color(48, 44, 44));
-        fundoPainel.setForeground(new java.awt.Color(48, 44, 44));
-        fundoPainel.setPreferredSize(new java.awt.Dimension(1250, 650));
-
-        jPanel1.setBackground(new java.awt.Color(255, 236, 52));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (1).png"))); // NOI18N
         iconAtletas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -124,6 +119,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                 iconAtletasMouseClicked(evt);
             }
         });
+        getContentPane().add(iconAtletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         iconCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
         iconCalendario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,6 +127,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                 iconCalendarioMouseClicked(evt);
             }
         });
+        getContentPane().add(iconCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 53));
 
         iconSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/SAIR.png"))); // NOI18N
         iconSair.setText("jLabel3");
@@ -139,13 +136,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                 iconSairMouseClicked(evt);
             }
         });
-
-        iconGestaoTeC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/coach.png"))); // NOI18N
-        iconGestaoTeC.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iconGestaoTeCMouseClicked(evt);
-            }
-        });
+        getContentPane().add(iconSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 1000, 50, 53));
 
         iconPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon_quotas.png"))); // NOI18N
         iconPagar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -153,6 +144,15 @@ public class PaginaInicial extends javax.swing.JFrame {
                 iconPagarMouseClicked(evt);
             }
         });
+        getContentPane().add(iconPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+
+        iconGestaoTeC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/coach.png"))); // NOI18N
+        iconGestaoTeC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconGestaoTeCMouseClicked(evt);
+            }
+        });
+        getContentPane().add(iconGestaoTeC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
         iconPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
         iconPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,63 +160,10 @@ public class PaginaInicial extends javax.swing.JFrame {
                 iconPerfilMouseClicked(evt);
             }
         });
+        getContentPane().add(iconPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(iconPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconCalendario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconAtletas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconSair, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(iconGestaoTeC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconPagar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(iconPerfil)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(iconAtletas)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(iconCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(iconGestaoTeC)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(iconPagar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
-                .addComponent(iconSair, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
-        );
-
-        javax.swing.GroupLayout fundoPainelLayout = new javax.swing.GroupLayout(fundoPainel);
-        fundoPainel.setLayout(fundoPainelLayout);
-        fundoPainelLayout.setHorizontalGroup(
-            fundoPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fundoPainelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1188, Short.MAX_VALUE))
-        );
-        fundoPainelLayout.setVerticalGroup(
-            fundoPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundoPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fundoPainel, javax.swing.GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\pedro\\OneDrive\\Ambiente de Trabalho\\PCS Experiments\\background 2.png")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -293,13 +240,12 @@ public class PaginaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel fundoPainel;
     private javax.swing.JLabel iconAtletas;
     private javax.swing.JLabel iconCalendario;
     private javax.swing.JLabel iconGestaoTeC;
     private javax.swing.JLabel iconPagar;
     private javax.swing.JLabel iconPerfil;
     private javax.swing.JLabel iconSair;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
