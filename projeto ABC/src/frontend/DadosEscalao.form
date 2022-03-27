@@ -150,6 +150,7 @@
         </Container>
         <Component class="javax.swing.JTextField" name="txtIdEscalao">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="11" style="0"/>
             </Property>
@@ -170,6 +171,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtGenero">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="11" style="0"/>
             </Property>

@@ -66,6 +66,26 @@ public class ListaEscalao {
             System.err.println(ex.getMessage());
         }
     }
+    
+    public void alterarEscalao(Escalao e, String id, String nome, String genero) {
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "update Equipa set nome=? , genero=? where idEquipa= ?";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            //preparedStmt.setString(1, p.getIdPavilhao());
+            preparedStmt.setString(1, nome);
+            preparedStmt.setString(2, genero);
+            preparedStmt.setString(3, id);
+            preparedStmt.execute();
+            con.close();
+            
+        } catch (Exception ex) {
+            System.err.println("Erro ao alterar um escalao! ");
+            System.err.println(ex.getMessage());
+        }
+    }
 
     public void removerEscalao(Escalao e){
         try {

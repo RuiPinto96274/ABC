@@ -29,18 +29,18 @@ public class DadosPavilhao extends javax.swing.JFrame {
         //preencher caixas
         txtIdPavilhao.setText(p.getIdPavilhao());
         txtNomePavilhao.setText(p.getNome());
-        txtLocalPavilhao.setText(p.getMorada());
+        txtMorada.setText(p.getMorada());
+        txtCodPos.setText(p.getCodigo_postal());
     }
-    
-    private void guardar(){  
-        listaPavilhoes.removerPavilhao(p);
-        Pavilhao pavilhao = null;
+
+    private void alterar(){
+        String id, nome, morada, cod;
         if (txtIdPavilhao.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza o Id do Pavilhao!");            
             txtIdPavilhao.requestFocus();
             return;
         }else{
-            pavilhao.setIdPavilhao(txtIdPavilhao.getText());
+            id=txtIdPavilhao.getText();
         }
         
         if (txtNomePavilhao.getText().isEmpty()) {
@@ -48,21 +48,25 @@ public class DadosPavilhao extends javax.swing.JFrame {
             txtNomePavilhao.requestFocus();
             return;
         }else{
-            pavilhao.setNome(txtNomePavilhao.getText());
+            nome=txtNomePavilhao.getText();
         }
         
-        if (txtLocalPavilhao.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o localizacao do Pavilhao!");            
-            txtLocalPavilhao.requestFocus();
+        if (txtMorada.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o localização do Pavilhao!");            
+            txtMorada.requestFocus();
             return;
         }else{
-            pavilhao.setMorada(txtLocalPavilhao.getText());
+            morada=txtMorada.getText();
         }
-        
-        
-        listaPavilhoes.adicionarPavilhao(pavilhao);
+        if (txtCodPos.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o código postal do Pavilhao!");            
+            txtCodPos.requestFocus();
+            return;
+        }else{
+            cod=txtCodPos.getText();
+        }
+        listaPavilhoes.alterarPavilhao(p,id, nome, morada, cod);
         JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,13 +82,15 @@ public class DadosPavilhao extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtIdPavilhao = new javax.swing.JTextField();
         txtNomePavilhao = new javax.swing.JTextField();
-        txtLocalPavilhao = new javax.swing.JTextField();
+        txtMorada = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         alterarPavilhaoBtn = new javax.swing.JButton();
         removerPavilhaoBtn = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtCodPos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -115,6 +121,7 @@ public class DadosPavilhao extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
+        txtIdPavilhao.setEditable(false);
         txtIdPavilhao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtIdPavilhao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,10 +136,10 @@ public class DadosPavilhao extends javax.swing.JFrame {
             }
         });
 
-        txtLocalPavilhao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtLocalPavilhao.addActionListener(new java.awt.event.ActionListener() {
+        txtMorada.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtMorada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocalPavilhaoActionPerformed(evt);
+                txtMoradaActionPerformed(evt);
             }
         });
 
@@ -171,32 +178,47 @@ public class DadosPavilhao extends javax.swing.JFrame {
             }
         });
 
+        jLabel10.setText("Código Postal:");
+
+        txtCodPos.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtCodPos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodPosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomePavilhao, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtIdPavilhao, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(alterarPavilhaoBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(removerPavilhaoBtn))
-                    .addComponent(txtLocalPavilhao)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(46, 46, 46))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(98, 98, 98)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCodPos, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomePavilhao)
+                            .addComponent(txtIdPavilhao)
+                            .addComponent(txtMorada, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(alterarPavilhaoBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(removerPavilhaoBtn)))
+                        .addGap(46, 46, 46))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,14 +235,18 @@ public class DadosPavilhao extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtLocalPavilhao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(txtMorada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCodPos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removerPavilhaoBtn)
-                    .addComponent(alterarPavilhaoBtn))
-                .addGap(29, 29, 29)
+                    .addComponent(alterarPavilhaoBtn)
+                    .addComponent(removerPavilhaoBtn))
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
-                .addGap(79, 79, 79))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -245,12 +271,12 @@ public class DadosPavilhao extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomePavilhaoActionPerformed
 
-    private void txtLocalPavilhaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocalPavilhaoActionPerformed
+    private void txtMoradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMoradaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocalPavilhaoActionPerformed
+    }//GEN-LAST:event_txtMoradaActionPerformed
 
     private void alterarPavilhaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarPavilhaoBtnActionPerformed
-        guardar();
+        alterar();
         dispose();
     }//GEN-LAST:event_alterarPavilhaoBtnActionPerformed
 
@@ -264,6 +290,10 @@ public class DadosPavilhao extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtCodPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodPosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodPosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,6 +333,7 @@ public class DadosPavilhao extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alterarPavilhaoBtn;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -310,8 +341,9 @@ public class DadosPavilhao extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton removerPavilhaoBtn;
+    private javax.swing.JTextField txtCodPos;
     private javax.swing.JTextField txtIdPavilhao;
-    private javax.swing.JTextField txtLocalPavilhao;
+    private javax.swing.JTextField txtMorada;
     private javax.swing.JTextField txtNomePavilhao;
     // End of variables declaration//GEN-END:variables
 }

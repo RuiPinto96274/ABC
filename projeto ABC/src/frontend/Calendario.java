@@ -29,7 +29,7 @@ public class Calendario extends javax.swing.JFrame {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
        
         modelEventos = (DefaultTableModel) tabelaEventos.getModel();       
-        preencheTabela();
+        //preencheTabela();
         
         //aparecer texto ao passar cursor em cima
         iconAtletas.setToolTipText("Atletas");       
@@ -159,7 +159,7 @@ public class Calendario extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CALENDÁRIO");
 
-        jButton1.setBackground(new java.awt.Color(48, 44, 44));
+        jButton1.setBackground(new java.awt.Color(255, 236, 52));
         jButton1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jButton1.setText("Adicionar evento");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,7 +173,7 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
 
-        EditarPavilhao.setBackground(new java.awt.Color(48, 44, 44));
+        EditarPavilhao.setBackground(new java.awt.Color(255, 236, 52));
         EditarPavilhao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         EditarPavilhao.setText("Gestão Pavilhões");
         EditarPavilhao.addMouseListener(new java.awt.event.MouseAdapter() {

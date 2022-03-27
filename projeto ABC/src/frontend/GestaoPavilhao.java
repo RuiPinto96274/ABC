@@ -32,7 +32,7 @@ public class GestaoPavilhao extends javax.swing.JFrame {
         modelPavilhoes.setRowCount(0); //especifica o nr de linhas na tabela
         for (int index = 0; index < listaPavilhoes.listagemPavilhoes().size(); index++) {
             Pavilhao p = listaPavilhoes.listagemPavilhoes().get(index);          
-            modelPavilhoes.addRow(new Object[]{p.getIdPavilhao(), p.getNome(), p.getMorada()});
+            modelPavilhoes.addRow(new Object[]{p.getIdPavilhao(), p.getNome(), p.getMorada(), p.getCodigo_postal()});
         }
         tabelaPavilhoes.setModel(modelPavilhoes);
     }
@@ -119,16 +119,24 @@ public class GestaoPavilhao extends javax.swing.JFrame {
 
         tabelaPavilhoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Nome", "Morada"
+                "ID", "Nome", "Morada", "Código Postal"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tabelaPavilhoes);
 
-        pesquisaBtn.setBackground(new java.awt.Color(48, 44, 44));
+        pesquisaBtn.setBackground(new java.awt.Color(255, 236, 52));
         pesquisaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         pesquisaBtn.setText("Pesquisar");
         pesquisaBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +153,7 @@ public class GestaoPavilhao extends javax.swing.JFrame {
             }
         });
 
-        atualizarBtn.setBackground(new java.awt.Color(48, 44, 44));
+        atualizarBtn.setBackground(new java.awt.Color(255, 236, 52));
         atualizarBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         atualizarBtn.setText("Atualizar");
         atualizarBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +162,7 @@ public class GestaoPavilhao extends javax.swing.JFrame {
             }
         });
 
-        registarEscalaoBtn.setBackground(new java.awt.Color(48, 44, 44));
+        registarEscalaoBtn.setBackground(new java.awt.Color(255, 236, 52));
         registarEscalaoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registarEscalaoBtn.setText("Adicionar Pavilhões");
         registarEscalaoBtn.addMouseListener(new java.awt.event.MouseAdapter() {

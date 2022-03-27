@@ -69,7 +69,7 @@ public class ListaUtilizadores {
 
     public Atleta getAtleta(String user) throws UtilizadorNaoExistenteException {
         for (Atleta a : listagemAtletas()){
-                    if(a.getUsername().equals(user)){
+                    if(a.getCipa().equals(user)){
                         return a;
                     }
                 }
@@ -78,7 +78,7 @@ public class ListaUtilizadores {
 	
     public Colaborador getColaborador(String user) throws UtilizadorNaoExistenteException {
         for (Colaborador c : listagemColaboradores()){
-                    if(c.getUsername().equals(user)){
+                    if(c.getCipa().equals(user)){
                         return c;
                     }
                 }
@@ -87,7 +87,7 @@ public class ListaUtilizadores {
     
     public Administrador getAdmin(String user) throws UtilizadorNaoExistenteException {
         for (Administrador a : listagemAdmin()){
-                    if(a.getUsername().equals(user)){
+                    if(a.getCipa().equals(user)){
                         return a;
                     }
                 }
@@ -139,7 +139,7 @@ public class ListaUtilizadores {
                     + " values (?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, a.getUsername());
+            preparedStmt.setString(1, a.getCipa());
             preparedStmt.setString(2, a.getNome());
             preparedStmt.setString(3, a.getPassword());
             preparedStmt.setObject(4, a.getDataNasc()); 
@@ -160,7 +160,7 @@ public class ListaUtilizadores {
             
             String query = "delete from Atleta where cipa = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, a.getUsername());
+            preparedStmt.setString(1, a.getCipa());
 
             preparedStmt.execute();
             con.close();
@@ -211,7 +211,7 @@ public class ListaUtilizadores {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             //preparedStmt.setString(1, c.getUsername());
             preparedStmt.setString(1, c.getPassword());
-            preparedStmt.setInt(2, c.getCipa());
+            preparedStmt.setString(2, c.getCipa());
             preparedStmt.setString(3, c.getNome());
             preparedStmt.setInt(4, c.getContactoTlm());
             preparedStmt.execute();
@@ -230,7 +230,7 @@ public class ListaUtilizadores {
             
             String query = "delete from Colaborador where cipa = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, String.valueOf(c.getCipa()));
+            preparedStmt.setString(1, c.getCipa());
 
             preparedStmt.execute();
             con.close();
@@ -303,15 +303,14 @@ public class ListaUtilizadores {
             Connection con;
             con=getConnection();
            
-            String query = " insert into Treinador (username, pass, cipa, nome, contacto)"
-                    + " values (?, ?, ?, ?, ?)";
+            String query = " insert into Treinador (cipa, nome, pass, contacto)"
+                    + " values (?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, t.getUsername());
-            preparedStmt.setString(2, t.getPassword());
-            preparedStmt.setInt(3, t.getCipa());
-            preparedStmt.setString(4, t.getNome());
-            preparedStmt.setInt(5, t.getContactoTlm());
+            preparedStmt.setString(1, t.getCipa());
+            preparedStmt.setString(2, t.getNome());
+            preparedStmt.setString(3, t.getPassword());
+            preparedStmt.setInt(4, t.getContactoTlm());
             preparedStmt.execute();
             con.close();
             
@@ -328,7 +327,7 @@ public class ListaUtilizadores {
             
             String query = "delete from Treinador where cipa = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, t.getUsername());
+            preparedStmt.setString(1, t.getCipa());
             preparedStmt.execute();
             con.close();
             

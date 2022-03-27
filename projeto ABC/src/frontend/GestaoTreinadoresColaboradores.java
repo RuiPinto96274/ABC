@@ -69,12 +69,14 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         modelUtilizadores.setRowCount(0); //especifica o nr de linhas na tabela
         for (int index = 0; index < lista_geral.listagemTreinadores().size(); index++) {
             Treinador t = lista_geral.listagemTreinadores().get(index);          
-            modelUtilizadores.addRow(new Object[]{"Treinador", t.getUsername(), t.getNome(), t.getContactoTlm()});
+            modelUtilizadores.addRow(new Object[]{"Treinador", t.getCipa(), t.getNome(), t.getContactoTlm()});
         }
         //ciclo for colaboradores
-        for (int index = 0; index < lista_geral.listagemColaboradores().size(); index++) {
-            Colaborador c = lista_geral.listagemColaboradores().get(index); 
-            modelUtilizadores.addRow(new Object[]{"Colaborador", c.getUsername(), c.getNome(), c.getContactoTlm()});
+        ArrayList<Colaborador> listaC= lista_geral.listagemColaboradores();
+        for (int index = 0; index < listaC.size(); index++) {
+            //Colaborador c = lista_geral.listagemColaboradores().get(index); 
+            Colaborador c = listaC.get(index); 
+            modelUtilizadores.addRow(new Object[]{"Colaborador", c.getCipa(), c.getNome(), c.getContactoTlm()});
         }
         tabelaUtilizadores.setModel(modelUtilizadores);
     }
@@ -89,7 +91,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         boolean encontrou =false;
         
         for (Treinador t : listaTreinadores){
-            if(t.getUsername().equals(user)){
+            if(t.getCipa().equals(user)){
                 DadosTreinadorColaborador dt = new DadosTreinadorColaborador(t);
                 dt.setVisible(true);
                 txtProcura.setText("");
@@ -98,7 +100,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         }
         
         for (Colaborador c : listaColaboradores){
-            if(c.getUsername().equals(user)){
+            if(c.getCipa().equals(user)){
                 DadosTreinadorColaborador dt = new DadosTreinadorColaborador(c);
                 dt.setVisible(true);
                 txtProcura.setText("");

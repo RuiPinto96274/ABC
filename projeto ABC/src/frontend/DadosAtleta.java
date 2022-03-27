@@ -32,7 +32,7 @@ public class DadosAtleta extends javax.swing.JFrame {
         //preencher caixas
         txtNome.setText(a.getNome());
         //txtEscalao.setText(a.getEscalao().getId_escalao());
-        txtCipa.setText(String.valueOf(a.getCipa()));
+        txtCipa.setText(a.getCipa());
         txtDataNasc.setText(String.valueOf(a.getDataNasc()));
         txtContacto.setText(String.valueOf(a.getContactoTlm()));
         txtPass.setText(a.getPassword());
@@ -72,8 +72,8 @@ public class DadosAtleta extends javax.swing.JFrame {
             txtCipa.requestFocus();
             return;
         }else{
-            atleta.setCipa(Integer.parseInt(txtCipa.getText()));
-            atleta.setUsername(txtCipa.getText());
+            atleta.setCipa(txtCipa.getText());
+            atleta.setCipa(txtCipa.getText());
         }
         
         if (txtContacto.getText().isEmpty()) {

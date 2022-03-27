@@ -58,7 +58,7 @@ public class ListaQuotas {
          //ArrayList <Quota> listaQuotas = listagemQuotas();
          ArrayList <Quota> lista = new ArrayList<>();
          for(Quota q : listagemQuotas()){
-             if(q.getUsername().equals(a.getUsername())){
+             if(q.getUsername().equals(a.getCipa())){
                  lista.add(q);
              }
          }

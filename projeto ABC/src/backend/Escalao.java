@@ -21,6 +21,11 @@ public class Escalao {
         this.nome = nome;
         this.genero = genero;
     }
+    
+    public Escalao(String nome, String genero) {
+        this.nome = nome;
+        this.genero = genero;
+    }
             
    
     

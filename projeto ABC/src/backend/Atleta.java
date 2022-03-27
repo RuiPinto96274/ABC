@@ -14,16 +14,15 @@ import java.time.LocalDate;
  */
 public class Atleta extends Utilizador{
     //variaveis de instancia
-    private int cipa;
     private String nome;
     private LocalDate dataNasc;
     private int contactoTlm;
    
     //construtor
     public Atleta (String user, String nome, String pass, LocalDate data_nasc, int tlm) {
-        super(user, pass); //cod=cipa
+        super(user, pass);
 	//user=String.valueOf(cipa);
-        cipa=Integer.parseInt(user);
+        //cipa=Integer.parseInt(user);
         this.nome=nome;
         this.dataNasc=data_nasc;
         this.contactoTlm= tlm;
@@ -32,10 +31,6 @@ public class Atleta extends Utilizador{
         
     }
     //Métodos seletores
-	public int getCipa() {
-        return cipa;
-    }
-	
     public LocalDate getDataNasc() {
         return dataNasc;
     }
@@ -45,10 +40,6 @@ public class Atleta extends Utilizador{
     }
     
     //Métodos modificadores
-    public void setCipa(int cipa) {
-        this.cipa = cipa;
-    }
-
     public void setDataNasc(LocalDate dataNasc) {
         this.dataNasc = dataNasc;
     }
@@ -68,7 +59,7 @@ public class Atleta extends Utilizador{
 
     @Override
     public String toString() {
-        return "Atleta{" + "cipa=" + cipa + ", nome=" + nome + ", dataNasc=" + dataNasc + ", contactoTlm=" + contactoTlm + '}';
+        return "Atleta{" + ", nome=" + nome + ", dataNasc=" + dataNasc + ", contactoTlm=" + contactoTlm + '}';
     }
 
 

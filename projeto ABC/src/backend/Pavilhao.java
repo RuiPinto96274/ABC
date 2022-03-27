@@ -30,6 +30,9 @@ public class Pavilhao {
         this.codigo_postal=cp;
     }
    
+    public Pavilhao() {
+        
+    }
 
     //Métodos seletores
     public String getMorada(){

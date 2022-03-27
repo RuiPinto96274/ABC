@@ -26,17 +26,16 @@ public class RegistarEscalao extends javax.swing.JFrame {
     }
     
     private void registarEscalao() throws Exception{
-        if(txtIdEscalao.getText().isEmpty()|| txtNome.getText().isEmpty() ||
+        if(txtNome.getText().isEmpty() ||
                 txtGenero.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
             
             
         }else{
-            String id_escalao=txtIdEscalao.getText();
             String nome=txtNome.getText();
             String genero=txtGenero.getText();
  
-            Escalao e= new Escalao(id_escalao, nome, genero);
+            Escalao e= new Escalao(nome, genero);
             listaEscaloes.adicionarEscalao(e);
 
                
@@ -62,8 +61,6 @@ public class RegistarEscalao extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtIdEscalao = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -136,16 +133,6 @@ public class RegistarEscalao extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel3.setText("Género:");
 
-        txtIdEscalao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtIdEscalao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdEscalaoActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel7.setText("ID:");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -157,9 +144,7 @@ public class RegistarEscalao extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNome)
-                            .addComponent(txtGenero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(txtIdEscalao, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtGenero, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
                         .addGap(68, 68, 68))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,11 +162,7 @@ public class RegistarEscalao extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIdEscalao)
-                .addGap(18, 18, 18)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome)
@@ -216,7 +197,7 @@ public class RegistarEscalao extends javax.swing.JFrame {
 
     private void adicionarEscalaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarEscalaoBtnActionPerformed
         try {
-            if (txtIdEscalao.getText().isEmpty()|| txtNome.getText().isEmpty() ||
+            if ( txtNome.getText().isEmpty() ||
                 txtGenero.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
             }else{
@@ -232,10 +213,6 @@ public class RegistarEscalao extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void txtIdEscalaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdEscalaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdEscalaoActionPerformed
 
     private void jPanel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorAdded
         // TODO add your handling code here:
@@ -289,11 +266,9 @@ public class RegistarEscalao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtGenero;
-    private javax.swing.JTextField txtIdEscalao;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

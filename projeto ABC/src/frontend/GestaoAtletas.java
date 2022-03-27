@@ -80,7 +80,7 @@ public class GestaoAtletas extends javax.swing.JFrame {
         boolean encontrou =false;
         
         for (Atleta a : listaAtletas){
-            if(a.getUsername().equals(user)){
+            if(a.getCipa().equals(user)){
                 DadosAtleta da = new DadosAtleta(a);
                 da.setVisible(true);
                 txtProcura.setText("");
@@ -187,7 +187,7 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        registarAtletaBtn.setBackground(new java.awt.Color(48, 44, 44));
+        registarAtletaBtn.setBackground(new java.awt.Color(255, 236, 52));
         registarAtletaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registarAtletaBtn.setText("Registar Atleta");
         registarAtletaBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -230,7 +230,7 @@ public class GestaoAtletas extends javax.swing.JFrame {
             }
         });
 
-        pesquisaBtn.setBackground(new java.awt.Color(48, 44, 44));
+        pesquisaBtn.setBackground(new java.awt.Color(255, 236, 52));
         pesquisaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         pesquisaBtn.setText("Pesquisar");
         pesquisaBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -244,7 +244,7 @@ public class GestaoAtletas extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("GESTÃO DE ATLETAS");
 
-        atualizarBtn.setBackground(new java.awt.Color(48, 44, 44));
+        atualizarBtn.setBackground(new java.awt.Color(255, 236, 52));
         atualizarBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         atualizarBtn.setText("Atualizar");
         atualizarBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -253,7 +253,7 @@ public class GestaoAtletas extends javax.swing.JFrame {
             }
         });
 
-        atualizarBtn1.setBackground(new java.awt.Color(48, 44, 44));
+        atualizarBtn1.setBackground(new java.awt.Color(255, 236, 52));
         atualizarBtn1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         atualizarBtn1.setText("Gestão Escalões");
         atualizarBtn1.addActionListener(new java.awt.event.ActionListener() {

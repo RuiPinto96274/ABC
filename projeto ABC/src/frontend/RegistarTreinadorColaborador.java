@@ -36,22 +36,21 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
     }
     
     private void registarTreinadorColaborador() throws ListaUtilizadores.UtilizadorDuplicadoException, ListaUtilizadores.UtilizadorNaoExistenteException{
-        if(txtUsername.getText().isEmpty()||txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || txtNome.getText().isEmpty()|| txtContacto.getText().isEmpty() || comboUser.getSelectedItem()==null){
+        if(txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || txtNome.getText().isEmpty()|| txtContacto.getText().isEmpty() || comboUser.getSelectedItem()==null){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");       
         }else{
             String nome=txtNome.getText();
-            String username=txtUsername.getText();
             String senha=txtPassword.getText();
-            int cipa =Integer.parseInt(txtCipa.getText());
+            String cipa =(txtCipa.getText());
             int contacto =Integer.parseInt(txtContacto.getText());
             
             if(comboUser.getSelectedItem().equals("Treinador")){
-               //Treinador t = new Treinador(username, senha, cipa, nome, contacto);
-               //lista_geral.adicionarTreinador(t);
+               Treinador t = new Treinador(cipa, senha, nome, contacto);
+               lista_geral.adicionarTreinador(t);
                JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
             }else if(comboUser.getSelectedItem().equals("Colaborador")){
-                //Colaborador c = new Colaborador(username, senha, nome, cipa, contacto);
-                //lista_geral.adicionarColaborador(c);
+                Colaborador c = new Colaborador(cipa, senha, nome, contacto);
+                lista_geral.adicionarColaborador(c);
                 JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
             }
         } 
@@ -77,10 +76,8 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
         txtContacto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtCipa = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         comboUser = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -163,20 +160,10 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
             }
         });
 
-        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
         txtPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel6.setText("Cipa:");
-
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel7.setText("Username:");
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel8.setText("Password:");
@@ -210,9 +197,7 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
                             .addComponent(txtCipa)
                             .addComponent(txtNome)
                             .addComponent(txtContacto, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(68, 68, 68))
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -226,11 +211,7 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(4, 4, 4)
                 .addComponent(txtCipa)
@@ -283,7 +264,7 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
 
     private void adicionarUtilizadorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarUtilizadorBtnActionPerformed
         try {
-            if (txtUsername.getText().isEmpty()||txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || 
+            if (txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || 
                 txtNome.getText().isEmpty()|| txtContacto.getText().isEmpty() || comboUser.getSelectedItem()==null){
                 JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
             }else{
@@ -304,10 +285,6 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
     private void jPanel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2AncestorAdded
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,7 +332,6 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
@@ -364,6 +340,5 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
     private javax.swing.JTextField txtContacto;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

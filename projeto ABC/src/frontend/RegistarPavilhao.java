@@ -133,7 +133,7 @@ public class RegistarPavilhao extends javax.swing.JFrame {
         jLabel1.setText("Nome:");
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel3.setText("Localização:");
+        jLabel3.setText("Morada:");
 
         txtCodigoPos.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtCodigoPos.addActionListener(new java.awt.event.ActionListener() {

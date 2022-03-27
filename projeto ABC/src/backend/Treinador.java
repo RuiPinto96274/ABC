@@ -12,23 +12,17 @@ package backend;
  */
 public class Treinador extends Utilizador{
     //variaveis de instancia
-    private int cipa;
     private String nome;
     private int contactoTlm;
     private Escalao equipa;
     //construtor
     public Treinador (String user, String passe, String nome, int tlm){
         super(user,passe);
-	this.cipa=cipa;
 	this.nome=nome;
-        user=String.valueOf(cipa);
+        //user=String.valueOf(cipa);
         this.contactoTlm= tlm;
     }
     //Métodos seletores
-    public int getCipa() {
-        return cipa;
-    }
-	
     public String getNome() {
         return nome;
     }
@@ -39,10 +33,6 @@ public class Treinador extends Utilizador{
 	
 	
     //Métodos modificadores
-    public void setCipa(int cipa) {
-        this.cipa = cipa;
-    }
-	
     public void setNome(String nome) {
         this.nome = nome;
     }

@@ -12,20 +12,20 @@ package backend;
  */
 public class Utilizador {
     //variaveis de instancia
-    private String username;
+    private String cipa;
     private String password;
   
     //construtor
     public Utilizador (String user, String passe){
-        this.username=user;
+        this.cipa=user;
         this.password=passe;
     }
     public Utilizador (){
         
     }
     //Métodos seletores
-    public String getUsername(){
-        return username;
+    public String getCipa(){
+        return cipa;
     }
   
     public String getPassword(){
@@ -34,8 +34,8 @@ public class Utilizador {
 
     
     //Método modificador
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCipa(String cipa) {
+        this.cipa = cipa;
     }
 
     public void setPassword(String password) {
@@ -44,6 +44,6 @@ public class Utilizador {
 
     @Override
     public String toString() {
-        return "Utilizador{" + "username=" + username + ", password=" + password + '}';
+        return "Utilizador{" + "username=" + cipa + ", password=" + password + '}';
     }   
 }

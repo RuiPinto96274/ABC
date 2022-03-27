@@ -16,10 +16,10 @@ import java.util.ArrayList;
  * @author 
  */
 public class ListaPavilhao {
-     private ArrayList<Pavilhao> listaPavilhoes;
+     //private ArrayList<Pavilhao> listaPavilhoes;
      
      public ListaPavilhao(){
-         this.listaPavilhoes = listagemPavilhoes();
+         //this.listaPavilhoes = listagemPavilhoes();
      }
      
      public void adicionarPavilhao(Pavilhao p) {
@@ -32,9 +32,9 @@ public class ListaPavilhao {
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
             //preparedStmt.setString(1, p.getIdPavilhao());
-            preparedStmt.setString(2, p.getNome());
-            preparedStmt.setString(3, p.getMorada());
-            preparedStmt.setString(4, p.getCodigo_postal());
+            preparedStmt.setString(1, p.getNome());
+            preparedStmt.setString(2, p.getMorada());
+            preparedStmt.setString(3, p.getCodigo_postal());
             preparedStmt.execute();
             con.close();
             
@@ -44,6 +44,27 @@ public class ListaPavilhao {
         }
     }
 
+     public void alterarPavilhao(Pavilhao p, String id, String nome, String morada, String cod) {
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "update Pavilhao set nome=? , morada=?, codigo_postal=? where idPavilhao= ?";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            //preparedStmt.setString(1, p.getIdPavilhao());
+            preparedStmt.setString(1, nome);
+            preparedStmt.setString(2, morada);
+            preparedStmt.setString(3, cod);
+            preparedStmt.setString(4, p.getIdPavilhao());
+            preparedStmt.execute();
+            con.close();
+            
+        } catch (Exception ex) {
+            System.err.println("Erro ao alterar um pavilhao! ");
+            System.err.println(ex.getMessage());
+        }
+    }
+     
      public void removerPavilhao(Pavilhao p){
         try {
             Connection con;
@@ -89,6 +110,6 @@ public class ListaPavilhao {
     }
      
     public int size() {
-        return listaPavilhoes.size();
+        return listagemPavilhoes().size();
     }
 }

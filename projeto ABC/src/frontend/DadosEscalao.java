@@ -31,20 +31,19 @@ public class DadosEscalao extends javax.swing.JFrame {
         txtNomeEscalao.setText(e.getNome());
         txtGenero.setText(e.getGenero());
     }
-    
-    private void guardar(){  
-        listaEscalao.removerEscalao(e);
+
+    private void alterar(){
         String id, nome, genero;
         if (txtIdEscalao.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o Id do Escalao!");            
+            JOptionPane.showMessageDialog(this, "Introduza o Id da Equipa!");            
             txtIdEscalao.requestFocus();
             return;
         }else{
-           id=txtIdEscalao.getText();
+            id=txtIdEscalao.getText();
         }
         
         if (txtNomeEscalao.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o nome do Escalao!");            
+            JOptionPane.showMessageDialog(this, "Introduza o nome da Equipa!");            
             txtNomeEscalao.requestFocus();
             return;
         }else{
@@ -52,17 +51,14 @@ public class DadosEscalao extends javax.swing.JFrame {
         }
         
         if (txtGenero.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o genero do Escalao!");            
+            JOptionPane.showMessageDialog(this, "Introduza o genero da Equipa!");            
             txtGenero.requestFocus();
             return;
         }else{
             genero=txtGenero.getText();
         }
-        Escalao escalao = new Escalao(id, nome, genero); 
-        
-        listaEscalao.adicionarEscalao(escalao);
+        listaEscalao.alterarEscalao(e, id, nome, genero);
         JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,6 +111,7 @@ public class DadosEscalao extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        txtIdEscalao.setEditable(false);
         txtIdEscalao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtIdEscalao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +126,7 @@ public class DadosEscalao extends javax.swing.JFrame {
             }
         });
 
+        txtGenero.setEditable(false);
         txtGenero.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtGenero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +249,7 @@ public class DadosEscalao extends javax.swing.JFrame {
     }//GEN-LAST:event_txtGeneroActionPerformed
 
     private void alterarPavilhaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarPavilhaoBtnActionPerformed
-        guardar();
+        alterar();
         dispose();
     }//GEN-LAST:event_alterarPavilhaoBtnActionPerformed
 

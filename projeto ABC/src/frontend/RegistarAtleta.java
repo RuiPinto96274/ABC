@@ -35,7 +35,7 @@ public class RegistarAtleta extends javax.swing.JFrame {
     private void carregarListaEscaloes(){
         comboEscalao.removeAllItems();
         for (Escalao esc : lista_geral_esc.listagemEscalao()){
-            String item =String.valueOf(esc.getId_equipa());
+            String item =String.valueOf(esc.getNome());
             comboEscalao.addItem(item);
         }
     }
