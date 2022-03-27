@@ -96,12 +96,10 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("LOGIN");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
 
         labelUsername.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        labelUsername.setForeground(new java.awt.Color(0, 0, 0));
         labelUsername.setText("Username:");
         getContentPane().add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
 
@@ -111,9 +109,8 @@ public class Login extends javax.swing.JFrame {
         txtPass.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 200, -1));
 
-        sairBtn.setBackground(new java.awt.Color(255, 255, 153));
+        sairBtn.setBackground(new java.awt.Color(255, 255, 204));
         sairBtn.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        sairBtn.setForeground(new java.awt.Color(0, 0, 0));
         sairBtn.setText("Sair");
         sairBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,9 +119,8 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(sairBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 80, -1));
 
-        entrarBtn.setBackground(new java.awt.Color(255, 255, 153));
+        entrarBtn.setBackground(new java.awt.Color(255, 255, 204));
         entrarBtn.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        entrarBtn.setForeground(new java.awt.Color(0, 0, 0));
         entrarBtn.setText("Entrar");
         entrarBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,11 +130,10 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(entrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 80, -1));
 
         labelPass.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        labelPass.setForeground(new java.awt.Color(0, 0, 0));
         labelPass.setText("Passe:");
         getContentPane().add(labelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
 
-        checkVerPass.setBackground(new java.awt.Color(255, 236, 52));
+        checkVerPass.setBackground(new java.awt.Color(255, 221, 0));
         checkVerPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkVerPassActionPerformed(evt);
