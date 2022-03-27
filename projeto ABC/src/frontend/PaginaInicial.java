@@ -19,8 +19,6 @@ import javax.swing.UIManager;
  * @author cataf
  */
 public class PaginaInicial extends javax.swing.JFrame {
-    private Administrador a;
-    private Colaborador c;
     private Utilizador u;
     /**
      * Creates new form PaginaInicial
@@ -249,13 +247,11 @@ public class PaginaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_iconPagarMouseClicked
 
     private void iconPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconPerfilMouseClicked
-        //Utilizador u=new Utilizador();
         if(u instanceof Administrador){
-           DadosAdmin da=new DadosAdmin((Administrador) a);
+           DadosAdmin da=new DadosAdmin((Administrador) u);
            da.setVisible(true);
-           System.out.println(a);
-         }else{
-             DadosColaborador dc=new DadosColaborador((Colaborador)c);
+         }else if (u instanceof Colaborador){
+             DadosColaborador dc=new DadosColaborador((Colaborador)u);
              dc.setVisible(true);
          }
             
