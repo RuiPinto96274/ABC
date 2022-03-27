@@ -138,6 +138,57 @@ public class ListaUtilizadores {
         }  
         return null;
     }
+    public ArrayList<Escalao> getEquipaAtleta(Atleta a){
+        ArrayList <Escalao> listaEquipas = new ArrayList<>();
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "SELECT Equipa_idEquipa FROM Inscricao where Atleta_cipa=\'"+ a.getCipa() + "\' ";
+
+            Statement st;
+            ResultSet rs;
+
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+            Escalao esc;
+            ListaEscalao lista = new ListaEscalao();
+
+            while(rs.next()) {
+                String id= rs.getString("Equipa_idEquipa");
+                esc = lista.getEscalao(id);
+                //Atleta = new Atleta(rs.getString("cipa"),rs.getString("nome"), rs.getString("password"), LocalDate.parse(rs.getString("data_nasc")), Integer.parseInt(rs.getString("contacto")));
+                listaEquipas.add(esc);
+            }
+            con.close();
+            return listaEquipas;
+
+        } catch (Exception ex) {
+            System.err.println("Got an exception ao carregar inscricoes de atleta! ");
+            System.err.println(ex.getMessage());
+        }
+        
+        return null;
+    }
+    
+    public void associarEscalaoAtleta(Atleta a, Escalao esc) {
+        try {
+            Connection con;
+            con=getConnection();
+           
+            String query = " insert into Inscricao (Atleta_cipa, Equipa_idEquipa)"
+                    + " values (?, ?)";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, a.getCipa());
+            preparedStmt.setString(2, esc.getId_equipa());
+            preparedStmt.execute();
+            con.close();
+            
+        } catch (Exception ex) {
+            System.err.println("Got an exception, ao adicionar atleta a uma equipa! ");
+            System.err.println(ex.getMessage());
+        }
+    }
     
     public void adicionarAtleta(Atleta a) {
         try {

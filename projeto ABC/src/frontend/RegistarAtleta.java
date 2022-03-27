@@ -35,8 +35,12 @@ public class RegistarAtleta extends javax.swing.JFrame {
     private void carregarListaEscaloes(){
         comboEscalao.removeAllItems();
         for (Escalao esc : lista_geral_esc.listagemEscalao()){
-            String item =String.valueOf(esc.getNome());
-            comboEscalao.addItem(item);
+            /*String item =String.valueOf(esc.getNome());
+            comboEscalao.addItem(item);*/
+            String nome =esc.getNome();
+            String id =esc.getId_equipa();
+            String item=String.join("-", id, nome);
+            comboEscalao.addItem(item);   
         }
     }
     
@@ -50,13 +54,17 @@ public class RegistarAtleta extends javax.swing.JFrame {
             String nome=txtNome.getText();
             String senha=txtPass.getText();
             //ver como fazer em relacao ao escalao
-            //String item = String.valueOf(comboEscalao.getSelectedItem());
+            String item = String.valueOf(comboEscalao.getSelectedItem());
+            String[] valores=item.split("-");
+            String id=valores[0];
+            Escalao escalao=lista_geral_esc.getEscalao(id);
             String cipa =(txtCipa.getText());
             int contacto =Integer.parseInt(txtContacto.getText());
             //LocalDate data_nasc= LocalDate.parse(txtDataNasc.getText());  //para já colocar 2022-03-23
             LocalDate data_nasc= txtDataNasc.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             Atleta a = new Atleta(cipa, nome, senha, data_nasc, contacto);
             lista_geral_users.adicionarAtleta(a);
+            lista_geral_users.associarEscalaoAtleta(a, escalao);
                
         JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
 

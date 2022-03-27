@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Atleta;
+import backend.Escalao;
 import backend.ListaUtilizadores;
 import java.awt.Color;
 import java.awt.Font;
@@ -66,8 +67,23 @@ public class GestaoAtletas extends javax.swing.JFrame {
     private void preencheTabela() {
         modelAtletas.setRowCount(0); //especifica o nr de linhas na tabela
         for (int index = 0; index < lista_geral.listagemAtletas().size(); index++) {
-            Atleta a = lista_geral.listagemAtletas().get(index);          
-            modelAtletas.addRow(new Object[]{a.getCipa(), a.getNome(), a.getContactoTlm(), a.getDataNasc()});
+            Atleta a = lista_geral.listagemAtletas().get(index); 
+            if(lista_geral.getEquipaAtleta(a)==null){
+                String resul="Sem equipa";
+                modelAtletas.addRow(new Object[]{a.getCipa(), a.getNome(),resul, a.getContactoTlm(), a.getDataNasc()});
+            }else{
+                ArrayList<Escalao> equipas = lista_geral.getEquipaAtleta(a);
+                ArrayList<String> nome_eq= new ArrayList(); 
+                String nome;
+                for(int i=0; i<equipas.size(); i++){
+                    Escalao e = equipas.get(i);
+                    nome=e.getNome();
+                    nome_eq.add(nome);                  
+                }
+                String resul = String.join(",", nome_eq);
+                modelAtletas.addRow(new Object[]{a.getCipa(), a.getNome(),resul, a.getContactoTlm(), a.getDataNasc()});
+            }
+            
         }
         tabelaAtletas.setModel(modelAtletas);
     }
@@ -203,17 +219,17 @@ public class GestaoAtletas extends javax.swing.JFrame {
 
         tabelaAtletas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "CIPA", "NOME", "CONTACTO", "DATA NASCIMENTO"
+                "CIPA", "NOME", "EQUIPA", "CONTACTO", "DATA NASCIMENTO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
