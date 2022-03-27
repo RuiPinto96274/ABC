@@ -6,6 +6,7 @@
 package frontend;
 
 import backend.Administrador;
+import backend.Colaborador;
 import backend.Utilizador;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,19 +19,28 @@ import javax.swing.UIManager;
  * @author cataf
  */
 public class PaginaInicial extends javax.swing.JFrame {
-
+    private Administrador a;
+    private Colaborador c;
+    private Utilizador u;
     /**
      * Creates new form PaginaInicial
      */
     public PaginaInicial(Utilizador u) {
+        this.u=u;
         initComponents();
-        
+   
         setExtendedState(JFrame.MAXIMIZED_BOTH);   
         
         //Apenas mostra  se o utilizador for um administrador
         iconPagar.setVisible(u instanceof Administrador);
         iconGestaoTeC.setVisible(u instanceof Administrador);
         
+        
+        //aparecer texto ao passar cursor em cima
+        iconPerfil.setToolTipText("Perfil");       
+        UIManager.put("ToolTip.background", Color.WHITE);
+        UIManager.put("ToolTip.foreground", Color.BLACK);
+        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
         
         //aparecer texto ao passar cursor em cima
         iconAtletas.setToolTipText("Atletas");       
@@ -97,6 +107,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         iconSair = new javax.swing.JLabel();
         iconGestaoTeC = new javax.swing.JLabel();
         iconPagar = new javax.swing.JLabel();
+        iconPerfil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -109,7 +120,7 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 236, 52));
 
-        iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
+        iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (1).png"))); // NOI18N
         iconAtletas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconAtletasMouseClicked(evt);
@@ -145,33 +156,43 @@ public class PaginaInicial extends javax.swing.JFrame {
             }
         });
 
+        iconPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
+        iconPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconPerfilMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(iconCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconAtletas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconSair, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(iconGestaoTeC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iconPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconCalendario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconAtletas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconSair, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(iconGestaoTeC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconPagar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(133, 133, 133)
+                .addGap(97, 97, 97)
+                .addComponent(iconPerfil)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(iconAtletas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(iconCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(iconCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(iconGestaoTeC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(iconPagar)
-                .addGap(214, 214, 214)
-                .addComponent(iconSair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(iconSair, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE)
                 .addGap(23, 23, 23))
         );
 
@@ -227,6 +248,19 @@ public class PaginaInicial extends javax.swing.JFrame {
         rq.setVisible(true);
     }//GEN-LAST:event_iconPagarMouseClicked
 
+    private void iconPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconPerfilMouseClicked
+        //Utilizador u=new Utilizador();
+        if(u instanceof Administrador){
+           DadosAdmin da=new DadosAdmin((Administrador) a);
+           da.setVisible(true);
+           System.out.println(a);
+         }else{
+             DadosColaborador dc=new DadosColaborador((Colaborador)c);
+             dc.setVisible(true);
+         }
+            
+    }//GEN-LAST:event_iconPerfilMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -268,6 +302,7 @@ public class PaginaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel iconCalendario;
     private javax.swing.JLabel iconGestaoTeC;
     private javax.swing.JLabel iconPagar;
+    private javax.swing.JLabel iconPerfil;
     private javax.swing.JLabel iconSair;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
