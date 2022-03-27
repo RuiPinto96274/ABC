@@ -21,7 +21,7 @@ public class DadosColaborador extends javax.swing.JFrame {
      * Creates new form DadosColaborador
      */
     public DadosColaborador(Colaborador c) {
-        //this.c=c;
+        this.c=c;
         initComponents();
         
         //Mostra a centralização da janela
@@ -36,14 +36,16 @@ public class DadosColaborador extends javax.swing.JFrame {
         
     }
     
-    private void guardar() throws ListaEscalao.EscalaoNaoExistenteException{      
+    private void guardar() throws ListaEscalao.EscalaoNaoExistenteException{
+        Colaborador co=c;
+        lista_geral_users.removerColaborador(c);
         if (txtCipa.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza o cipa!");            
             txtCipa.requestFocus();
             return;
         }else{
-            c.setCipa(txtCipa.getText());
-            c.setCipa(txtCipa.getText());
+            co.setCipa(txtCipa.getText());
+            co.setCipa(txtCipa.getText());
         }
         
         if (txtContacto.getText().isEmpty()) {
@@ -51,7 +53,7 @@ public class DadosColaborador extends javax.swing.JFrame {
             txtContacto.requestFocus();
             return;
         }else{
-            c.setContactoTlm(Integer.parseInt(txtContacto.getText()));
+            co.setContactoTlm(Integer.parseInt(txtContacto.getText()));
         }
         
         if (txtPass.getText().isEmpty()) {
@@ -59,10 +61,10 @@ public class DadosColaborador extends javax.swing.JFrame {
             txtPass.requestFocus();
             return;
         }else{
-            c.setPassword(txtPass.getText());
+            co.setPassword(txtPass.getText());
         }
 
-        lista_geral_users.adicionarColaborador(c);
+        lista_geral_users.adicionarColaborador(co);
         JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
         
     }

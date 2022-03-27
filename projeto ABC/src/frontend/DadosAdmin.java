@@ -34,7 +34,7 @@ public class DadosAdmin extends javax.swing.JFrame {
         txtPass.setText(a.getPassword());
     }
     
-    private void guardar() throws ListaUtilizadores.UtilizadorNaoExistenteException{  
+    private void guardar() throws ListaUtilizadores.UtilizadorNaoExistenteException{   
         if (txtPass.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza a password!");            
             txtPass.requestFocus();
@@ -42,6 +42,7 @@ public class DadosAdmin extends javax.swing.JFrame {
         }else{
             a.setPassword(txtPass.getText());
         }
+        lista_geral_users.alterarAdmin(a);
         JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");    
     }
     

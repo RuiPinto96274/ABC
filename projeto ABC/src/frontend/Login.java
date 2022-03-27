@@ -81,41 +81,35 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        labelUsername = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        labelPass = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        labelUsername = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         txtPass = new javax.swing.JPasswordField();
         sairBtn = new javax.swing.JButton();
         entrarBtn = new javax.swing.JButton();
+        labelPass = new javax.swing.JLabel();
+        checkVerPass = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("LOGIN");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
+
         labelUsername.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         labelUsername.setForeground(new java.awt.Color(0, 0, 0));
         labelUsername.setText("Username:");
-        getContentPane().add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("LOGIN");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
-
-        labelPass.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        labelPass.setForeground(new java.awt.Color(0, 0, 0));
-        labelPass.setText("Passe:");
-        getContentPane().add(labelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 51));
-        jPanel1.setForeground(new java.awt.Color(204, 204, 255));
+        getContentPane().add(labelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, -1, -1));
 
         txtUser.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        getContentPane().add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 200, -1));
 
         txtPass.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 200, -1));
 
         sairBtn.setBackground(new java.awt.Color(255, 255, 153));
         sairBtn.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -126,6 +120,7 @@ public class Login extends javax.swing.JFrame {
                 sairBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(sairBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 370, 80, -1));
 
         entrarBtn.setBackground(new java.awt.Color(255, 255, 153));
         entrarBtn.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
@@ -136,42 +131,23 @@ public class Login extends javax.swing.JFrame {
                 entrarBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(entrarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 80, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(sairBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(entrarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sairBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(entrarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
-        );
+        labelPass.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        labelPass.setForeground(new java.awt.Color(0, 0, 0));
+        labelPass.setText("Passe:");
+        getContentPane().add(labelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 320, 210));
+        checkVerPass.setBackground(new java.awt.Color(255, 236, 52));
+        checkVerPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkVerPassActionPerformed(evt);
+            }
+        });
+        getContentPane().add(checkVerPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 20, 20));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/artworks-f8rCaBjIqrtxWW1i-5JNGWw-t500x500.jpg"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background-abc.jpeg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,6 +167,14 @@ public class Login extends javax.swing.JFrame {
         PaginaInicial pg = new PaginaInicial(u);               
         pg.setVisible(true);*/
     }//GEN-LAST:event_entrarBtnActionPerformed
+
+    private void checkVerPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVerPassActionPerformed
+        if(checkVerPass.isSelected()){
+            txtPass.setEchoChar((char)0);
+        }else{
+            txtPass.setEchoChar('•');
+        }
+    }//GEN-LAST:event_checkVerPassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,10 +212,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox checkVerPass;
     private javax.swing.JButton entrarBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelPass;
     private javax.swing.JLabel labelUsername;
     private javax.swing.JButton sairBtn;

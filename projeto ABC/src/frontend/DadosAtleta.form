@@ -83,11 +83,6 @@
                                   <Component id="removerAtletaBtn" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtDataNasc" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtPass" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="checkVerPass" min="-2" pref="21" max="-2" attributes="0"/>
-                              </Group>
                               <Component id="txtCipa" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtNome" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtEscalao" alignment="1" max="32767" attributes="0"/>
@@ -99,8 +94,11 @@
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="txtPass" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="checkVerPass" min="-2" pref="21" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

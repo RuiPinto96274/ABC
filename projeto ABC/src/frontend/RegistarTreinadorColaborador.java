@@ -36,11 +36,11 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
     }
     
     private void registarTreinadorColaborador() throws ListaUtilizadores.UtilizadorDuplicadoException, ListaUtilizadores.UtilizadorNaoExistenteException{
-        if(txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || txtNome.getText().isEmpty()|| txtContacto.getText().isEmpty() || comboUser.getSelectedItem()==null){
+        if(txtCipa.getText().isEmpty()|| txtPass.getText().isEmpty() || txtNome.getText().isEmpty()|| txtContacto.getText().isEmpty() || comboUser.getSelectedItem()==null){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");       
         }else{
             String nome=txtNome.getText();
-            String senha=txtPassword.getText();
+            String senha=txtPass.getText();
             String cipa =(txtCipa.getText());
             int contacto =Integer.parseInt(txtContacto.getText());
             
@@ -76,11 +76,12 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
         txtContacto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtCipa = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         comboUser = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
+        checkVerPass1 = new javax.swing.JCheckBox();
+        txtPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -160,8 +161,6 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel6.setText("Cipa:");
 
@@ -173,6 +172,13 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel9.setText("Função:");
+
+        checkVerPass1.setBackground(new java.awt.Color(255, 236, 52));
+        checkVerPass1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkVerPass1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -193,13 +199,18 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
                         .addContainerGap(208, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword)
                             .addComponent(txtCipa)
                             .addComponent(txtNome)
                             .addComponent(txtContacto, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(68, 68, 68))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtPass))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkVerPass1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,8 +232,10 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
                 .addComponent(txtNome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPassword)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkVerPass1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPass, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(4, 4, 4)
@@ -264,7 +277,7 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
 
     private void adicionarUtilizadorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarUtilizadorBtnActionPerformed
         try {
-            if (txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || 
+            if (txtCipa.getText().isEmpty()|| txtPass.getText().isEmpty() || 
                 txtNome.getText().isEmpty()|| txtContacto.getText().isEmpty() || comboUser.getSelectedItem()==null){
                 JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
             }else{
@@ -285,6 +298,14 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
     private void jPanel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2AncestorAdded
+
+    private void checkVerPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVerPass1ActionPerformed
+        if(checkVerPass.isSelected()){
+            txtPass.setEchoChar((char)0);
+        }else{
+            txtPass.setEchoChar('•');
+        }
+    }//GEN-LAST:event_checkVerPass1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -326,6 +347,8 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adicionarUtilizadorBtn;
+    private javax.swing.JCheckBox checkVerPass;
+    private javax.swing.JCheckBox checkVerPass1;
     private javax.swing.JComboBox<String> comboUser;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -339,6 +362,6 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
     private javax.swing.JTextField txtCipa;
     private javax.swing.JTextField txtContacto;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPass;
     // End of variables declaration//GEN-END:variables
 }

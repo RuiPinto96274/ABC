@@ -94,6 +94,15 @@ public class ListaUtilizadores {
         return null;
     }
     
+    public Treinador getTreinador(String user) throws UtilizadorNaoExistenteException {
+        for (Treinador t : listagemTreinadores()){
+                    if(t.getCipa().equals(user)){
+                        return t;
+                    }
+                }
+        return null;
+    }
+    
     public ArrayList<Utilizador> listagemUtilizadores() {
         return new ArrayList<>(listaUtilizadores.values());
     }
@@ -297,7 +306,25 @@ public class ListaUtilizadores {
         }
         return null;
     }
-    	
+    
+    public void alterarAdmin(Administrador a) {
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "update Administrador set pass=?  where username= ?";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, a.getPassword());
+            preparedStmt.setString(2, a.getCipa());
+            preparedStmt.execute();
+            con.close();
+
+        } catch (Exception ex) {
+            System.err.println("Erro ao alterar um admin! ");
+            System.err.println(ex.getMessage());
+        }
+    }
+    
     public void adicionarTreinador(Treinador t) {
         try {
             Connection con;
@@ -333,6 +360,65 @@ public class ListaUtilizadores {
             
         } catch (Exception ex) {
             System.err.println("Erro ao remover treinador!");
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    public void alterarTreinadorComEscalao(Treinador t) {
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "update Treinador set nome=? , pass=?,  contacto=?,  Equipa_idEquipa=? where cipa= ?";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, t.getNome());
+            preparedStmt.setString(2, t.getPassword());
+            preparedStmt.setInt(3, t.getContactoTlm());
+            preparedStmt.setString(4, t.getEquipa().getId_equipa());
+            preparedStmt.setString(5, t.getCipa());
+            preparedStmt.execute();
+            con.close();
+
+        } catch (Exception ex) {
+            System.err.println("Erro ao alterar um treinador! ");
+            System.err.println(ex.getMessage());
+        }
+    } 
+    
+    public void alterarTreinadorSemEscalao(Treinador t) {
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "update Treinador set nome=? , pass=?,  contacto=? where cipa= ?";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, t.getNome());
+            preparedStmt.setString(2, t.getPassword());
+            preparedStmt.setInt(3, t.getContactoTlm());
+            preparedStmt.setString(4, t.getCipa());
+            preparedStmt.execute();
+            con.close();
+
+        } catch (Exception ex) {
+            System.err.println("Erro ao alterar um treinador sem escalao! ");
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    public void associarEscalao(Treinador t, Escalao e) {
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "update Treinador set Equipa_idEquipa=? where cipa= ?";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, e.getId_equipa());
+            preparedStmt.setString(2, t.getCipa());
+            preparedStmt.execute();
+            con.close();
+
+        } catch (Exception ex) {
+            System.err.println("Erro ao associar um escalao a treinador! ");
             System.err.println(ex.getMessage());
         }
     }
