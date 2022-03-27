@@ -20,6 +20,7 @@ public class Colaborador extends Utilizador{
         super(user,passe);
 	user=String.valueOf(cipa);
         this.contactoTlm= tlm;
+        this.nome=nome;
     }
 	//Métodos seletores
     public int getCipa() {

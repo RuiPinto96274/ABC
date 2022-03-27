@@ -8,42 +8,58 @@ package backend;
 
 
 public class Pavilhao {
-    private String id_pavilhao;
+    private String idPavilhao;
     private String nome;
-    private String localizacao;
+    private String morada;
+    private String codigo_postal;
 
     //variavel que guarde os horarios em que está disponivel 
 
     //construtor
-
-    public Pavilhao(String id_pavilhao, String nome, String localizacao) {
-        this.id_pavilhao = id_pavilhao;
+    public Pavilhao(String id_pavilhao, String nome, String localizacao, String cp) {
+        this.idPavilhao = id_pavilhao;
         this.nome = nome;
-        this.localizacao = localizacao;
+        this.morada = localizacao;
+        this.codigo_postal=cp;
+    }
+    
+    public Pavilhao(String nome, String localizacao, String cp) {
+        //this.idPavilhao = id_pavilhao;
+        this.nome = nome;
+        this.morada = localizacao;
+        this.codigo_postal=cp;
     }
    
 
     //Métodos seletores
-    public String getLocal(){
-        return localizacao;
+    public String getMorada(){
+        return morada;
     }
 
-    public String getId_pavilhao() {
-        return id_pavilhao;
+    public String getIdPavilhao() {
+        return idPavilhao;
     }
 
     public String getNome() {
         return nome;
     }
+
+    public String getCodigo_postal() {
+        return codigo_postal;
+    }
+
+    public void setCodigo_postal(String codigo_postal) {
+        this.codigo_postal = codigo_postal;
+    }
     
     //Métodos modificadores
 
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
+    public void setMorada(String morada) {
+        this.morada = morada;
     }
 
-    public void setId_pavilhao(String id_pavilhao) {
-        this.id_pavilhao = id_pavilhao;
+    public void setIdPavilhao(String idPavilhao) {
+        this.idPavilhao = idPavilhao;
     }
 
     public void setNome(String nome) {

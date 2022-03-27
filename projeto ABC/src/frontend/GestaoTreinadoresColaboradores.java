@@ -69,12 +69,12 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         modelUtilizadores.setRowCount(0); //especifica o nr de linhas na tabela
         for (int index = 0; index < lista_geral.listagemTreinadores().size(); index++) {
             Treinador t = lista_geral.listagemTreinadores().get(index);          
-            modelUtilizadores.addRow(new Object[]{"Treinador",t.getUsername(), t.getCipa(), t.getNome(), t.getContactoTlm()});
+            modelUtilizadores.addRow(new Object[]{"Treinador", t.getUsername(), t.getNome(), t.getContactoTlm()});
         }
         //ciclo for colaboradores
         for (int index = 0; index < lista_geral.listagemColaboradores().size(); index++) {
-            Colaborador c = lista_geral.listagemColaboradores().get(index);          
-            modelUtilizadores.addRow(new Object[]{"Colaborador",c.getUsername(), c.getCipa(), c.getNome(), c.getContactoTlm()});
+            Colaborador c = lista_geral.listagemColaboradores().get(index); 
+            modelUtilizadores.addRow(new Object[]{"Colaborador", c.getUsername(), c.getNome(), c.getContactoTlm()});
         }
         tabelaUtilizadores.setModel(modelUtilizadores);
     }
@@ -144,6 +144,11 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
 
         iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
         iconAtletas.setText("jLabel1");
+        iconAtletas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconAtletasMouseClicked(evt);
+            }
+        });
 
         iconCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
         iconCalendario.setText("jLabel2");
@@ -207,7 +212,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
                 .addGap(19, 19, 19))
         );
 
-        registarUtilizadorBtn.setBackground(new java.awt.Color(48, 44, 44));
+        registarUtilizadorBtn.setBackground(new java.awt.Color(255, 236, 52));
         registarUtilizadorBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         registarUtilizadorBtn.setText("Registar Utilizador");
         registarUtilizadorBtn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -223,17 +228,17 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
 
         tabelaUtilizadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "FUNÇÃO", "USERNAME", "CIPA", "NOME", "CONTACTO"
+                "FUNÇÃO", "CIPA", "NOME", "CONTACTO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, false, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -245,7 +250,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         txtProcura.setBackground(new java.awt.Color(204, 204, 204));
         txtProcura.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
-        pesquisaBtn.setBackground(new java.awt.Color(48, 44, 44));
+        pesquisaBtn.setBackground(new java.awt.Color(255, 236, 52));
         pesquisaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         pesquisaBtn.setText("Pesquisar");
         pesquisaBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -259,7 +264,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("GESTÃO DE TREINADORES E COLABORADORES");
 
-        atualizarBtn.setBackground(new java.awt.Color(48, 44, 44));
+        atualizarBtn.setBackground(new java.awt.Color(255, 236, 52));
         atualizarBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         atualizarBtn.setText("Atualizar");
         atualizarBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +273,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
             }
         });
 
-        gestaoEscaloesBtn.setBackground(new java.awt.Color(48, 44, 44));
+        gestaoEscaloesBtn.setBackground(new java.awt.Color(255, 236, 52));
         gestaoEscaloesBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         gestaoEscaloesBtn.setText("Gestão Escalões");
         gestaoEscaloesBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -380,6 +385,12 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         RegistarQuota rq = new RegistarQuota();
         rq.setVisible(true);
     }//GEN-LAST:event_iconPagarMouseClicked
+
+    private void iconAtletasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconAtletasMouseClicked
+        dispose();
+        GestaoAtletas ga = new GestaoAtletas();
+        ga.setVisible(true);
+    }//GEN-LAST:event_iconAtletasMouseClicked
 
     /**
      * @param args the command line arguments

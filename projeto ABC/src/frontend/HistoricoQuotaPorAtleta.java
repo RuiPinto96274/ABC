@@ -9,9 +9,6 @@ import backend.Atleta;
 import backend.ListaQuotas;
 import backend.ListaUtilizadores;
 import backend.Quota;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -45,15 +42,18 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
         for (int index = 0; index < lista_geral_quotas.listagemPorAtleta(a).size(); index++) {
             Quota qt = lista_geral_quotas.listagemPorAtleta(a).get(index);
             //buscar o mes+ano
-            String m= devolveMes(qt.getData_pagamento().getMonthValue());
-            String y = String.valueOf(qt.getData_pagamento().getYear());  
+            String m= devolveMes(qt.getData().getMonthValue());
+            String y = String.valueOf(qt.getData().getYear());  
             //buscar valor do pagou
             String resul= new String();
+            
+            //TROCAR PARA BOL
+            /*
             if(qt.getPagou().equals("Y")){
                 resul="Pagou";
             }else if(qt.getPagou().equals("F")){
                 resul="Não Pagou";
-            }           
+            }       */    
             modelQuotas.addRow(new Object[]{m.concat(y),resul});
         }
         tabelaQuotas.setModel(modelQuotas);
@@ -69,11 +69,13 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Não há registo de pagamento nesse mês!");
             }else{
                 System.out.println(q);
+                //TROCAR PARA BOL
+                /*
                 if(q.getPagou().equals("Y")){
                      JOptionPane.showMessageDialog(this, "Quota paga");
                 }else if(q.getPagou().equals("N")){
                     JOptionPane.showMessageDialog(this, "Quota por pagar!");
-                }
+                }*/
             }
 
         }

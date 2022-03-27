@@ -31,13 +31,13 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
         //preencher caixas
         if(u instanceof Treinador){
            txtContacto.setText(String.valueOf(((Treinador) u).getContactoTlm()));
-           txtCipa.setText(String.valueOf(((Treinador) u).getCipa()));
+           txtCipa.setText(String.valueOf(((Treinador) u).getUsername()));
            txtNome.setText(((Treinador) u).getNome());
            txtPass.setText(u.getPassword());  
         }
         if(u instanceof Colaborador){
            txtContacto.setText(String.valueOf(((Colaborador) u).getContactoTlm()));
-           txtCipa.setText(String.valueOf(((Colaborador) u).getCipa()));
+           txtCipa.setText(String.valueOf(((Colaborador) u).getUsername()));
            txtNome.setText(((Colaborador) u).getNome());
            txtPass.setText(u.getPassword()); 
         }        
@@ -65,6 +65,15 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             t.setUsername(txtCipa.getText());
             t.setCipa(Integer.parseInt(txtCipa.getText()));
         }
+        
+        if (txtContacto.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Introduza o contacto!");            
+                txtContacto.requestFocus();
+                return;
+            }else{
+                Treinador t = (Treinador) u;
+                t.setContactoTlm(Integer.parseInt(txtContacto.getText()));           
+            }
 
         if (txtPass.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza uma palavra passe!");            
@@ -72,57 +81,58 @@ public class DadosTreinadorColaborador extends javax.swing.JFrame {
             return;
         }else{
             Treinador j = (Treinador) u;
-            j.setCipa(Integer.parseInt(txtNome.getText()));
             j.setPassword(txtPass.getText());
         }
             
             lista_geral.adicionarTreinador((Treinador) u);
             JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!"); 
-        }else if(u instanceof Colaborador){
-            lista_geral.removerColaborador((Colaborador) u);
             
-            lista_geral.adicionarColaborador((Colaborador) u);
-            JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
-        }
-        
-        if (txtNome.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o nome!");            
-            txtNome.requestFocus();
-            return;
-        }else{
-            Treinador t = (Treinador) u;
-            t.setNome(txtNome.getText());
-        }
+            //se for colaborador
+        }else if(u instanceof Colaborador){
+            Colaborador j = (Colaborador) u;
+            lista_geral.removerColaborador((Colaborador) j);
+            //Colaborador j = (Colaborador) u;
+            if (txtNome.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Introduza o nome!");            
+                txtNome.requestFocus();
+                return;
+            }else{
+                //Colaborador t = (Colaborador) u;
+                j.setNome(txtNome.getText());
+            }
+            
+            if (txtContacto.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Introduza o contacto!");            
+                txtContacto.requestFocus();
+                return;
+            }else{
+                //Colaborador t = (Colaborador) u;
+                j.setContactoTlm(Integer.parseInt(txtContacto.getText()));           
+            }
         
         if (txtCipa.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o username!");            
+            JOptionPane.showMessageDialog(this, "Introduza o cipa!");            
             txtCipa.requestFocus();
             return;
         }else{
-            u.setUsername(txtCipa.getText());
-            //u.(txtCipa.getText());
+           // Colaborador t = (Colaborador) u;
+            j.setUsername(txtCipa.getText());
+            j.setCipa(Integer.parseInt(txtCipa.getText()));
         }
-        
-       
-        if (txtNome.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o cipa!");            
-            txtNome.requestFocus();
-            return;
-        }else{
-            Treinador j = (Treinador) u;
-            j.setCipa(Integer.parseInt(txtNome.getText()));
-            //u.setCipa(Integer.parseInt(txtCipa.getText()));
-        }
-        
+
         if (txtPass.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza uma palavra passe!");            
             txtPass.requestFocus();
             return;
         }else{
-            Treinador j = (Treinador) u;
-            j.setCipa(Integer.parseInt(txtNome.getText()));
+            //Colaborador j = (Colaborador) u;
             j.setPassword(txtPass.getText());
         }
+            
+            lista_geral.adicionarColaborador( j);
+            JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
+        }
+        
         /*
         if(u instanceof Treinador){
             lista_geral.adicionarTreinador((Treinador) u);

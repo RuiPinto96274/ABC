@@ -31,7 +31,7 @@ public class ListaQuotas {
         try {
             Connection con;
             con=getConnection();
-            String query = "SELECT * FROM quotas";
+            String query = "SELECT * FROM Quota";
 
             Statement st;
             ResultSet rs;
@@ -41,7 +41,7 @@ public class ListaQuotas {
 
             while(rs.next()){ 
                 Quota quota;
-                quota = new Quota(/*Integer.parseInt(rs.getString("id_quota")),*/rs.getString("username"),rs.getString("pagou"), LocalDate.parse(rs.getString("data_pag")));
+                quota = new Quota(Integer.parseInt(rs.getString("idQuota")),rs.getString("Atleta_cipa"),Boolean.parseBoolean(rs.getString("estado")), LocalDate.parse(rs.getString("data")));
                 listaQuotas.add(quota);
             }
             con.close();
@@ -53,7 +53,7 @@ public class ListaQuotas {
         }  
         return null;
     }
-    
+
      public ArrayList<Quota> listagemPorAtleta(Atleta a){
          //ArrayList <Quota> listaQuotas = listagemQuotas();
          ArrayList <Quota> lista = new ArrayList<>();
@@ -75,7 +75,7 @@ public class ListaQuotas {
         LocalDate data_fim = LocalDate.ofInstant(c_fim.toInstant(), ZoneId.systemDefault());
 
          for(Quota q: listagemPorAtleta(a)){
-             if(q.getData_pagamento().isAfter(data_ini) && q.getData_pagamento().isBefore(data_fim)){
+             if(q.getData().isAfter(data_ini) && q.getData().isBefore(data_fim)){
                  return q;
              }
          }
@@ -86,13 +86,14 @@ public class ListaQuotas {
         try {
             Connection con;
             con=getConnection();
-            String query = "INSERT INTO quotas (username, data_pag, pagou) VALUES (?,?,?)";
+            String query = "INSERT INTO Quota (idQuota, Atleta_cipa, estado, data) VALUES (?,?,?,?)";
             
             PreparedStatement ps = con.prepareStatement(query);
             
-            ps.setString(1,q.getUsername());
-            ps.setObject(2, q.getData_pagamento());
-            ps.setString(3, "Y");
+            ps.setString(1,String.valueOf(q.getId_quota()));
+            ps.setString(2,q.getUsername());
+            ps.setBoolean(3, true);
+             ps.setObject(4, q.getData());
            
             ps.executeUpdate();            
 

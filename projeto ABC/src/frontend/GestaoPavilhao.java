@@ -32,7 +32,7 @@ public class GestaoPavilhao extends javax.swing.JFrame {
         modelPavilhoes.setRowCount(0); //especifica o nr de linhas na tabela
         for (int index = 0; index < listaPavilhoes.listagemPavilhoes().size(); index++) {
             Pavilhao p = listaPavilhoes.listagemPavilhoes().get(index);          
-            modelPavilhoes.addRow(new Object[]{p.getId_pavilhao(), p.getNome(), p.getLocal()});
+            modelPavilhoes.addRow(new Object[]{p.getIdPavilhao(), p.getNome(), p.getMorada()});
         }
         tabelaPavilhoes.setModel(modelPavilhoes);
     }
@@ -44,7 +44,7 @@ public class GestaoPavilhao extends javax.swing.JFrame {
         boolean encontrou =false;
         
         for (Pavilhao p : listar){
-            if(p.getId_pavilhao().equals(id_pavilhao)){
+            if(p.getIdPavilhao().equals(id_pavilhao)){
                 DadosPavilhao dp = new DadosPavilhao(p);
                 dp.setVisible(true);
                 txtProcura.setText("");

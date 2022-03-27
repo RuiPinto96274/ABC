@@ -135,16 +135,15 @@ public class ListaUtilizadores {
             Connection con;
             con=getConnection();
            
-            String query = " insert into Atleta (username, pass, cipa, nome, ano_nasc, tlm)"
-                    + " values (?, ?, ?, ?, ?, ?, ?)";
+            String query = " insert into Atleta (cipa, nome, password, data_nasc, contacto)"
+                    + " values (?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, a.getUsername());
-            preparedStmt.setString(2, a.getPassword());
-            preparedStmt.setInt(3, a.getCipa());
-            preparedStmt.setString(4, a.getNome());
-            preparedStmt.setObject(5, a.getDataNasc()); 
-            preparedStmt.setInt(7, a.getContactoTlm());
+            preparedStmt.setString(2, a.getNome());
+            preparedStmt.setString(3, a.getPassword());
+            preparedStmt.setObject(4, a.getDataNasc()); 
+            preparedStmt.setInt(5, a.getContactoTlm());
             preparedStmt.execute();
             con.close();
             
@@ -153,13 +152,13 @@ public class ListaUtilizadores {
             System.err.println(ex.getMessage());
         }
     }
-    
+
     public void removerAtleta(Atleta a){
         try {
             Connection con;
             con=getConnection();
             
-            String query = "delete from atleta where username = ?";
+            String query = "delete from Atleta where cipa = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, a.getUsername());
 
@@ -171,7 +170,7 @@ public class ListaUtilizadores {
             System.err.println(ex.getMessage());
         }
     }
-    
+
     public ArrayList<Atleta> listagemAtletas(){
         ArrayList <Atleta> listaAtletas = new ArrayList<>();
         try {
@@ -187,8 +186,7 @@ public class ListaUtilizadores {
             Atleta atleta;
 
             while(rs.next()) {
-                ListaEscalao lista_esc = new ListaEscalao();
-                atleta = new Atleta(rs.getString("cipa"),rs.getString("pass"),rs.getString("nome"),LocalDate.parse(rs.getString("ano_nasc")), Integer.parseInt(rs.getString("tlm")));
+                atleta = new Atleta(rs.getString("cipa"),rs.getString("nome"), rs.getString("password"), LocalDate.parse(rs.getString("data_nasc")), Integer.parseInt(rs.getString("contacto")));
                 listaAtletas.add(atleta);
             }
             con.close();
@@ -258,7 +256,7 @@ public class ListaUtilizadores {
             Colaborador colab;
 
             while(rs.next()) {
-                colab= new Colaborador(rs.getString("pass"), rs.getString("cipa"), rs.getString("nome"), Integer.parseInt(rs.getString("tlm")));
+                colab= new Colaborador(rs.getString("cipa"),rs.getString("pass"), rs.getString("nome"), Integer.parseInt(rs.getString("tlm")));
                 listaColaboradores.add(colab);               
             }
 
@@ -305,7 +303,7 @@ public class ListaUtilizadores {
             Connection con;
             con=getConnection();
            
-            String query = " insert into Treinador (username, pass, cipa, nome, tlm)"
+            String query = " insert into Treinador (username, pass, cipa, nome, contacto)"
                     + " values (?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -328,7 +326,7 @@ public class ListaUtilizadores {
             Connection con;
             con=getConnection();
             
-            String query = "delete from Treinador where username = ?";
+            String query = "delete from Treinador where cipa = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, t.getUsername());
             preparedStmt.execute();

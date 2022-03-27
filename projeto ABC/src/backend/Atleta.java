@@ -24,6 +24,7 @@ public class Atleta extends Utilizador{
         super(user, pass); //cod=cipa
 	//user=String.valueOf(cipa);
         cipa=Integer.parseInt(user);
+        this.nome=nome;
         this.dataNasc=data_nasc;
         this.contactoTlm= tlm;
     }

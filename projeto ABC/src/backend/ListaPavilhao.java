@@ -27,13 +27,14 @@ public class ListaPavilhao {
             Connection con;
             con=getConnection();
            
-            String query = " insert into pavilhao (id_pavilhao, nome, localizacao)"
+            String query = " insert into Pavilhao (nome, morada, codigo_postal)"
                     + " values (?, ?, ?)";
 
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, p.getId_pavilhao());
+            //preparedStmt.setString(1, p.getIdPavilhao());
             preparedStmt.setString(2, p.getNome());
-            preparedStmt.setString(3, p.getLocal());
+            preparedStmt.setString(3, p.getMorada());
+            preparedStmt.setString(4, p.getCodigo_postal());
             preparedStmt.execute();
             con.close();
             
@@ -42,15 +43,15 @@ public class ListaPavilhao {
             System.err.println(ex.getMessage());
         }
     }
-     
+
      public void removerPavilhao(Pavilhao p){
         try {
             Connection con;
             con=getConnection();
             
-            String query = "delete from pavilhao where id_pavilhao = ?";
+            String query = "delete from Pavilhao where idPavilhao = ?";
             PreparedStatement preparedStmt = con.prepareStatement(query);
-            preparedStmt.setString(1, p.getId_pavilhao());
+            preparedStmt.setString(1, p.getIdPavilhao());
             preparedStmt.execute();
             con.close();
             
@@ -65,7 +66,7 @@ public class ListaPavilhao {
         try {
             Connection con;
             con=getConnection();
-            String query = "SELECT * FROM pavilhao";
+            String query = "SELECT * FROM Pavilhao";
 
             Statement st;
             ResultSet rs;
@@ -75,12 +76,11 @@ public class ListaPavilhao {
             Pavilhao pavilhao;
 
             while(rs.next()) {
-                pavilhao = new Pavilhao(rs.getString("id_pavilhao"),rs.getString("nome"),rs.getString("localizacao"));
+                pavilhao = new Pavilhao(rs.getString("idPavilhao"),rs.getString("nome"),rs.getString("morada"), rs.getString("codigo_postal"));
                 listaPavilhoes.add(pavilhao);
             }
 
             return listaPavilhoes;
-
         } catch (Exception ex) {
             System.err.println("Erro a listar pavilhoes!");
             System.err.println(ex.getMessage());

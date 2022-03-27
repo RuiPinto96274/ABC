@@ -25,17 +25,18 @@ public class RegistarPavilhao extends javax.swing.JFrame {
     }
     
     private void registarPavilhao() throws Exception{
-        if(txtIdPavilhao.getText().isEmpty()|| txtNome.getText().isEmpty() ||
+        if(txtNome.getText().isEmpty() ||
                 txtLocalizacao.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
             
             
         }else{
-            String id_pavilhao=txtIdPavilhao.getText();
+            //String id_pavilhao=txtIdPavilhao.getText();
             String nome=txtNome.getText();
-            String localizacao=txtLocalizacao.getText();
+            String morada=txtLocalizacao.getText();
+            String cod_postal=txtCodigoPos.getText();
  
-            Pavilhao p = new Pavilhao(id_pavilhao, nome, localizacao);
+            Pavilhao p = new Pavilhao(nome, morada, cod_postal);
             listaPavilhoes.adicionarPavilhao(p);
                
         JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
@@ -60,7 +61,7 @@ public class RegistarPavilhao extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtIdPavilhao = new javax.swing.JTextField();
+        txtCodigoPos = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -134,21 +135,27 @@ public class RegistarPavilhao extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel3.setText("Localização:");
 
-        txtIdPavilhao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtIdPavilhao.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigoPos.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtCodigoPos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdPavilhaoActionPerformed(evt);
+                txtCodigoPosActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel7.setText("ID:");
+        jLabel7.setText("Codigo Postal:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(adicionarPavilhaoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,29 +165,21 @@ public class RegistarPavilhao extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(208, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome)
-                            .addComponent(txtLocalizacao, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(txtIdPavilhao, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCodigoPos, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtLocalizacao, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(68, 68, 68))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(adicionarPavilhaoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtIdPavilhao)
-                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome)
@@ -188,6 +187,10 @@ public class RegistarPavilhao extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtLocalizacao)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCodigoPos)
                 .addGap(38, 38, 38)
                 .addComponent(adicionarPavilhaoBtn)
                 .addGap(18, 18, 18)
@@ -215,7 +218,7 @@ public class RegistarPavilhao extends javax.swing.JFrame {
 
     private void adicionarPavilhaoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarPavilhaoBtnActionPerformed
         try {
-            if (txtIdPavilhao.getText().isEmpty()|| txtNome.getText().isEmpty() ||
+            if (txtCodigoPos.getText().isEmpty()|| txtNome.getText().isEmpty() ||
                 txtLocalizacao.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
             }else{
@@ -232,13 +235,13 @@ public class RegistarPavilhao extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txtIdPavilhaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdPavilhaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdPavilhaoActionPerformed
-
     private void jPanel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2AncestorAdded
+
+    private void txtCodigoPosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoPosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoPosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,7 +290,7 @@ public class RegistarPavilhao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtIdPavilhao;
+    private javax.swing.JTextField txtCodigoPos;
     private javax.swing.JTextField txtLocalizacao;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables

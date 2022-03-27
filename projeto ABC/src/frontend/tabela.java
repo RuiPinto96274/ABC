@@ -37,15 +37,17 @@ public class tabela extends javax.swing.JFrame {
         for (int index = 0; index < lista_geral_quotas.listagemQuotas().size(); index++) {
             Quota qt = lista_geral_quotas.listagemQuotas().get(index);
             //buscar o mes+ano
-            String m= devolveMes(qt.getData_pagamento().getMonthValue());
-            String y = String.valueOf(qt.getData_pagamento().getYear());  
+            String m= devolveMes(qt.getData().getMonthValue());
+            String y = String.valueOf(qt.getData().getYear());  
             //buscar valor do pagou
             String resul= new String();
-            if(qt.getPagou().equals("Y")){
+            
+            //AGORA É BOLEAN E NAO STRING, ALTERAR O IF
+            /*if(qt.getPagou().equals("Y")){
                 resul="Pagou";
             }else if(qt.getPagou().equals("N")){
                 resul="Não Pagou";
-            }           
+            }*/           
             modelQuotas.addRow(new Object[]{qt.getUsername(),m.concat(y),resul});
         }
         tabelaQuotas.setModel(modelQuotas);

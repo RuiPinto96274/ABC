@@ -46,7 +46,7 @@ public class RegistarQuota extends javax.swing.JFrame {
                RegistarQuota rq=new RegistarQuota();
                rq.setVisible(true);
             }
-            Quota q = new Quota(a.getUsername(),"Y", data);
+            Quota q = new Quota(a.getUsername(),true, data);
             lista_geral_quotas.guardarQuota(q);
             JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");    
         }    

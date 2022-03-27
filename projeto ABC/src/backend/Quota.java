@@ -12,16 +12,23 @@ import java.time.LocalDate;
  * @author 
  */
 public class Quota {
-    //private int id_quota;
+    private int id_quota;
     private String username;
-    private String pagou;
-    private LocalDate data_pagamento;
-    
-    public Quota(/*int id,*/ String user, String pagou, LocalDate data){
-        //this.id_quota=id;
+    private boolean estado;
+    private LocalDate data;
+
+    public Quota(int id, String user, boolean pagou, LocalDate data){
+        this.id_quota=id;
         this.username=user;
-        this.pagou=pagou;
-        this.data_pagamento= data;
+        this.estado=pagou;
+        this.data= data;
+    }
+    
+    public Quota(String user, boolean pagou, LocalDate data){
+        ///this.id_quota=id;
+        this.username=user;
+        this.estado=pagou;
+        this.data= data;
     }
 
     public String getUsername() {
@@ -32,25 +39,35 @@ public class Quota {
         this.username = username;
     }
 
-    public String getPagou() {
-        return pagou;
+    public int getId_quota() {
+        return id_quota;
     }
 
-    public void setPagou(String pagou) {
-        this.pagou = pagou;
+    public void setId_quota(int id_quota) {
+        this.id_quota = id_quota;
     }
 
-    public LocalDate getData_pagamento() {
-        return data_pagamento;
+    public boolean isEstado() {
+        return estado;
     }
 
-    public void setData_pagamento(LocalDate data_pagamento) {
-        this.data_pagamento = data_pagamento;
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     @Override
     public String toString() {
-        return "Quota{" + "username=" + username + ", pagou=" + pagou + ", data_pagamento=" + data_pagamento + '}';
+        return "Quota{" + "username=" + username + ", pagou=" + estado + ", data_pagamento=" + data + '}';
     }
     
     

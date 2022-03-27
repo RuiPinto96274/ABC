@@ -226,16 +226,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        /*try {
+        try {
             iniciar();
         } catch (ListaUtilizadores.UtilizadorNaoExistenteException ex) {
             //Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-       /*/
+       /*
         Utilizador u= new Utilizador();
         PaginaInicial pg = new PaginaInicial(u);               
-        pg.setVisible(true);
+        pg.setVisible(true);*/
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -27,9 +27,9 @@ public class DadosPavilhao extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         //preencher caixas
-        txtIdPavilhao.setText(p.getId_pavilhao());
+        txtIdPavilhao.setText(p.getIdPavilhao());
         txtNomePavilhao.setText(p.getNome());
-        txtLocalPavilhao.setText(p.getLocal());
+        txtLocalPavilhao.setText(p.getMorada());
     }
     
     private void guardar(){  
@@ -40,7 +40,7 @@ public class DadosPavilhao extends javax.swing.JFrame {
             txtIdPavilhao.requestFocus();
             return;
         }else{
-            pavilhao.setId_pavilhao(txtIdPavilhao.getText());
+            pavilhao.setIdPavilhao(txtIdPavilhao.getText());
         }
         
         if (txtNomePavilhao.getText().isEmpty()) {
@@ -56,7 +56,7 @@ public class DadosPavilhao extends javax.swing.JFrame {
             txtLocalPavilhao.requestFocus();
             return;
         }else{
-            pavilhao.setLocalizacao(txtLocalPavilhao.getText());
+            pavilhao.setMorada(txtLocalPavilhao.getText());
         }
         
         

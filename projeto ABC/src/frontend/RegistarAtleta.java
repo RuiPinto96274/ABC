@@ -41,22 +41,22 @@ public class RegistarAtleta extends javax.swing.JFrame {
     }
     
     private void registarAtleta() throws ListaUtilizadores.UtilizadorDuplicadoException, ListaUtilizadores.UtilizadorNaoExistenteException, ListaEscalao.EscalaoNaoExistenteException{
-        if(txtUsername.getText().isEmpty()||txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || 
+        if(txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || 
                 txtNome.getText().isEmpty()||txtDataNasc.getDate()==null || comboEscalao.getSelectedItem()==null || txtContacto.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
             
             
         }else{
             String nome=txtNome.getText();
-            String username=txtUsername.getText();
             String senha=txtPassword.getText();
-            String item = String.valueOf(comboEscalao.getSelectedItem());
-            int cipa =Integer.parseInt(txtCipa.getText());
+            //ver como fazer em relacao ao escalao
+            //String item = String.valueOf(comboEscalao.getSelectedItem());
+            String cipa =(txtCipa.getText());
             int contacto =Integer.parseInt(txtContacto.getText());
             //LocalDate data_nasc= LocalDate.parse(txtDataNasc.getText());  //para já colocar 2022-03-23
             LocalDate data_nasc= txtDataNasc.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            //Atleta a = new Atleta(username, senha, cipa, nome, data_nasc, lista_geral_esc.getEscalao(item), contacto);
-            //lista_geral_users.adicionarAtleta(a);
+            Atleta a = new Atleta(cipa, nome, senha, data_nasc, contacto);
+            lista_geral_users.adicionarAtleta(a);
                
         JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
 
@@ -85,10 +85,8 @@ public class RegistarAtleta extends javax.swing.JFrame {
         txtContacto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtCipa = new javax.swing.JTextField();
-        txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtDataNasc = new com.toedter.calendar.JDateChooser();
         comboEscalao = new javax.swing.JComboBox<>();
@@ -177,20 +175,10 @@ public class RegistarAtleta extends javax.swing.JFrame {
             }
         });
 
-        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
         txtPassword.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel6.setText("Cipa:");
-
-        jLabel7.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel7.setText("Username:");
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel8.setText("Password:");
@@ -213,6 +201,9 @@ public class RegistarAtleta extends javax.swing.JFrame {
                 .addGap(59, 59, 59)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,13 +217,9 @@ public class RegistarAtleta extends javax.swing.JFrame {
                             .addComponent(txtCipa, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtContacto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .addComponent(txtUsername)
                             .addComponent(txtDataNasc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(68, 68, 68))))
         );
@@ -240,19 +227,15 @@ public class RegistarAtleta extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsername)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel6)
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCipa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDataNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,15 +243,15 @@ public class RegistarAtleta extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comboEscalao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(jLabel8)
-                .addGap(4, 4, 4)
-                .addComponent(txtPassword)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPassword)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtContacto)
-                .addGap(15, 15, 15)
+                .addGap(27, 27, 27)
                 .addComponent(adicionarAtletaBtn)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
@@ -301,7 +284,7 @@ public class RegistarAtleta extends javax.swing.JFrame {
 
     private void adicionarAtletaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarAtletaBtnActionPerformed
         try {
-            if (txtUsername.getText().isEmpty()||txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || 
+            if (txtCipa.getText().isEmpty()|| txtPassword.getText().isEmpty() || 
                 txtNome.getText().isEmpty()||txtDataNasc.getDate()==null|| comboEscalao.getSelectedItem()==null|| txtContacto.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");
             }else{
@@ -324,10 +307,6 @@ public class RegistarAtleta extends javax.swing.JFrame {
     private void jPanel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel2AncestorAdded
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -374,7 +353,6 @@ public class RegistarAtleta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -383,6 +361,5 @@ public class RegistarAtleta extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser txtDataNasc;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
