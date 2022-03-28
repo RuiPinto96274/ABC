@@ -135,7 +135,7 @@ public class PaginaInicial extends javax.swing.JFrame {
                 iconSairMouseClicked(evt);
             }
         });
-        getContentPane().add(iconSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 1000, 50, 53));
+        getContentPane().add(iconSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 790, 50, 53));
 
         iconPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon_quotas.png"))); // NOI18N
         iconPagar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,7 +168,7 @@ public class PaginaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iconAtletasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconAtletasMouseClicked
-        GestaoAtletas ga = new GestaoAtletas();
+        GestaoAtletas ga = new GestaoAtletas(u);
         ga.setVisible(true);
         
     }//GEN-LAST:event_iconAtletasMouseClicked
@@ -178,12 +178,12 @@ public class PaginaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_iconSairMouseClicked
 
     private void iconCalendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconCalendarioMouseClicked
-        Calendario c = new Calendario();
+        Calendario c = new Calendario(u);
         c.setVisible(true);
     }//GEN-LAST:event_iconCalendarioMouseClicked
 
     private void iconGestaoTeCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconGestaoTeCMouseClicked
-        GestaoTreinadoresColaboradores tc = new GestaoTreinadoresColaboradores();
+        GestaoTreinadoresColaboradores tc = new GestaoTreinadoresColaboradores(u);
         tc.setVisible(true);
     }//GEN-LAST:event_iconGestaoTeCMouseClicked
 

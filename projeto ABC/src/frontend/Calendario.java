@@ -10,6 +10,7 @@ import backend.Evento;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 import backend.ListaEventos;
+import backend.Utilizador;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.UIManager;
@@ -21,11 +22,14 @@ import javax.swing.UIManager;
 public class Calendario extends javax.swing.JFrame {
     private DefaultTableModel modelEventos;
     private ListaEventos lista_geral= new ListaEventos();
+    private Utilizador u;
     /**
      * Creates new form Calendario
      */
-    public Calendario() {
+    public Calendario(Utilizador u) {
         initComponents();
+        this.u=u;
+        
         setExtendedState(JFrame.MAXIMIZED_BOTH);
        
         modelEventos = (DefaultTableModel) tabelaEventos.getModel();       
@@ -266,7 +270,7 @@ public class Calendario extends javax.swing.JFrame {
     
     private void iconAtletasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconAtletasMouseClicked
         dispose();
-        GestaoAtletas ga = new GestaoAtletas();
+        GestaoAtletas ga = new GestaoAtletas(u);
         ga.setVisible(true);
     }//GEN-LAST:event_iconAtletasMouseClicked
 
@@ -294,7 +298,7 @@ public class Calendario extends javax.swing.JFrame {
 
     private void iconGestaoTeCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconGestaoTeCMouseClicked
         dispose();
-        GestaoTreinadoresColaboradores gtc = new GestaoTreinadoresColaboradores();
+        GestaoTreinadoresColaboradores gtc = new GestaoTreinadoresColaboradores(u);
         gtc.setVisible(true);
     }//GEN-LAST:event_iconGestaoTeCMouseClicked
 
@@ -334,7 +338,7 @@ public class Calendario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Calendario().setVisible(true);
+                //new Calendario().setVisible(true);
             }
         });
     }

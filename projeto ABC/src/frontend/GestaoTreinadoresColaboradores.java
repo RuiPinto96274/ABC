@@ -8,6 +8,7 @@ package frontend;
 import backend.Colaborador;
 import backend.ListaUtilizadores;
 import backend.Treinador;
+import backend.Utilizador;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -23,12 +24,13 @@ import javax.swing.table.DefaultTableModel;
 public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {    
     private DefaultTableModel modelUtilizadores;
     private ListaUtilizadores lista_geral= new ListaUtilizadores();
+    private Utilizador u;
     /**
      * Creates new form GestaoTreinadoresColaboradores
      */
-    public GestaoTreinadoresColaboradores() {
+    public GestaoTreinadoresColaboradores(Utilizador u) {
         initComponents();
-        
+        this.u=u;
         setExtendedState(JFrame.MAXIMIZED_BOTH);   
         modelUtilizadores = (DefaultTableModel) tabelaUtilizadores.getModel();       
         preencheTabela();
@@ -360,7 +362,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
 
     private void iconCalendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconCalendarioMouseClicked
         dispose();
-        Calendario c = new Calendario();
+        Calendario c = new Calendario(u);
         c.setVisible(true);
     }//GEN-LAST:event_iconCalendarioMouseClicked
 
@@ -390,7 +392,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
 
     private void iconAtletasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconAtletasMouseClicked
         dispose();
-        GestaoAtletas ga = new GestaoAtletas();
+        GestaoAtletas ga = new GestaoAtletas(u);
         ga.setVisible(true);
     }//GEN-LAST:event_iconAtletasMouseClicked
 
@@ -427,7 +429,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GestaoTreinadoresColaboradores().setVisible(true);
+                //new GestaoTreinadoresColaboradores().setVisible(true);
             }
         });
     }
