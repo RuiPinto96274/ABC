@@ -117,6 +117,8 @@ public class GestaoAtletas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         iconAtletas = new javax.swing.JLabel();
         iconCalendario = new javax.swing.JLabel();
         iconSair = new javax.swing.JLabel();
@@ -125,20 +127,21 @@ public class GestaoAtletas extends javax.swing.JFrame {
         registarAtletaBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaAtletas = new javax.swing.JTable();
-        pesquisaBtn = new javax.swing.JButton();
         txtProcura = new javax.swing.JTextField();
+        pesquisaBtn = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         atualizarBtn = new javax.swing.JButton();
         atualizarBtn1 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(48, 44, 44));
+
+        jPanel2.setBackground(new java.awt.Color(255, 236, 52));
 
         iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
         iconAtletas.setText("jLabel1");
-        getContentPane().add(iconAtletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 50, 60));
 
         iconCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
         iconCalendario.setText("jLabel2");
@@ -147,7 +150,6 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 iconCalendarioMouseClicked(evt);
             }
         });
-        getContentPane().add(iconCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 50, 60));
 
         iconSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/voltar.png"))); // NOI18N
         iconSair.setText("jLabel3");
@@ -156,7 +158,6 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 iconSairMouseClicked(evt);
             }
         });
-        getContentPane().add(iconSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, 50, -1));
 
         iconGestaoTeC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/coach.png"))); // NOI18N
         iconGestaoTeC.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,7 +165,6 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 iconGestaoTeCMouseClicked(evt);
             }
         });
-        getContentPane().add(iconGestaoTeC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 50, -1));
 
         iconPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon_quotas.png"))); // NOI18N
         iconPagar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -172,7 +172,36 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 iconPagarMouseClicked(evt);
             }
         });
-        getContentPane().add(iconPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 60, -1));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iconPagar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconGestaoTeC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconAtletas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(iconCalendario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(iconSair, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(6, 6, 6))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(iconAtletas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(iconCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(iconGestaoTeC)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(iconPagar)
+                .addGap(259, 259, 259)
+                .addComponent(iconSair)
+                .addGap(19, 19, 19))
+        );
 
         registarAtletaBtn.setBackground(new java.awt.Color(255, 236, 52));
         registarAtletaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -187,7 +216,6 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 registarAtletaBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(registarAtletaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 770, -1, -1));
 
         tabelaAtletas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,7 +238,13 @@ public class GestaoAtletas extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabelaAtletas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 730, 610));
+        txtProcura.setBackground(new java.awt.Color(204, 204, 204));
+        txtProcura.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtProcura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProcuraActionPerformed(evt);
+            }
+        });
 
         pesquisaBtn.setBackground(new java.awt.Color(255, 236, 52));
         pesquisaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -220,16 +254,11 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 pesquisaBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(pesquisaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 770, -1, -1));
 
-        txtProcura.setBackground(new java.awt.Color(204, 204, 204));
-        txtProcura.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtProcura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProcuraActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtProcura, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 770, 220, -1));
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("GESTÃO DE ATLETAS");
 
         atualizarBtn.setBackground(new java.awt.Color(255, 236, 52));
         atualizarBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -239,7 +268,6 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 atualizarBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(atualizarBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 70, -1, -1));
 
         atualizarBtn1.setBackground(new java.awt.Color(255, 236, 52));
         atualizarBtn1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -249,16 +277,59 @@ public class GestaoAtletas extends javax.swing.JFrame {
                 atualizarBtn1ActionPerformed(evt);
             }
         });
-        getContentPane().add(atualizarBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, -1, -1));
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("GESTÃO DE ATLETAS");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 310, 50));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtProcura, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(pesquisaBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(registarAtletaBtn))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(atualizarBtn1)
+                        .addGap(18, 18, 18)
+                        .addComponent(atualizarBtn)))
+                .addGap(25, 25, 25))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(atualizarBtn)
+                    .addComponent(atualizarBtn1))
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtProcura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pesquisaBtn)
+                    .addComponent(registarAtletaBtn))
+                .addGap(27, 27, 27))
+        );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background_mais pequeno.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1040, -1));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -360,8 +431,9 @@ public class GestaoAtletas extends javax.swing.JFrame {
     private javax.swing.JLabel iconGestaoTeC;
     private javax.swing.JLabel iconPagar;
     private javax.swing.JLabel iconSair;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton pesquisaBtn;
     private javax.swing.JButton registarAtletaBtn;
