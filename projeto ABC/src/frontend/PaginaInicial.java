@@ -99,16 +99,17 @@ public class PaginaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         iconAtletas = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         iconCalendario = new javax.swing.JLabel();
         iconSair = new javax.swing.JLabel();
         iconPagar = new javax.swing.JLabel();
         iconGestaoTeC = new javax.swing.JLabel();
         iconPerfil = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(48, 44, 44));
+        setMinimumSize(new java.awt.Dimension(0, 0));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -119,6 +120,9 @@ public class PaginaInicial extends javax.swing.JFrame {
             }
         });
         getContentPane().add(iconAtletas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background 2.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         iconCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
         iconCalendario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,9 +164,6 @@ public class PaginaInicial extends javax.swing.JFrame {
             }
         });
         getContentPane().add(iconPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background 2.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
