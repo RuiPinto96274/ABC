@@ -133,7 +133,7 @@ public class Login extends javax.swing.JFrame {
         labelPass.setText("Passe:");
         getContentPane().add(labelPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, -1, -1));
 
-        checkVerPass.setBackground(new java.awt.Color(252, 220, 3));
+        checkVerPass.setBackground(new java.awt.Color(255, 221, 0));
         checkVerPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkVerPassActionPerformed(evt);
