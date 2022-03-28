@@ -104,7 +104,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         iconPagar = new javax.swing.JLabel();
         iconGestaoTeC = new javax.swing.JLabel();
         iconPerfil = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -161,8 +161,8 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
         getContentPane().add(iconPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\pedro\\OneDrive\\Documentos\\NetBeansProjects\\ABC\\ABC\\projeto ABC\\src\\imagens\\background 2.png")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/background 2.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,6 +245,6 @@ public class PaginaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel iconPagar;
     private javax.swing.JLabel iconPerfil;
     private javax.swing.JLabel iconSair;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

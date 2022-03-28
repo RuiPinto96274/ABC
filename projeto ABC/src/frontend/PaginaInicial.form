@@ -120,10 +120,10 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\pedro\OneDrive\Documentos\NetBeansProjects\ABC\ABC\projeto ABC\src\imagens\background 2.png"/>
+          <Image iconType="3" name="/imagens/background 2.png"/>
         </Property>
       </Properties>
       <Constraints>
