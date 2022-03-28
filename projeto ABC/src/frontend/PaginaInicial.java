@@ -28,7 +28,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         initComponents();
    
         setExtendedState(JFrame.MAXIMIZED_BOTH);   
-        this.setLocationRelativeTo(null);
+        
         //Apenas mostra  se o utilizador for um administrador
         iconPagar.setVisible(u instanceof Administrador);
         iconGestaoTeC.setVisible(u instanceof Administrador);
@@ -110,7 +110,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(48, 44, 44));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1920, 1080));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (1).png"))); // NOI18N
