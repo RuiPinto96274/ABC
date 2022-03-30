@@ -174,6 +174,11 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
         jLabel9.setText("Função:");
 
         checkVerPass1.setBackground(new java.awt.Color(255, 236, 52));
+        checkVerPass1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkVerPass1MouseClicked(evt);
+            }
+        });
         checkVerPass1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkVerPass1ActionPerformed(evt);
@@ -300,12 +305,20 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2AncestorAdded
 
     private void checkVerPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVerPass1ActionPerformed
-        if(checkVerPass.isSelected()){
+        if(checkVerPass1.isSelected()){
             txtPass.setEchoChar((char)0);
         }else{
             txtPass.setEchoChar('•');
         }
     }//GEN-LAST:event_checkVerPass1ActionPerformed
+
+    private void checkVerPass1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkVerPass1MouseClicked
+        /*if(checkVerPass1.isSelected()){
+            txtPass.setEchoChar((char)0);
+        }else{
+            txtPass.setEchoChar('•');
+        }*/
+    }//GEN-LAST:event_checkVerPass1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -347,7 +360,6 @@ public class RegistarTreinadorColaborador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adicionarUtilizadorBtn;
-    private javax.swing.JCheckBox checkVerPass;
     private javax.swing.JCheckBox checkVerPass1;
     private javax.swing.JComboBox<String> comboUser;
     private javax.swing.JButton jButton2;

@@ -102,4 +102,10 @@ public class ListaQuotas {
             System.err.println(ex.getMessage());
         }  
     }
+     
+     //percorrer o arraylist de quotas, e comparar os meses, devolve true se nao tiver pago naquele mes, e false se tiver pago.
+     //ao ser true deixa adicionar à tabela
+     public void percorreQuotas(){
+
+     }
 }

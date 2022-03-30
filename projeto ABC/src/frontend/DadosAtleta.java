@@ -6,9 +6,11 @@
 package frontend;
 
 import backend.Atleta;
+import backend.Escalao;
 import backend.ListaEscalao;
 import backend.ListaUtilizadores;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,7 +33,24 @@ public class DadosAtleta extends javax.swing.JFrame {
         
         //preencher caixas
         txtNome.setText(a.getNome());
+        if(lista_geral_users.getEquipaAtleta(a)==null){
+                String resul="Sem equipa";
+                txtEscalao.setText(resul);
+            }else{
+                ArrayList<Escalao> equipas = lista_geral_users.getEquipaAtleta(a);
+                ArrayList<String> nome_eq= new ArrayList(); 
+                String nome;
+                for(int i=0; i<equipas.size(); i++){
+                    Escalao e = equipas.get(i);
+                    nome=e.getNome();
+                    nome_eq.add(nome);                  
+                }
+                String resul = String.join(", ", nome_eq);
+                txtEscalao.setText(resul);
+                
+            }
         //txtEscalao.setText(a.getEscalao().getId_escalao());
+        
         txtCipa.setText(a.getCipa());
         txtDataNasc.setText(String.valueOf(a.getDataNasc()));
         txtContacto.setText(String.valueOf(a.getContactoTlm()));
@@ -110,66 +129,42 @@ public class DadosAtleta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtEscalao = new javax.swing.JTextField();
-        alterarAtletaBtn = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtContacto = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        txtCipa = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtPass = new javax.swing.JPasswordField();
-        checkVerPass = new javax.swing.JCheckBox();
         txtDataNasc = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        txtPass = new javax.swing.JPasswordField();
+        txtCipa = new javax.swing.JTextField();
+        checkVerPass = new javax.swing.JCheckBox();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        txtEscalao = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        txtContacto = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        alterarAtletaBtn = new javax.swing.JButton();
         removerAtletaBtn = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(398, 522));
         setSize(new java.awt.Dimension(398, 520));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 236, 52));
-        jPanel2.setPreferredSize(new java.awt.Dimension(398, 520));
-        jPanel2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jPanel2AncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+        txtDataNasc.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtDataNasc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataNascActionPerformed(evt);
             }
         });
+        getContentPane().add(txtDataNasc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 290, -1));
 
-        jPanel3.setBackground(new java.awt.Color(48, 44, 44));
-
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("DADOS DO ATLETA");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(117, 117, 117)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(21, 21, 21))
-        );
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel9.setText("Contacto:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 112, -1));
 
         txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -177,8 +172,67 @@ public class DadosAtleta extends javax.swing.JFrame {
                 txtNomeActionPerformed(evt);
             }
         });
+        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 290, -1));
+
+        txtPass.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 290, -1));
+
+        txtCipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtCipa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCipaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCipa, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 290, -1));
+
+        checkVerPass.setBackground(new java.awt.Color(255, 236, 52));
+        checkVerPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkVerPassActionPerformed(evt);
+            }
+        });
+        getContentPane().add(checkVerPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, 21, 20));
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel1.setText("Password:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 131, -1));
+
+        jLabel11.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel11.setText("Data de nascimento:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 175, -1));
+
+        jLabel12.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel12.setText("Escalão:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 63, -1));
 
         txtEscalao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        getContentPane().add(txtEscalao, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 290, -1));
+
+        jLabel13.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel13.setText("Cipa:");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 131, -1));
+
+        txtContacto.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        getContentPane().add(txtContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 290, -1));
+
+        jLabel14.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel14.setText("Nome:");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 131, -1));
+
+        jButton3.setBackground(new java.awt.Color(255, 236, 52));
+        jButton3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jButton3.setText("CANCELAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 460, 170, -1));
 
         alterarAtletaBtn.setBackground(new java.awt.Color(255, 236, 52));
         alterarAtletaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -188,63 +242,7 @@ public class DadosAtleta extends javax.swing.JFrame {
                 alterarAtletaBtnActionPerformed(evt);
             }
         });
-
-        jButton2.setBackground(new java.awt.Color(255, 236, 52));
-        jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jButton2.setText("CANCELAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel1.setText("Nome:");
-
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel2.setText("Data de nascimento:");
-
-        jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel3.setText("Escalão:");
-
-        txtContacto.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel4.setText("Contacto:");
-
-        txtCipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtCipa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCipaActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel6.setText("Cipa:");
-
-        jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel8.setText("Password:");
-
-        txtPass.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPassActionPerformed(evt);
-            }
-        });
-
-        checkVerPass.setBackground(new java.awt.Color(255, 236, 52));
-        checkVerPass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkVerPassActionPerformed(evt);
-            }
-        });
-
-        txtDataNasc.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        txtDataNasc.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDataNascActionPerformed(evt);
-            }
-        });
+        getContentPane().add(alterarAtletaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
 
         removerAtletaBtn.setBackground(new java.awt.Color(255, 236, 52));
         removerAtletaBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -254,109 +252,47 @@ public class DadosAtleta extends javax.swing.JFrame {
                 removerAtletaBtnActionPerformed(evt);
             }
         });
+        getContentPane().add(removerAtletaBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 140, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(alterarAtletaBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(removerAtletaBtn))
-                            .addComponent(txtDataNasc, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCipa, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEscalao)
-                            .addComponent(txtContacto, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkVerPass, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(4, 4, 4)
-                .addComponent(txtCipa)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDataNasc)
-                .addGap(9, 9, 9)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEscalao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addGap(4, 4, 4)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkVerPass, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtContacto)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alterarAtletaBtn)
-                    .addComponent(removerAtletaBtn))
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("DADOS DO ATLETA");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 207, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE)
-        );
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Sem Título-1.png"))); // NOI18N
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDataNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataNascActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
+
+    private void txtCipaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCipaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCipaActionPerformed
+
+    private void checkVerPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVerPassActionPerformed
+        if(checkVerPass.isSelected()){
+            txtPass.setEchoChar((char)0);
+        }else{
+            txtPass.setEchoChar('•');
+        }
+    }//GEN-LAST:event_checkVerPassActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void alterarAtletaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarAtletaBtnActionPerformed
         try {
@@ -367,35 +303,10 @@ public class DadosAtleta extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_alterarAtletaBtnActionPerformed
 
-    private void txtCipaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCipaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCipaActionPerformed
-
-    private void jPanel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel2AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel2AncestorAdded
-
-    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPassActionPerformed
-
-    private void checkVerPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVerPassActionPerformed
-        if(checkVerPass.isSelected()){
-            txtPass.setEchoChar((char)0);
-        }else{
-            txtPass.setEchoChar('•');
-        }
-    }//GEN-LAST:event_checkVerPassActionPerformed
-
-    private void txtDataNascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataNascActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDataNascActionPerformed
-
     private void removerAtletaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerAtletaBtnActionPerformed
         lista_geral_users.removerAtleta(a);
         JOptionPane.showMessageDialog(this, "Atleta removido com sucesso!");
         dispose();
-        
     }//GEN-LAST:event_removerAtletaBtnActionPerformed
 
     /**
@@ -436,16 +347,15 @@ public class DadosAtleta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alterarAtletaBtn;
     private javax.swing.JCheckBox checkVerPass;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton removerAtletaBtn;
     private javax.swing.JTextField txtCipa;
     private javax.swing.JTextField txtContacto;
