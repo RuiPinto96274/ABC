@@ -62,7 +62,7 @@ public class AdicionarEvento extends javax.swing.JFrame {
         }
     }
       private void adicionarEvento() throws ListaEventos.EventoNaoExistenteException, ListaEscalao.EscalaoNaoExistenteException{
-        if(txtNome.getText().isEmpty()|| txtDescricao.getText().isEmpty()|| comboTipo.getSelectedItem()==null || comboEquipa.getSelectedItem()==null|| comboPavilhao.getSelectedItem()==null || txtDia.getDate()==null|| txtHora.getText().isEmpty()){
+        if(txtNome.getText().isEmpty()|| comboTipo.getSelectedItem()==null || comboEquipa.getSelectedItem()==null|| comboPavilhao.getSelectedItem()==null || txtDia.getDate()==null|| txtHora.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");       
         }else{
             String nome=txtNome.getText();
@@ -246,6 +246,7 @@ public class AdicionarEvento extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             adicionarEvento();
+            dispose();
         } catch (ListaEventos.EventoNaoExistenteException ex) {
             Logger.getLogger(AdicionarEvento.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ListaEscalao.EscalaoNaoExistenteException ex) {

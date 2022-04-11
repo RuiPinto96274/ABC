@@ -217,17 +217,17 @@ public class Calendario extends javax.swing.JFrame {
         tabelaEventos.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         tabelaEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Descricao", "Local", "Dia", "Hora", "Escalao", "Tipo"
+                "Id", "Nome", "Descricao", "Local", "Dia", "Hora", "Escalao", "Tipo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, false, true, false, true
+                false, true, true, true, false, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -311,15 +311,17 @@ public class Calendario extends javax.swing.JFrame {
     
      private void preencheTabela() {
         modelEventos.setRowCount(0); //especifica o nr de linhas na tabela
-        for (int index = 0; index < lista_geral.listagemEventos().size(); index++) {
-            Evento e= lista_geral.listagemEventos().get(index);
+        ArrayList<Evento> listaE= lista_geral.listagemEventos();
+        for (int index = 0; index < listaE.size(); index++) {
+            //Evento e= lista_geral.listagemEventos().get(index);
+            Evento e = listaE.get(index); 
             String tipo=new String();
             if(e.getTipo().equals("T")){
                 tipo="Treino"; 
             }else if(e.getTipo().equals("J")){
                 tipo="Jogo";
             }
-            modelEventos.addRow(new Object[]{e.getId_evento(), e.getDescricao(), e.getPavilhao().getNome(),e.getDia(),e.getHora(), e.getEscalao().getNome(),tipo});
+            modelEventos.addRow(new Object[]{e.getId_evento(), e.getNome(), e.getDescricao(), e.getPavilhao().getNome(),e.getDia(),e.getHora(), e.getEscalao().getNome(),tipo});
         }
     }
     

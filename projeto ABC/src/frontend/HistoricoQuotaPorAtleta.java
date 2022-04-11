@@ -131,7 +131,7 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         mesJ = new com.toedter.calendar.JMonthChooser();
         anoJ = new com.toedter.calendar.JYearChooser();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        botaoProcurar = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -153,11 +153,11 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
 
         anoJ.setBackground(new java.awt.Color(204, 204, 204));
 
-        jToggleButton1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jToggleButton1.setText("Procurar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        botaoProcurar.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        botaoProcurar.setText("Procurar");
+        botaoProcurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                botaoProcurarActionPerformed(evt);
             }
         });
 
@@ -210,7 +210,7 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(mesJ, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jToggleButton1)
+                                .addComponent(botaoProcurar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +232,7 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
                         .addComponent(mesJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(anoJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jToggleButton1)
+                        .addComponent(botaoProcurar)
                         .addComponent(jButton1)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -255,9 +255,9 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void botaoProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoProcurarActionPerformed
         procurar();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_botaoProcurarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,13 +296,13 @@ public class HistoricoQuotaPorAtleta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JYearChooser anoJ;
+    private javax.swing.JToggleButton botaoProcurar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JToggleButton jToggleButton1;
     private com.toedter.calendar.JMonthChooser mesJ;
     private javax.swing.JTable tabelaQuotas;
     // End of variables declaration//GEN-END:variables

@@ -130,11 +130,12 @@ public class ListaEventos {
             PreparedStatement preparedStmt = con.prepareStatement(query);
             preparedStmt.setString(1, evento.getNome());
             preparedStmt.setString(2, evento.getDescricao());
-            preparedStmt.setObject(3, evento.getPavilhao());
+            preparedStmt.setString(3, evento.getPavilhao().getIdPavilhao());
             preparedStmt.setObject(4, evento.getDia());
             preparedStmt.setString(5, evento.getHora());
-            preparedStmt.setObject(6, evento.getEscalao());
+            preparedStmt.setString(6, evento.getEscalao().getId_equipa());
             preparedStmt.setString(7, evento.getTipo());
+            preparedStmt.setString(8, evento.getId_evento());
             preparedStmt.execute();
             con.close();
 

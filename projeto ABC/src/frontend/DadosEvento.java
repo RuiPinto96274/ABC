@@ -14,6 +14,7 @@ import backend.Pavilhao;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -38,6 +39,7 @@ public class DadosEvento extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
         //preencher caixas
+        txtId.setText(e.getId_evento());
         txtNome.setText(e.getNome());
         txtDescricao.setText(e.getDescricao());
         if(e.getTipo().equals("T")){
@@ -47,7 +49,8 @@ public class DadosEvento extends javax.swing.JFrame {
         }
         
         txtEscalao.setText(e.getEscalao().getNome());
-        txtDia.setText(String.valueOf(e.getDia()));
+        txtDia.setDate(Date.from(e.getDia().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        //txtDia.setText(String.valueOf(e.getDia()));
         txtHora.setText(e.getHora());
     }
     
@@ -71,24 +74,17 @@ public class DadosEvento extends javax.swing.JFrame {
         }else{
             e.setNome(txtNome.getText());
         }
-        
+        /*
         if (txtDescricao.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Introduza a descrição do evento!");            
             txtDescricao.requestFocus();
             return;
         }else{
             e.setDescricao(txtDescricao.getText());
-        }
-        
-        if (txtTipo.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza o tipo de evento!");            
-            txtTipo.requestFocus();
-            return;
-        }else{
-            e.setTipo(txtTipo.getText());
-        }
-        
-        LocalDate dia = LocalDate.parse(txtDia.getText());
+        }*/
+        //LocalDate dia = LocalDate.parse(txtDia.getText());
+         
+        LocalDate dia= txtDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         e.setDia(dia);
         
         if (txtHora.getText().isEmpty()) {
@@ -131,7 +127,9 @@ public class DadosEvento extends javax.swing.JFrame {
         removerEventoBtn = new javax.swing.JButton();
         txtEscalao = new javax.swing.JTextField();
         txtTipo = new javax.swing.JTextField();
-        txtDia = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        txtDia = new com.toedter.calendar.JDateChooser();
         imagemFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,10 +145,10 @@ public class DadosEvento extends javax.swing.JFrame {
                 txtDescricaoActionPerformed(evt);
             }
         });
-        jPanel2.add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 300, -1));
+        jPanel2.add(txtDescricao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 300, -1));
 
         txtHora.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jPanel2.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 300, -1));
+        jPanel2.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 300, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 236, 52));
         jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -160,27 +158,27 @@ public class DadosEvento extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 201, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 201, -1));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel1.setText("Descricão:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 131, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 131, -1));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel2.setText("Tipo do evento:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 175, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 175, -1));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel3.setText("Escalão e Género:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 126, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 126, -1));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel4.setText("Localização:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 112, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 112, -1));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel6.setText("Hora (formato hh:mm):");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 150, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 150, -1));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,11 +192,11 @@ public class DadosEvento extends javax.swing.JFrame {
                 comboPavilhaoActionPerformed(evt);
             }
         });
-        jPanel2.add(comboPavilhao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 300, -1));
+        jPanel2.add(comboPavilhao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 300, -1));
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel8.setText("Dia:");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 112, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 112, -1));
 
         txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -206,11 +204,11 @@ public class DadosEvento extends javax.swing.JFrame {
                 txtNomeActionPerformed(evt);
             }
         });
-        jPanel2.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 300, -1));
+        jPanel2.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 300, -1));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel5.setText("Nome do evento:");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 118, 131, -1));
+        jLabel5.setText("ID do evento:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 131, -1));
 
         alterarEventoBtn.setBackground(new java.awt.Color(255, 236, 52));
         alterarEventoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -220,7 +218,7 @@ public class DadosEvento extends javax.swing.JFrame {
                 alterarEventoBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(alterarEventoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, -1, -1));
+        jPanel2.add(alterarEventoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, -1, -1));
 
         removerEventoBtn.setBackground(new java.awt.Color(255, 236, 52));
         removerEventoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -230,10 +228,25 @@ public class DadosEvento extends javax.swing.JFrame {
                 removerEventoBtnActionPerformed(evt);
             }
         });
-        jPanel2.add(removerEventoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 140, -1));
-        jPanel2.add(txtEscalao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 300, -1));
-        jPanel2.add(txtTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, -1));
-        jPanel2.add(txtDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 300, -1));
+        jPanel2.add(removerEventoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 500, 140, -1));
+        jPanel2.add(txtEscalao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 300, -1));
+
+        txtTipo.setEditable(false);
+        jPanel2.add(txtTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 300, -1));
+
+        jLabel9.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        jLabel9.setText("Nome do evento:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 131, -1));
+
+        txtId.setEditable(false);
+        txtId.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 300, -1));
+        jPanel2.add(txtDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 300, -1));
 
         imagemFundo.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         imagemFundo.setForeground(new java.awt.Color(255, 255, 255));
@@ -275,6 +288,10 @@ public class DadosEvento extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Evento removido com sucesso!");
         dispose();
     }//GEN-LAST:event_removerEventoBtnActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,12 +344,14 @@ public class DadosEvento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton removerEventoBtn;
     private javax.swing.JTextField txtDescricao;
-    private javax.swing.JTextField txtDia;
+    private com.toedter.calendar.JDateChooser txtDia;
     private javax.swing.JTextField txtEscalao;
     private javax.swing.JTextField txtHora;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtTipo;
     // End of variables declaration//GEN-END:variables
