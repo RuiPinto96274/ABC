@@ -8,6 +8,7 @@ import static frontend.Iniciar.getConnection;
 import java.sql.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -24,10 +25,6 @@ public class ListaEventos {
         listaEventos= new ArrayList();
     }
     
-    public Evento getEvento(String id){
-        
-    }
-    
     public ArrayList<Evento> listagemEventos(){
         ArrayList <Evento> listaEventos = new ArrayList<>();
         try {
@@ -41,48 +38,50 @@ public class ListaEventos {
             st = con.createStatement();
             rs = st.executeQuery(query);
 
-            while(rs.next()){ 
+            while(rs.next()){
+                ListaEscalao listagemEscalao=new ListaEscalao();
+                Escalao esc=listagemEscalao.getEscalao(String.valueOf(rs.getInt("Equipa_idEquipa")));
                 Evento evento;
-                evento = new Evento(0,rs.getString("localizacao"),rs.getDate("dia"), rs.getString("escalao"));
+                
+                ListaPavilhao listagemPavilhoes=new ListaPavilhao();
+                Pavilhao pv=listagemPavilhoes.getPavilhao(String.valueOf(rs.getInt("Pavilhao_idPavilhao")));
+            
+                evento = new Evento(rs.getString("idEvento"),rs.getString("nome"),rs.getString("descricao"),pv,LocalDate.parse(rs.getString("dia")),rs.getString("hora"),esc,rs.getString("tipo"));
                 listaEventos.add(evento);
             }
             con.close();
             return listaEventos;
 
         } catch (Exception ex) {
-            System.err.println("Erro ao listar treinadores! ");
+            System.err.println("Erro ao listar eventos! ");
             System.err.println(ex.getMessage());
         }  
         return null;
     }
     
-     public void adicionarEventos(String local, String escalao){
+     public void adicionarEventos(Evento e){
         try {
             Connection con;
             con=getConnection();
-            String query = "INSERT INTO Evento (localizacao,escalao) VALUES (?,?)";
+            String query = "INSERT INTO Evento (nome,descricao,Pavilhao_idPavilhao,dia,hora,Equipa_idEquipa,tipo) VALUES (?,?,?,?,?,?,?)";
             
             PreparedStatement ps = con.prepareStatement(query);
             
-            ps.setString(1,local);
-            ps.setString(2, escalao);
+            ps.setString(1,e.getNome());
+            ps.setString(2, e.getDescricao());
+            ps.setString(3, e.getPavilhao().getIdPavilhao());
+            ps.setObject(4, e.getDia());
+            ps.setString(5, e.getHora());
+            ps.setObject(6, e.getEscalao().getId_equipa());
+            ps.setString(7, e.getTipo());
             
-            ps.executeUpdate();
-
-            
-
-            Statement st;
-
-            st = con.createStatement();
-            
-
+            ps.execute();
+            con.close();
         } catch (Exception ex) {
-            System.err.println("Erro ao listar treinadores! ");
+            System.err.println("Erro ao listar eventos! ");
             System.err.println(ex.getMessage());
-        }  
+        }
     }
-    
-    
     
     //exceções
     public class EventoNaoExistenteException extends Exception {
@@ -101,23 +100,53 @@ public class ListaEventos {
     
     //Método seletor    
     public int length(){
-        return listaEventos.size();
+        return listagemEventos().size();
     }
-
-
     
     public void removerEvento(Evento evento){
-        //listaEventos.remove(evento);
-        
+        try {
+            Connection con;
+            con=getConnection();
+            
+            String query = "delete from Evento where idEvento = ?";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, evento.getId_evento());
+
+            preparedStmt.execute();
+            con.close();
+            
+        } catch (Exception ex) {
+            System.err.println("Erro ao remover um evento! ");
+            System.err.println(ex.getMessage());
+        }
     }
     
     public void alterarEvento(Evento evento){
-        
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "update Evento set nome=? , descricao=?,  Pavilhao_idPavilhao=?,  dia=?, hora=?, Equipa_idEquipa=?, tipo=?  where idEvento= ?";
+
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, evento.getNome());
+            preparedStmt.setString(2, evento.getDescricao());
+            preparedStmt.setObject(3, evento.getPavilhao());
+            preparedStmt.setObject(4, evento.getDia());
+            preparedStmt.setString(5, evento.getHora());
+            preparedStmt.setObject(6, evento.getEscalao());
+            preparedStmt.setString(7, evento.getTipo());
+            preparedStmt.execute();
+            con.close();
+
+        } catch (Exception ex) {
+            System.err.println("Erro ao alterar um evento! ");
+            System.err.println(ex.getMessage());
+        }
     }
 
-    public boolean existe(int id_evento){
-       for(int i=0; i<listaEventos.size(); i++){
-           if(listaEventos.get(i).getIdEvento()==id_evento){
+    public boolean existe(String id_evento){
+       for(int i=0; i<listagemEventos().size(); i++){
+           if(listagemEventos().get(i).getId_evento()==id_evento){
                return true;
            }
        } 
@@ -125,9 +154,9 @@ public class ListaEventos {
      }
     
 
-    public Evento getIdEvento(int id_evento)throws ListaEventos.EventoNaoExistenteException{
-        for (Evento evento : listaEventos){
-            if (evento.getIdEvento()==id_evento){
+    public Evento getIdEvento(String id_evento)throws ListaEventos.EventoNaoExistenteException{
+        for (Evento evento : listagemEventos()){
+            if (evento.getId_evento()==id_evento){
                 return evento;             
             }
         }

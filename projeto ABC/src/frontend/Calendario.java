@@ -13,6 +13,8 @@ import backend.ListaEventos;
 import backend.Utilizador;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
@@ -29,11 +31,10 @@ public class Calendario extends javax.swing.JFrame {
     public Calendario(Utilizador u) {
         initComponents();
         this.u=u;
-        
         setExtendedState(JFrame.MAXIMIZED_BOTH);
        
         modelEventos = (DefaultTableModel) tabelaEventos.getModel();       
-        //preencheTabela();
+        preencheTabela();
         
         //aparecer texto ao passar cursor em cima
         iconAtletas.setToolTipText("Atletas");       
@@ -65,7 +66,26 @@ public class Calendario extends javax.swing.JFrame {
         UIManager.put("ToolTip.foreground", Color.BLACK);
         UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
     }
-
+    
+    private void procurar(){
+        String id_evento =txtProcura.getText();
+        ArrayList <Evento> listar = new ArrayList<>();
+        listar=lista_geral.listagemEventos();
+        boolean encontrou =false;
+        
+        for (Evento e : listar){
+            if(e.getId_evento().equals(id_evento)){
+                DadosEvento de = new DadosEvento(e);
+                de.setVisible(true);
+                txtProcura.setText("");
+                encontrou=true;
+            }     
+        }
+        
+        if(encontrou==false){
+            JOptionPane.showMessageDialog(this, "Este escalão não existe!");
+        }   
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,6 +107,9 @@ public class Calendario extends javax.swing.JFrame {
         EditarPavilhao = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaEventos = new javax.swing.JTable();
+        AtualizarBtn = new javax.swing.JButton();
+        txtProcura = new javax.swing.JTextField();
+        PesquisarBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -194,17 +217,17 @@ public class Calendario extends javax.swing.JFrame {
         tabelaEventos.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         tabelaEventos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Localizacao", "Dia", "Escalao"
+                "Id", "Descricao", "Local", "Dia", "Hora", "Escalao", "Tipo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, true, true, false, true, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -212,6 +235,20 @@ public class Calendario extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tabelaEventos);
+
+        AtualizarBtn.setText("Atualizar");
+        AtualizarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtualizarBtnActionPerformed(evt);
+            }
+        });
+
+        PesquisarBtn.setText("Pesquisar");
+        PesquisarBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -222,24 +259,36 @@ public class Calendario extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EditarPavilhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane1))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtProcura, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(PesquisarBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(EditarPavilhao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(AtualizarBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE))
                 .addGap(24, 24, 24))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1)
+                .addGap(41, 41, 41)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(AtualizarBtn))
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(EditarPavilhao)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EditarPavilhao)
+                    .addComponent(txtProcura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PesquisarBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(19, 19, 19))
@@ -263,8 +312,14 @@ public class Calendario extends javax.swing.JFrame {
      private void preencheTabela() {
         modelEventos.setRowCount(0); //especifica o nr de linhas na tabela
         for (int index = 0; index < lista_geral.listagemEventos().size(); index++) {
-            Evento e= lista_geral.listagemEventos().get(index);          
-            modelEventos.addRow(new Object[]{e.getLocal(), e.getHora(), e.getEscalao()});
+            Evento e= lista_geral.listagemEventos().get(index);
+            String tipo=new String();
+            if(e.getTipo().equals("T")){
+                tipo="Treino"; 
+            }else if(e.getTipo().equals("J")){
+                tipo="Jogo";
+            }
+            modelEventos.addRow(new Object[]{e.getId_evento(), e.getDescricao(), e.getPavilhao().getNome(),e.getDia(),e.getHora(), e.getEscalao().getNome(),tipo});
         }
     }
     
@@ -308,6 +363,18 @@ public class Calendario extends javax.swing.JFrame {
         rq.setVisible(true);
     }//GEN-LAST:event_iconPagarMouseClicked
 
+    private void AtualizarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarBtnActionPerformed
+        preencheTabela();
+    }//GEN-LAST:event_AtualizarBtnActionPerformed
+
+    private void PesquisarBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarBtnActionPerformed
+        if(txtProcura.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Introduza o id do evento que deseja visualizar!");
+        }else{
+            procurar();
+        }
+    }//GEN-LAST:event_PesquisarBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -344,7 +411,9 @@ public class Calendario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AtualizarBtn;
     private javax.swing.JButton EditarPavilhao;
+    private javax.swing.JButton PesquisarBtn;
     private javax.swing.JLabel iconAtletas;
     private javax.swing.JLabel iconCalendario;
     private javax.swing.JLabel iconGestaoTeC;
@@ -356,5 +425,6 @@ public class Calendario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabelaEventos;
+    private javax.swing.JTextField txtProcura;
     // End of variables declaration//GEN-END:variables
 }

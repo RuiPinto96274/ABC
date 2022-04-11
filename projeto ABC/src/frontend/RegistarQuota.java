@@ -47,8 +47,12 @@ public class RegistarQuota extends javax.swing.JFrame {
                rq.setVisible(true);
             }
             Quota q = new Quota(a.getCipa(),"1", data);
-            lista_geral_quotas.guardarQuota(q);
-            JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");    
+            if(lista_geral_quotas.podePagarQuota(a, q.getData().getMonthValue(), q.getData().getYear(), lista_geral_quotas)){
+                lista_geral_quotas.registarQuota(q);
+                JOptionPane.showMessageDialog(this, "Registo efetuado com sucesso!");
+            }else{
+                JOptionPane.showMessageDialog(this, "Quota deste mês já foi paga!");
+            }    
         }    
     }
      private void procurar() throws ListaUtilizadores.UtilizadorNaoExistenteException{

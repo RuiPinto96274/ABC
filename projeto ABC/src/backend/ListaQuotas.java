@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package backend;
 
 import static frontend.Iniciar.getConnection;
@@ -15,15 +11,12 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- *
- * @author cataf
- */
 public class ListaQuotas {
     private ArrayList <Quota> lista; 
     
     public ListaQuotas(){
-        lista= new ArrayList();
+        //lista= new ArrayList();
+        lista=listagemQuotas();
     }
     
     public ArrayList<Quota> listagemQuotas(){
@@ -67,11 +60,11 @@ public class ListaQuotas {
      
      public Quota procurarQuotaAtleta(Atleta a, int m, int y){
         Calendar c_ini = Calendar.getInstance();
-        c_ini.set(y,m-1,1);
+        c_ini.set(y,m,1);
         LocalDate data_ini = LocalDate.ofInstant(c_ini.toInstant(), ZoneId.systemDefault());
         Calendar c_fim = Calendar.getInstance();
-        c_fim.set(y, m-1,29);
-        c_fim.set(y, m-1, c_fim.getActualMaximum(Calendar.DAY_OF_MONTH));
+        c_fim.set(y, m,29);
+        c_fim.set(y, m, c_fim.getActualMaximum(Calendar.DAY_OF_MONTH));
         LocalDate data_fim = LocalDate.ofInstant(c_fim.toInstant(), ZoneId.systemDefault());
 
          for(Quota q: listagemPorAtleta(a)){
@@ -82,7 +75,7 @@ public class ListaQuotas {
          return null;
      }
      
-     public void guardarQuota(Quota q){
+     public void registarQuota(Quota q){
         try {
             Connection con;
             con=getConnection();
@@ -103,9 +96,14 @@ public class ListaQuotas {
         }  
     }
      
-     //percorrer o arraylist de quotas, e comparar os meses, devolve true se nao tiver pago naquele mes, e false se tiver pago.
-     //ao ser true deixa adicionar à tabela
-     public void percorreQuotas(){
-
+     //percorrer o registo de quotas de um atleta, devolve false se jÃ¡ pagou e true se ainda nao pagou e o pode fazer
+     public boolean podePagarQuota(Atleta a, int m, int y, ListaQuotas lista){
+         ArrayList <Quota> lista_q_atleta = lista.listagemPorAtleta(a);
+         for (Quota q : lista_q_atleta){
+            if(q.getData().getMonthValue()==m && q.getData().getYear()==y){
+                return false;
+            }
+         }
+         return true;
      }
 }

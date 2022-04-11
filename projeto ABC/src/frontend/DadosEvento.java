@@ -13,6 +13,7 @@ import backend.ListaPavilhao;
 import backend.Pavilhao;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,88 +21,89 @@ import javax.swing.JOptionPane;
  *
  * @author cataf
  */
-public class AdicionarEvento extends javax.swing.JFrame {
+public class DadosEvento extends javax.swing.JFrame {
+    private ListaPavilhao lista_pavilhao=new  ListaPavilhao();
     private ListaEscalao lista_geral_esc= new ListaEscalao();
     private ListaEventos lista_eventos=new ListaEventos();
-    private ListaPavilhao lista_pavilhao=new ListaPavilhao();
+    private Evento e;
+    
     /**
      * Creates new form AdicionarEvento
      */
-    public AdicionarEvento() {
+    public DadosEvento(Evento e) {
+        this.e=e;
         initComponents();
-        carregarTipoEvento();
-        carregarListaEscaloes();
         carregarPavilhoes();
         //Mostra a centralização da janela
         this.setLocationRelativeTo(null);
-    }
-    
-    private void carregarTipoEvento(){
-        comboTipo.removeAllItems();
-        comboTipo.addItem("Jogo");
-        comboTipo.addItem("Treino");
-    }
-    
-    private void carregarListaEscaloes(){
-        comboEquipa.removeAllItems();
-        for (Escalao esc : lista_geral_esc.listagemEscalao()){
-            String nome =esc.getNome();
-            String id =esc.getId_equipa();
-            String item=String.join("-", id, nome);
-            comboEquipa.addItem(item);   
+        
+        //preencher caixas
+        txtNome.setText(e.getNome());
+        txtDescricao.setText(e.getDescricao());
+        if(e.getTipo().equals("T")){
+            txtTipo.setText("Treino");
+        }else if(e.getTipo().equals("J")){
+            txtTipo.setText("Jogo");
         }
+        
+        txtEscalao.setText(e.getEscalao().getNome());
+        txtDia.setText(String.valueOf(e.getDia()));
+        txtHora.setText(e.getHora());
     }
     
+     
     private void carregarPavilhoes(){
         comboPavilhao.removeAllItems();
         for (Pavilhao pv : lista_pavilhao.listagemPavilhoes()){
             String id =pv.getIdPavilhao();
             String nome=pv.getNome();
-            String item2=String.join("-", id, nome);
-            comboPavilhao.addItem(item2);   
+            String item=String.join("-", id, nome);
+            comboPavilhao.addItem(item);   
         }
     }
-      private void adicionarEvento() throws ListaEventos.EventoNaoExistenteException, ListaEscalao.EscalaoNaoExistenteException{
-        if(txtNome.getText().isEmpty()|| txtDescricao.getText().isEmpty()|| comboTipo.getSelectedItem()==null || comboEquipa.getSelectedItem()==null|| comboPavilhao.getSelectedItem()==null || txtDia.getDate()==null|| txtHora.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");       
+    
+    private void guardar() throws ListaEventos.EventoNaoExistenteException{  
+  
+        if (txtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o nome do evento!");            
+            txtNome.requestFocus();
+            return;
         }else{
-            String nome=txtNome.getText();
-            String descricao=txtDescricao.getText();
-      
-            
-            String item = String.valueOf(comboPavilhao.getSelectedItem());
-            String[] valores=item.split("-");
-            String id_pavilhao=valores[0];
-            Pavilhao pavilhao=lista_pavilhao.getPavilhao(id_pavilhao);
-            
-            String resultadoTipo=String.valueOf(comboTipo.getSelectedItem());
-            String tipo=new String();
-            if(resultadoTipo.equals("Jogo")){
-                tipo="J";
-            }else if(resultadoTipo.equals("Treino")){
-                tipo="T";
-            }
-            
-            LocalDate dia= txtDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            String hora=txtHora.getText();
-            
-            String item2 = String.valueOf(comboEquipa.getSelectedItem());
-            String[] valores2=item2.split("-");
-            String id_escalao=valores2[0];
-            Escalao escalao=lista_geral_esc.getEscalao(id_escalao);
-            
-            
-            if(comboTipo.getSelectedItem().equals("Jogo")){
-                Evento e=new Evento(nome,descricao, pavilhao, dia, hora, escalao, tipo);
-                lista_eventos.adicionarEventos(e);
-               JOptionPane.showMessageDialog(this, "Jogo registado com sucesso!");
-            }else if(comboTipo.getSelectedItem().equals("Treino")){
-                Evento e=new Evento(nome,descricao, pavilhao, dia, hora, escalao, tipo);
-                lista_eventos.adicionarEventos(e);
-                JOptionPane.showMessageDialog(this, "Treino registado com sucesso!");
-            }
-        } 
+            e.setNome(txtNome.getText());
+        }
+        
+        if (txtDescricao.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza a descrição do evento!");            
+            txtDescricao.requestFocus();
+            return;
+        }else{
+            e.setDescricao(txtDescricao.getText());
+        }
+        
+        if (txtTipo.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza o tipo de evento!");            
+            txtTipo.requestFocus();
+            return;
+        }else{
+            e.setTipo(txtTipo.getText());
+        }
+        
+        LocalDate dia = LocalDate.parse(txtDia.getText());
+        e.setDia(dia);
+        
+        if (txtHora.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduza a hora do evento!");            
+            txtHora.requestFocus();
+            return;
+        }else{
+            e.setHora(txtHora.getText());
+        }
+       
+        lista_eventos.alterarEvento(e);
+        JOptionPane.showMessageDialog(this, "Dados alterados com sucesso!");
+        
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -114,21 +116,22 @@ public class AdicionarEvento extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         txtDescricao = new javax.swing.JTextField();
         txtHora = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        comboTipo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        comboEquipa = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         comboPavilhao = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        txtDia = new com.toedter.calendar.JDateChooser();
         txtNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        alterarEventoBtn = new javax.swing.JButton();
+        removerEventoBtn = new javax.swing.JButton();
+        txtEscalao = new javax.swing.JTextField();
+        txtTipo = new javax.swing.JTextField();
+        txtDia = new javax.swing.JTextField();
         imagemFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -148,16 +151,6 @@ public class AdicionarEvento extends javax.swing.JFrame {
 
         txtHora.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jPanel2.add(txtHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 300, -1));
-
-        jButton1.setBackground(new java.awt.Color(255, 236, 52));
-        jButton1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jButton1.setText("ADICIONAR EVENTO");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 201, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 236, 52));
         jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -185,22 +178,13 @@ public class AdicionarEvento extends javax.swing.JFrame {
         jLabel4.setText("Localização:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 112, -1));
 
-        comboTipo.setBackground(new java.awt.Color(255, 255, 204));
-        comboTipo.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(comboTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, -1));
-
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel6.setText("Hora (formato hh:mm):");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 150, -1));
 
-        comboEquipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        comboEquipa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(comboEquipa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 300, -1));
-
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("ADICIONAR EVENTO");
+        jLabel7.setText("DADOS DO EVENTO");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
         comboPavilhao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -215,7 +199,6 @@ public class AdicionarEvento extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel8.setText("Dia:");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 112, -1));
-        jPanel2.add(txtDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 300, -1));
 
         txtNome.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -229,12 +212,35 @@ public class AdicionarEvento extends javax.swing.JFrame {
         jLabel5.setText("Nome do evento:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 118, 131, -1));
 
+        alterarEventoBtn.setBackground(new java.awt.Color(255, 236, 52));
+        alterarEventoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        alterarEventoBtn.setText("ALTERAR DADOS");
+        alterarEventoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarEventoBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(alterarEventoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, -1, -1));
+
+        removerEventoBtn.setBackground(new java.awt.Color(255, 236, 52));
+        removerEventoBtn.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        removerEventoBtn.setText("REMOVER EVENTO");
+        removerEventoBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removerEventoBtnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(removerEventoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 140, -1));
+        jPanel2.add(txtEscalao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, 300, -1));
+        jPanel2.add(txtTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 300, -1));
+        jPanel2.add(txtDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 300, -1));
+
         imagemFundo.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         imagemFundo.setForeground(new java.awt.Color(255, 255, 255));
         imagemFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Sem Título-1.png"))); // NOI18N
         jPanel2.add(imagemFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 520));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 570));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -242,16 +248,6 @@ public class AdicionarEvento extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            adicionarEvento();
-        } catch (ListaEventos.EventoNaoExistenteException ex) {
-            Logger.getLogger(AdicionarEvento.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListaEscalao.EscalaoNaoExistenteException ex) {
-            Logger.getLogger(AdicionarEvento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescricaoActionPerformed
         // TODO add your handling code here:
@@ -264,6 +260,21 @@ public class AdicionarEvento extends javax.swing.JFrame {
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void alterarEventoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarEventoBtnActionPerformed
+        try {
+            guardar();
+        } catch (ListaEventos.EventoNaoExistenteException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro ao alterar evento", JOptionPane.ERROR_MESSAGE);
+        }
+        dispose();
+    }//GEN-LAST:event_alterarEventoBtnActionPerformed
+
+    private void removerEventoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerEventoBtnActionPerformed
+        lista_eventos.removerEvento(e);
+        JOptionPane.showMessageDialog(this, "Evento removido com sucesso!");
+        dispose();
+    }//GEN-LAST:event_removerEventoBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -282,31 +293,31 @@ public class AdicionarEvento extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdicionarEvento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DadosEvento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdicionarEvento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DadosEvento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdicionarEvento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DadosEvento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdicionarEvento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DadosEvento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdicionarEvento().setVisible(true);
+                //new DadosEvento().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> comboEquipa;
+    private javax.swing.JButton alterarEventoBtn;
     private javax.swing.JComboBox<String> comboPavilhao;
-    private javax.swing.JComboBox<String> comboTipo;
     private javax.swing.JLabel imagemFundo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -317,9 +328,12 @@ public class AdicionarEvento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton removerEventoBtn;
     private javax.swing.JTextField txtDescricao;
-    private com.toedter.calendar.JDateChooser txtDia;
+    private javax.swing.JTextField txtDia;
+    private javax.swing.JTextField txtEscalao;
     private javax.swing.JTextField txtHora;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtTipo;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,6 +22,15 @@ public class ListaPavilhao {
          //this.listaPavilhoes = listagemPavilhoes();
      }
      
+     public Pavilhao getPavilhao(String id){
+        for (Pavilhao pv : listagemPavilhoes()){
+                    if(pv.getIdPavilhao().equals(id)){
+                        return pv;
+                    }
+                }
+        return null;
+    }
+        
      public void adicionarPavilhao(Pavilhao p) {
         try {
             Connection con;
