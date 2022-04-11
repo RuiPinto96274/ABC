@@ -24,12 +24,16 @@ public class ListaEventos {
         listaEventos= new ArrayList();
     }
     
+    public Evento getEvento(String id){
+        
+    }
+    
     public ArrayList<Evento> listagemEventos(){
         ArrayList <Evento> listaEventos = new ArrayList<>();
         try {
             Connection con;
             con=getConnection();
-            String query = "SELECT * FROM eventos";
+            String query = "SELECT * FROM Evento";
 
             Statement st;
             ResultSet rs;
@@ -52,11 +56,11 @@ public class ListaEventos {
         return null;
     }
     
-     public void guardarEventos(String local, String escalao){
+     public void adicionarEventos(String local, String escalao){
         try {
             Connection con;
             con=getConnection();
-            String query = "INSERT INTO eventos (localizacao,escalao) VALUES (?,?)";
+            String query = "INSERT INTO Evento (localizacao,escalao) VALUES (?,?)";
             
             PreparedStatement ps = con.prepareStatement(query);
             
@@ -95,40 +99,22 @@ public class ListaEventos {
         }        
     }
     
-    //Método seletor
-    public ArrayList<Evento> getListaEventos(){
-         return listaEventos;
-    }
-    
+    //Método seletor    
     public int length(){
         return listaEventos.size();
     }
 
-    public void adicionarEvento(Evento evento) throws EventoDuplicadoException{       
-        try{    
-            if(!listaEventos.contains(evento)){
-                listaEventos.add(evento); 
-            }
-        }catch (NullPointerException e){
-            throw new EventoDuplicadoException(String.format("O evento já existe ", evento.getIdEvento()));
-        }                  
-    }    
 
     
     public void removerEvento(Evento evento){
-        listaEventos.remove(evento);
+        //listaEventos.remove(evento);
+        
     }
     
-    //listagem de todos os eventos
-    /*
-    public ArrayList listagemEventos(){
-        ArrayList <Evento> lista =new ArrayList();
-        for (Evento evento : listaEventos){
-            lista.add(evento);       
-        }
-        return lista;
+    public void alterarEvento(Evento evento){
+        
     }
-    */	
+
     public boolean existe(int id_evento){
        for(int i=0; i<listaEventos.size(); i++){
            if(listaEventos.get(i).getIdEvento()==id_evento){

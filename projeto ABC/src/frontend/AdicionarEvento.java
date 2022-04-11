@@ -39,13 +39,15 @@ public class AdicionarEvento extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboTipo = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        comboEquipa = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
+        comboPavilhao = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        imagemFundo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -63,7 +65,7 @@ public class AdicionarEvento extends javax.swing.JFrame {
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 139, 300, -1));
 
         jTextField4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 356, 300, -1));
+        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 300, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 236, 52));
         jButton1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -73,7 +75,7 @@ public class AdicionarEvento extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 201, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 201, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 236, 52));
         jButton2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
@@ -83,7 +85,7 @@ public class AdicionarEvento extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 201, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, 201, -1));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel1.setText("Nome do evento:");
@@ -97,35 +99,46 @@ public class AdicionarEvento extends javax.swing.JFrame {
         jLabel3.setText("Escalão e Género:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 226, 126, -1));
 
-        jTextField5.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 303, 300, -1));
-
         jLabel4.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
         jLabel4.setText("Localização:");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 282, 112, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 204));
-        jComboBox1.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 192, 300, -1));
+        comboTipo.setBackground(new java.awt.Color(255, 255, 204));
+        comboTipo.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        comboTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(comboTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 192, 300, -1));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel6.setText("Data e hora:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 335, 112, -1));
+        jLabel6.setText("Hora (formato hh:mm):");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 150, -1));
 
-        jComboBox2.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 246, 300, -1));
+        comboEquipa.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        comboEquipa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(comboEquipa, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 300, -1));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("ADICIONAR EVENTO");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
+        comboPavilhao.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        comboPavilhao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboPavilhao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboPavilhaoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(comboPavilhao, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 300, -1));
+
         jLabel8.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Sem Título-1.png"))); // NOI18N
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 520));
+        jLabel8.setText("Dia:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 112, -1));
+        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 300, -1));
+
+        imagemFundo.setFont(new java.awt.Font("SansSerif", 0, 11)); // NOI18N
+        imagemFundo.setForeground(new java.awt.Color(255, 255, 255));
+        imagemFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Sem Título-1.png"))); // NOI18N
+        jPanel2.add(imagemFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 520));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -138,13 +151,17 @@ public class AdicionarEvento extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ListaEventos le = new ListaEventos();
-        le.guardarEventos(jTextField5.getText(),"Teste");
+        //le.guardarEventos(jTextField5.getText(),"Teste");
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void comboPavilhaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPavilhaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboPavilhaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,10 +200,13 @@ public class AdicionarEvento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboEquipa;
+    private javax.swing.JComboBox<String> comboPavilhao;
+    private javax.swing.JComboBox<String> comboTipo;
+    private javax.swing.JLabel imagemFundo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -197,6 +217,5 @@ public class AdicionarEvento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
