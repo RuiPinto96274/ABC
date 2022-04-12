@@ -43,16 +43,21 @@ public class AssociarTreinador extends javax.swing.JFrame {
         if(txtCipa.getText().isEmpty() || comboEscalao.getSelectedItem()==null){
             JOptionPane.showMessageDialog(this, "Preencha todos os campos obrigatórios!");           
         }else{
-            String item = String.valueOf(comboEscalao.getSelectedItem());
+            if (lista_geral_users.getTreinador(txtCipa.getText())==null){
+                JOptionPane.showMessageDialog(this, "Não existe nenhum treinador com esse cipa!"); 
+            }else{
+                String item = String.valueOf(comboEscalao.getSelectedItem());
             String[] valores=item.split("-");
-            String id=valores[0];
-            System.out.println(id);
+            String id=valores[0];           
             String cipa =(txtCipa.getText());
             Treinador treinador=lista_geral_users.getTreinador(cipa);
             Escalao escalao=lista_geral_esc.getEscalao(id);
-        lista_geral_users.associarEscalao(treinador, escalao);
-        lista_geral_esc.getEscalao(id).setTreinador(treinador);
-        JOptionPane.showMessageDialog(this, "Associacao efetuada com sucesso!");
+            lista_geral_users.associarEscalao(treinador, escalao);
+            lista_geral_esc.getEscalao(id).setTreinador(treinador);
+            JOptionPane.showMessageDialog(this, "Associacao efetuada com sucesso!");
+            dispose();
+            }
+            
         } 
     }
     /**

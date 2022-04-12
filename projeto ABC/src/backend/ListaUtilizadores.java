@@ -54,18 +54,6 @@ public class ListaUtilizadores {
     public int size() {
         return listaUtilizadores.size();
     }
-    /*
-    public void removerUtilizador(String username) {
-        listaUtilizadores.remove(username);
-    }
-    */
-    public Utilizador getUtilizador(String username) throws UtilizadorNaoExistenteException {
-        if (listaUtilizadores.containsKey(username)){
-            return listaUtilizadores.get(username);
-        }else{
-            throw new UtilizadorNaoExistenteException("O utilizador nao existe na lista");
-        }
-    }
 
     public Atleta getAtleta(String user) throws UtilizadorNaoExistenteException {
         for (Atleta a : listagemAtletas()){
@@ -102,11 +90,7 @@ public class ListaUtilizadores {
                 }
         return null;
     }
-    
-    public ArrayList<Utilizador> listagemUtilizadores() {
-        return new ArrayList<>(listaUtilizadores.values());
-    }
-    
+
     public ArrayList<Treinador> listagemTreinadores(){
         ArrayList <Treinador> listaTreinadores = new ArrayList<>();
 
@@ -156,7 +140,6 @@ public class ListaUtilizadores {
             while(rs.next()) {
                 String id= rs.getString("Equipa_idEquipa");
                 esc = lista.getEscalao(id);
-                //Atleta = new Atleta(rs.getString("cipa"),rs.getString("nome"), rs.getString("password"), LocalDate.parse(rs.getString("data_nasc")), Integer.parseInt(rs.getString("contacto")));
                 listaEquipas.add(esc);
             }
             con.close();
@@ -186,6 +169,25 @@ public class ListaUtilizadores {
             
         } catch (Exception ex) {
             System.err.println("Got an exception, ao adicionar atleta a uma equipa! ");
+            System.err.println(ex.getMessage());
+        }
+    }
+    
+    public void removerEscalaoAtleta(Atleta a, Escalao esc){
+        try {
+            Connection con;
+            con=getConnection();
+            
+            String query = "delete from Inscricao where Atleta_cipa = ? and Equipa_idEquipa=?";
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            preparedStmt.setString(1, a.getCipa());
+            preparedStmt.setString(2, esc.getId_equipa());
+
+            preparedStmt.execute();
+            con.close();
+            
+        } catch (Exception ex) {
+            System.err.println("Got an exception when trying to remove um atleta de uma equipa! ");
             System.err.println(ex.getMessage());
         }
     }

@@ -74,14 +74,7 @@ public class DadosEvento extends javax.swing.JFrame {
         }else{
             e.setNome(txtNome.getText());
         }
-        /*
-        if (txtDescricao.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Introduza a descrição do evento!");            
-            txtDescricao.requestFocus();
-            return;
-        }else{
-            e.setDescricao(txtDescricao.getText());
-        }*/
+       
         //LocalDate dia = LocalDate.parse(txtDia.getText());
          
         LocalDate dia= txtDia.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();

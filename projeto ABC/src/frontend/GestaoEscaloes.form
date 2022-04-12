@@ -49,11 +49,13 @@
                   <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="txtProcura" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="txtProcura" min="-2" pref="163" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="pesquisaBtn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                          <Component id="atualizarBtn1" min="-2" pref="138" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="associarAtleta" min="-2" pref="122" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="associarTreinador" min="-2" pref="138" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="registarEscalaoBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -83,7 +85,8 @@
                       <Component id="pesquisaBtn" alignment="3" max="32767" attributes="0"/>
                       <Component id="txtProcura" alignment="3" max="32767" attributes="0"/>
                       <Component id="registarEscalaoBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="atualizarBtn1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="associarTreinador" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="associarAtleta" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
@@ -253,7 +256,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="atualizarBtn1">
+        <Component class="javax.swing.JButton" name="associarTreinador">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="34" green="ec" red="ff" type="rgb"/>
@@ -264,7 +267,21 @@
             <Property name="text" type="java.lang.String" value="Associar Treinador"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="atualizarBtn1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="associarTreinadorActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="associarAtleta">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="34" green="ec" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Associar Atleta"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="associarAtletaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
