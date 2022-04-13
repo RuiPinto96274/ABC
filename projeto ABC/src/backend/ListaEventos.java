@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  *
@@ -57,6 +57,34 @@ public class ListaEventos {
             System.err.println(ex.getMessage());
         }  
         return null;
+    }
+    
+    static public ArrayList<LocalDate> diasEventos(int mes){
+         ArrayList <LocalDate> listaDias = new ArrayList<>();
+         String query = "SELECT * FROM Evento WHERE (SELECT EXTRACT(MONTH FROM dia)=" + mes + ")";
+         System.out.println(query);
+        try {
+            Connection con;
+            con=getConnection();
+            
+            Statement st;
+            ResultSet rs;
+
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+
+            while(rs.next()){
+                listaDias.add(rs.getDate("dia").toLocalDate());
+            }
+            con.close();
+            return listaDias;
+
+        } catch (Exception ex) {
+            System.err.println("Erro ao listar eventos! ");
+            System.err.println(ex.getMessage());
+        }  
+        return null;
+        
     }
     
      public void adicionarEventos(Evento e){

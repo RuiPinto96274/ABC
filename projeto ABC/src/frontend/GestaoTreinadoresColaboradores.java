@@ -5,6 +5,7 @@
  */
 package frontend;
 
+import backend.Administrador;
 import backend.Colaborador;
 import backend.ListaUtilizadores;
 import backend.Treinador;
@@ -36,30 +37,11 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         preencheTabela();
         
         //aparecer texto ao passar cursor em cima
-        iconAtletas.setToolTipText("Atletas");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
+        iconPerfil.setToolTipText("Perfil");   
+        iconAtletas.setToolTipText("Atletas");  
         iconCalendario.setToolTipText("Calendário");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconGestaoTeC.setToolTipText("Treinadores e Colaboradores");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconPagar.setToolTipText("Registar pagamento de quota");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconSair.setToolTipText("Sair");       
         UIManager.put("ToolTip.background", Color.WHITE);
         UIManager.put("ToolTip.foreground", Color.BLACK);
@@ -125,11 +107,12 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        iconAtletas = new javax.swing.JLabel();
+        iconPerfil = new javax.swing.JLabel();
         iconCalendario = new javax.swing.JLabel();
         iconSair = new javax.swing.JLabel();
         iconGestaoTeC = new javax.swing.JLabel();
         iconPagar = new javax.swing.JLabel();
+        iconAtletas = new javax.swing.JLabel();
         registarUtilizadorBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelaUtilizadores = new javax.swing.JTable();
@@ -146,11 +129,11 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 236, 52));
 
-        iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
-        iconAtletas.setText("jLabel1");
-        iconAtletas.addMouseListener(new java.awt.event.MouseAdapter() {
+        iconPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
+        iconPerfil.setText("jLabel1");
+        iconPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iconAtletasMouseClicked(evt);
+                iconPerfilMouseClicked(evt);
             }
         });
 
@@ -184,6 +167,13 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
             }
         });
 
+        iconAtletas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (1).png"))); // NOI18N
+        iconAtletas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconAtletasMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -193,23 +183,28 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(iconAtletas, javax.swing.GroupLayout.PREFERRED_SIZE, 54, Short.MAX_VALUE)
+                            .addComponent(iconPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(iconCalendario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(iconSair, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(iconGestaoTeC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
-                    .addComponent(iconPagar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(iconPagar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(iconAtletas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(14, 14, 14))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(33, 33, 33)
+                .addComponent(iconPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconAtletas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconGestaoTeC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconPagar)
                 .addGap(222, 222, 222)
                 .addComponent(iconSair)
@@ -390,6 +385,16 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
         rq.setVisible(true);
     }//GEN-LAST:event_iconPagarMouseClicked
 
+    private void iconPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconPerfilMouseClicked
+        if(u instanceof Administrador){
+           DadosAdmin da=new DadosAdmin((Administrador) u);
+           da.setVisible(true);
+         }else if (u instanceof Colaborador){
+             DadosColaborador dc=new DadosColaborador((Colaborador)u);
+             dc.setVisible(true);
+         }
+    }//GEN-LAST:event_iconPerfilMouseClicked
+
     private void iconAtletasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconAtletasMouseClicked
         dispose();
         GestaoAtletas ga = new GestaoAtletas(u);
@@ -441,6 +446,7 @@ public class GestaoTreinadoresColaboradores extends javax.swing.JFrame {
     private javax.swing.JLabel iconCalendario;
     private javax.swing.JLabel iconGestaoTeC;
     private javax.swing.JLabel iconPagar;
+    private javax.swing.JLabel iconPerfil;
     private javax.swing.JLabel iconSair;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

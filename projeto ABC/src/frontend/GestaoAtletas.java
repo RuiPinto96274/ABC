@@ -39,30 +39,11 @@ public class GestaoAtletas extends javax.swing.JFrame {
         preencheTabela();
         
         //aparecer texto ao passar cursor em cima
-        iconPerfil.setToolTipText("Atletas");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
+        iconPerfil.setToolTipText("Perfil"); 
+        iconAtletas.setToolTipText("Atletas");       
         iconCalendario.setToolTipText("Calendário");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconGestaoTeC.setToolTipText("Treinadores e Colaboradores");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconPagar.setToolTipText("Registar pagamento de quota");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconSair.setToolTipText("Sair");       
         UIManager.put("ToolTip.background", Color.WHITE);
         UIManager.put("ToolTip.foreground", Color.BLACK);
@@ -148,6 +129,11 @@ public class GestaoAtletas extends javax.swing.JFrame {
 
         iconPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pngwing.com (2).png"))); // NOI18N
         iconPerfil.setText("jLabel1");
+        iconPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconPerfilMouseClicked(evt);
+            }
+        });
 
         iconCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
         iconCalendario.setText("jLabel2");
@@ -204,17 +190,17 @@ public class GestaoAtletas extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(26, 26, 26)
                 .addComponent(iconPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconAtletas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconCalendario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconGestaoTeC)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(iconPagar)
-                .addGap(259, 259, 259)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE)
                 .addComponent(iconSair)
                 .addGap(19, 19, 19))
         );
@@ -405,8 +391,20 @@ public class GestaoAtletas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtProcuraActionPerformed
 
     private void iconAtletasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconAtletasMouseClicked
-        
+        dispose();
+        GestaoAtletas ga = new GestaoAtletas(u);
+        ga.setVisible(true);
     }//GEN-LAST:event_iconAtletasMouseClicked
+
+    private void iconPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconPerfilMouseClicked
+        if(u instanceof Administrador){
+           DadosAdmin da=new DadosAdmin((Administrador) u);
+           da.setVisible(true);
+         }else if (u instanceof Colaborador){
+             DadosColaborador dc=new DadosColaborador((Colaborador)u);
+             dc.setVisible(true);
+         }
+    }//GEN-LAST:event_iconPerfilMouseClicked
 
     /**
      * @param args the command line arguments

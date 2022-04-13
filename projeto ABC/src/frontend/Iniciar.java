@@ -20,7 +20,7 @@ public class Iniciar {
            
 }
         
-            
+          
     public static Connection getConnection() throws Exception{
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -31,5 +31,15 @@ public class Iniciar {
             System.err.println("Erro ao conectar!");
             return null;
     }
-    
+    /*
+        public static Connection getConnection() throws Exception{
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            String myURL = "jdbc:mysql://mysql-projetoabc-carolinabarreiro2504-9830.aivencloud.com:28599/defaultdb?zeroDateTimeBehavior=CONVERT_TO_NULL";
+            Connection con = DriverManager.getConnection(myURL, "avnadmin", "AVNS_Jp8ez-CPvq0CBt7");
+            return con;
+        } catch(Exception e){System.out.println(e);}
+            System.err.println("Erro ao conectar!");
+            return null;
+    }*/
 }

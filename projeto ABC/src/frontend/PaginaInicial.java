@@ -36,35 +36,10 @@ public class PaginaInicial extends javax.swing.JFrame {
         
         //aparecer texto ao passar cursor em cima
         iconPerfil.setToolTipText("Perfil");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconAtletas.setToolTipText("Atletas");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconCalendario.setToolTipText("Calendário");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconGestaoTeC.setToolTipText("Treinadores e Colaboradores");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconPagar.setToolTipText("Registar pagamento de quota");       
-        UIManager.put("ToolTip.background", Color.WHITE);
-        UIManager.put("ToolTip.foreground", Color.BLACK);
-        UIManager.put("ToolTip.font", new Font("SansSerif", Font.BOLD, 14));
-        
-        //aparecer texto ao passar cursor em cima
         iconSair.setToolTipText("Sair");       
         UIManager.put("ToolTip.background", Color.WHITE);
         UIManager.put("ToolTip.foreground", Color.BLACK);
