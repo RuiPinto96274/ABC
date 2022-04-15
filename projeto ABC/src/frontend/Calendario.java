@@ -37,22 +37,28 @@ public class Calendario extends javax.swing.JFrame {
     private ListaEventos lista_geral= new ListaEventos();
     private Utilizador u;
     
-    static JLabel lblMonth, lblYear;
-    static JButton btnPrev, btnNext;
-    static JComboBox cmbYear;
-    static JFrame frmMain;
-    static Container pane;
     static DefaultTableModel mtblCalendar; //Table model
-    static JScrollPane stblCalendar; //The scrollpane
+
     static int realYear, realMonth, realDay, currentYear, currentMonth;
+    
     
     private static ArrayList<Integer> listaTreinos = new ArrayList<>();
     private static ArrayList<Integer> listaJogos = new ArrayList<>();
     /**
-     * Creates new form Calendario
+     * Creates new form 
      */
     public Calendario(Utilizador u) {
-        listaDeDias(4);
+        
+        //Get real month/year
+        GregorianCalendar cal = new GregorianCalendar(); //Create calendar
+        realDay = cal.get(GregorianCalendar.DAY_OF_MONTH); //Get day
+        realMonth = cal.get(GregorianCalendar.MONTH); //Get month
+        realYear = cal.get(GregorianCalendar.YEAR); //Get year
+        currentMonth = realMonth; //Match month and year
+        currentYear = realYear;
+        
+        listaDeDias(currentMonth,currentYear);
+        
         Locale sim = new Locale("pt","PT");
         codigoTabela();
         initComponents();
@@ -61,10 +67,7 @@ public class Calendario extends javax.swing.JFrame {
         refreshCalendar(jMonthChooser2.getMonth(),jYearChooser1.getYear());
         this.u=u;
         setExtendedState(JFrame.MAXIMIZED_BOTH);
-       
-        //modelEventos = (DefaultTableModel) tabelaEventos.getModel();       
-        
-        
+          
         //aparecer texto ao passar cursor em cima
         iconPerfil.setToolTipText("Perfil");
         iconAtletas.setToolTipText("Atletas");       
@@ -83,51 +86,30 @@ public class Calendario extends javax.swing.JFrame {
     }
     
     void codigoTabela(){     
-        lblMonth = new JLabel ("January");
-        lblYear = new JLabel ("Change year:");
-        cmbYear = new JComboBox();
-        btnPrev = new JButton ("&lt;&lt;");
-        btnNext = new JButton ("&gt;&gt;");
         mtblCalendar = new DefaultTableModel(){public boolean isCellEditable(int rowIndex, int mColIndex){return false;}};
         tblCalendar = new JTable(mtblCalendar);
-        stblCalendar = new JScrollPane(tblCalendar);
-        
-    
-    //Get real month/year
-        GregorianCalendar cal = new GregorianCalendar(); //Create calendar
-        realDay = cal.get(GregorianCalendar.DAY_OF_MONTH); //Get day
-        realMonth = cal.get(GregorianCalendar.MONTH); //Get month
-        realYear = cal.get(GregorianCalendar.YEAR); //Get year
-        currentMonth = realMonth; //Match month and year
-        currentYear = realYear;
         
     //Add headers
-    String[] headers = {"Domingo", "2ª Feira", "3ª Feira", "4ª Feira", "5ª Feira", "6ª Feira", "Sabado"}; //All headers
-    for (int i=0; i<7; i++){
-        mtblCalendar.addColumn(headers[i]);
+        String[] headers = {"Domingo", "2ª Feira", "3ª Feira", "4ª Feira", "5ª Feira", "6ª Feira", "Sabado"}; //All headers
+        for (int i=0; i<7; i++){
+            mtblCalendar.addColumn(headers[i]);
         }
     
     //No resize/reorder
-    tblCalendar.getTableHeader().setResizingAllowed(false);
-    tblCalendar.getTableHeader().setReorderingAllowed(false);
+        tblCalendar.getTableHeader().setResizingAllowed(false);
+        tblCalendar.getTableHeader().setReorderingAllowed(false);
         
     
     //Single cell selection
-    tblCalendar.setColumnSelectionAllowed(true);
-    tblCalendar.setRowSelectionAllowed(true);
-    tblCalendar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tblCalendar.setColumnSelectionAllowed(true);
+        tblCalendar.setRowSelectionAllowed(true);
+        tblCalendar.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     
     //Set row/column count
-    tblCalendar.setRowHeight(38);
-    mtblCalendar.setColumnCount(7);
-    mtblCalendar.setRowCount(6);
-    
-    
-    for (int i=realYear-100; i<=realYear+100; i++){
-            cmbYear.addItem(String.valueOf(i));
-        }
-    
-    
+        tblCalendar.setRowHeight(38);
+        mtblCalendar.setColumnCount(7);
+        mtblCalendar.setRowCount(6);
+   
     refreshCalendar(realMonth, realYear); //Refresh calendar
     
     }
@@ -136,15 +118,6 @@ public class Calendario extends javax.swing.JFrame {
         //Variables
         String[] months =  {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outbro", "Novembro", "Dezembro"};
         int nod, som; //Number Of Days, Start Of Month
-        
-        //Allow/disallow buttons
-        btnPrev.setEnabled(true);
-        btnNext.setEnabled(true);
-        if (month == 0 && year <= realYear-10){btnPrev.setEnabled(false);} //Too early
-        if (month == 11 && year >= realYear+100){btnNext.setEnabled(false);} //Too late
-        lblMonth.setText(months[month]); //Refresh the month label (at the top)
-        lblMonth.setBounds(160-lblMonth.getPreferredSize().width/2, 25, 180, 25); //Re-align label with calendar
-        cmbYear.setSelectedItem(String.valueOf(year)); //Select the correct year in the combo box
         
         //Clear table
         for (int i=0; i<6; i++){
@@ -164,18 +137,14 @@ public class Calendario extends javax.swing.JFrame {
             mtblCalendar.setValueAt(i, row, column);
         }
               //Apply renderers
-        tblCalendar.setDefaultRenderer(tblCalendar.getColumnClass(0), new tblCalendarRenderer());
+        tblCalendar.setDefaultRenderer(tblCalendar.getColumnClass(0), new tblCalendarRenderer());     
     }
-    
-
-    
-    void listaDeDias(int mes){
-         listaJogos = ListaEventos.diasEventos(mes,"J");
-         listaTreinos = ListaEventos.diasEventos(mes,"T");
-        
-        
+      
+    void listaDeDias(int mes, int ano){
+         listaJogos = ListaEventos.diasEventos(mes+1,ano,"J");
+         listaTreinos = ListaEventos.diasEventos(mes+1,ano,"T");     
     }
-    
+  
     static class tblCalendarRenderer extends DefaultTableCellRenderer{
         public Component getTableCellRendererComponent (JTable table, Object value, boolean selected, boolean focused, int row, int column){
             Component c = super.getTableCellRendererComponent(table, value, selected, focused, row, column);
@@ -186,7 +155,7 @@ public class Calendario extends javax.swing.JFrame {
                 setBackground(new Color(255, 255, 255));
             }
             if (value != null){
-                if (Integer.parseInt(value.toString()) == realDay && currentMonth == jMonthChooser2.getMonth() && currentYear == jYearChooser1.getYear()){ //Today
+                if (Integer.parseInt(value.toString()) == realDay && currentMonth == realMonth && currentYear == realYear){ //Today
                     c.setBackground(new Color(252, 229, 56));
                 }
                 if (listaTreinos.contains(Integer.parseInt(value.toString()))){ //VALORES RGB PARA OS TREINOS
@@ -202,33 +171,7 @@ public class Calendario extends javax.swing.JFrame {
             return this;
         }
     }
-    
-    
-    /*
-    private void procurar(){
-        String id_evento =txtProcura.getText();
-        ArrayList <Evento> listar = new ArrayList<>();
-        listar=lista_geral.listagemEventos();
-        boolean encontrou =false;
-        
-        for (Evento e : listar){
-            if(e.getId_evento().equals(id_evento)){
-                DadosEvento de = new DadosEvento(e);
-                de.setVisible(true);
-                txtProcura.setText("");
-                encontrou=true;
-            }     
-        }
-        
-        if(encontrou==false){
-            JOptionPane.showMessageDialog(this, "Este escalão não existe!");
-        }   
-    }
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -337,10 +280,14 @@ public class Calendario extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CALENDÁRIO");
 
+        tblCalendar.setForeground(new java.awt.Color(255, 51, 0));
         tblCalendar.setModel(mtblCalendar);
+        tblCalendar.setCellSelectionEnabled(true);
         tblCalendar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblCalendar.setInheritsPopupMenu(true);
         tblCalendar.setRowHeight(40);
+        tblCalendar.setSelectionBackground(new java.awt.Color(255, 0, 51));
+        tblCalendar.setSelectionForeground(new java.awt.Color(255, 0, 0));
         jScrollPane1.setViewportView(tblCalendar);
 
         jButton2.setText("Adicionar Evento");
@@ -469,7 +416,8 @@ public class Calendario extends javax.swing.JFrame {
     }//GEN-LAST:event_iconPerfilMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        AdicionarEvento ae = new AdicionarEvento();
+        ae.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -477,11 +425,17 @@ public class Calendario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        int x = tblCalendar.getSelectedRow();
+        int y = tblCalendar.getSelectedColumn();
+        DiaDetalhes d = new DiaDetalhes(Integer.parseInt(tblCalendar.getValueAt(x,y).toString()),4,jYearChooser1.getYear());
+        d.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        refreshCalendar(jMonthChooser2.getMonth(),jYearChooser1.getYear());
+        currentMonth = jMonthChooser2.getMonth();
+        currentYear = jYearChooser1.getYear();
+        listaDeDias(currentMonth,currentYear); 
+        refreshCalendar(currentMonth,currentYear);
         refreshTitulo();
     }//GEN-LAST:event_jButton1ActionPerformed
 

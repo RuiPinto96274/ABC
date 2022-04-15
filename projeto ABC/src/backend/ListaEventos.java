@@ -59,9 +59,43 @@ public class ListaEventos {
         return null;
     }
     
-    static public ArrayList<Integer> diasEventos(int mes, String c){
+    static public ArrayList<Evento> listagemEventosX(int dia, int mes, int ano){
+        ArrayList <Evento> listaEventos = new ArrayList<>();
+        try {
+            Connection con;
+            con=getConnection();
+            String query = "SELECT * FROM Evento e WHERE (dia ='"+ano+"-"+mes+"-"+dia+"')";
+            System.out.println(query);
+            Statement st;
+            ResultSet rs;
+
+            st = con.createStatement();
+            rs = st.executeQuery(query);
+
+            while(rs.next()){
+                ListaEscalao listagemEscalao=new ListaEscalao();
+                Escalao esc=listagemEscalao.getEscalao(String.valueOf(rs.getInt("Equipa_idEquipa")));
+                Evento evento;
+                
+                ListaPavilhao listagemPavilhoes=new ListaPavilhao();
+                Pavilhao pv=listagemPavilhoes.getPavilhao(String.valueOf(rs.getInt("Pavilhao_idPavilhao")));
+            
+                evento = new Evento(rs.getString("idEvento"),rs.getString("nome"),rs.getString("descricao"),pv,LocalDate.parse(rs.getString("dia")),rs.getString("hora"),esc,rs.getString("tipo"));
+                listaEventos.add(evento);
+            }
+            con.close();
+            return listaEventos;
+
+        } catch (Exception ex) {
+            System.err.println("Erro ao listar eventos! ");
+            System.err.println(ex.getMessage());
+        }  
+        return null;
+    }
+    
+    static public ArrayList<Integer> diasEventos(int mes, int ano, String c){
          ArrayList <Integer> listaDias = new ArrayList<>();
-         String query = "SELECT * FROM Evento WHERE (SELECT EXTRACT(MONTH FROM dia)=" + mes + ")";
+         String query = "SELECT * FROM Evento WHERE ((SELECT EXTRACT(MONTH FROM dia)="+mes+") AND (SELECT EXTRACT(YEAR FROM dia)="+ano+"))";
          System.out.println(query);
         try {
             Connection con;
