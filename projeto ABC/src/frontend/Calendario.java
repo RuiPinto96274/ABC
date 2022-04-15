@@ -430,15 +430,21 @@ public class Calendario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        int x = tblCalendar.getSelectedRow();
-        int y = tblCalendar.getSelectedColumn();
-        lista = ListaEventos.listagemEventosX(Integer.parseInt(tblCalendar.getValueAt(x,y).toString()),currentMonth+1,jYearChooser1.getYear());
-        if(lista.isEmpty()){
-            JOptionPane.showMessageDialog(this, "O dia selecionado não tem nenhum evento marcado!");
+        if(tblCalendar.getSelectionModel().isSelectionEmpty()){
+            JOptionPane.showMessageDialog(this, "Não está selecionado nenhum dia!");
         }else{
-           DiaDetalhes d = new DiaDetalhes(Integer.parseInt(tblCalendar.getValueAt(x,y).toString()),currentMonth+1,jYearChooser1.getYear());
-        d.setVisible(true); 
+            int x = tblCalendar.getSelectedRow();
+            int y = tblCalendar.getSelectedColumn();
+            lista = ListaEventos.listagemEventosX(Integer.parseInt(tblCalendar.getValueAt(x,y).toString()),currentMonth+1,jYearChooser1.getYear());
+        
+            if(lista.isEmpty()){
+                JOptionPane.showMessageDialog(this, "O dia selecionado não tem nenhum evento marcado!");
+            }else{
+                DiaDetalhes d = new DiaDetalhes(Integer.parseInt(tblCalendar.getValueAt(x,y).toString()),currentMonth+1,jYearChooser1.getYear());
+                d.setVisible(true); 
+            }
         }
+        
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
