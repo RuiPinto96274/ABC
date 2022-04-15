@@ -31,6 +31,8 @@ public class DiaDetalhes extends javax.swing.JFrame {
         
         lista = ListaEventos.listagemEventosX(dia,mes,ano);
         
+        //Mostra a centralização da janela
+        this.setLocationRelativeTo(null);
         
         for(int x=0; x<lista.size();x++){
             ls.add(new String ("["+lista.get(x).getHora()+"] " + lista.get(x).getNome()));
@@ -98,6 +100,7 @@ private static ListCellRenderer createListRenderer() {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jComboBox1.setModel(new DefaultComboBoxModel<String>(ls.toArray(new String[0])));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
