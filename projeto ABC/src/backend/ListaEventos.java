@@ -59,8 +59,8 @@ public class ListaEventos {
         return null;
     }
     
-    static public ArrayList<LocalDate> diasEventos(int mes){
-         ArrayList <LocalDate> listaDias = new ArrayList<>();
+    static public ArrayList<Integer> diasEventos(int mes, String c){
+         ArrayList <Integer> listaDias = new ArrayList<>();
          String query = "SELECT * FROM Evento WHERE (SELECT EXTRACT(MONTH FROM dia)=" + mes + ")";
          System.out.println(query);
         try {
@@ -74,11 +74,13 @@ public class ListaEventos {
             rs = st.executeQuery(query);
 
             while(rs.next()){
-                listaDias.add(rs.getDate("dia").toLocalDate());
+                if(rs.getString("tipo").equals(c)){ 
+                    listaDias.add(rs.getDate("dia").toLocalDate().getDayOfMonth());
+            }
+                System.out.println((rs.getString("tipo").equals(c)));
             }
             con.close();
             return listaDias;
-
         } catch (Exception ex) {
             System.err.println("Erro ao listar eventos! ");
             System.err.println(ex.getMessage());
@@ -86,6 +88,10 @@ public class ListaEventos {
         return null;
         
     }
+    
+    
+    
+    
     
      public void adicionarEventos(Evento e){
         try {

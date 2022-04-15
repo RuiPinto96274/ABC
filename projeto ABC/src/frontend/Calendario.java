@@ -46,11 +46,13 @@ public class Calendario extends javax.swing.JFrame {
     static JScrollPane stblCalendar; //The scrollpane
     static int realYear, realMonth, realDay, currentYear, currentMonth;
     
-    private static ArrayList<LocalDate> lista;
+    private static ArrayList<Integer> listaTreinos = new ArrayList<>();
+    private static ArrayList<Integer> listaJogos = new ArrayList<>();
     /**
      * Creates new form Calendario
      */
     public Calendario(Utilizador u) {
+        listaDeDias(4);
         Locale sim = new Locale("pt","PT");
         codigoTabela();
         initComponents();
@@ -124,7 +126,7 @@ public class Calendario extends javax.swing.JFrame {
     for (int i=realYear-100; i<=realYear+100; i++){
             cmbYear.addItem(String.valueOf(i));
         }
-    listaDeDias(4);
+    
     
     refreshCalendar(realMonth, realYear); //Refresh calendar
     
@@ -165,20 +167,13 @@ public class Calendario extends javax.swing.JFrame {
         tblCalendar.setDefaultRenderer(tblCalendar.getColumnClass(0), new tblCalendarRenderer());
     }
     
-    static boolean existeEvento(int i){
-        boolean val = false;
-        
-        for(int x = 0; x<lista.size();x++){
-            if(lista.get(x).getDayOfMonth() == i);
-            System.out.println(lista.get(x).getDayOfMonth());
-            val = true;
-        }
-        System.out.println(val);
-        return val;
-    }
+
     
     void listaDeDias(int mes){
-         lista = ListaEventos.diasEventos(mes);
+         listaJogos = ListaEventos.diasEventos(mes,"J");
+         listaTreinos = ListaEventos.diasEventos(mes,"T");
+        
+        
     }
     
     static class tblCalendarRenderer extends DefaultTableCellRenderer{
@@ -194,10 +189,13 @@ public class Calendario extends javax.swing.JFrame {
                 if (Integer.parseInt(value.toString()) == realDay && currentMonth == jMonthChooser2.getMonth() && currentYear == jYearChooser1.getYear()){ //Today
                     c.setBackground(new Color(252, 229, 56));
                 }
-            /*if (existeEvento(Integer.parseInt(value.toString()))){ //Eventos
+                if (listaTreinos.contains(Integer.parseInt(value.toString()))){ //VALORES RGB PARA OS TREINOS
                     c.setBackground(new Color(245, 138, 66));
-                }    
-                */
+                }
+                if (listaJogos.contains(Integer.parseInt(value.toString()))){ //VALORES RGB PARA OS JOGOS
+                    c.setBackground(new Color(3, 173, 252));
+                } 
+                
             }
             setBorder(null);
             setForeground(Color.black);
